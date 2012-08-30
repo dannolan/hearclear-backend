@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler'
 require './landing.rb'
+require './backend.rb'
 
 $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
 Dir.glob("#{File.dirname(__FILE__)}/lib/*.rb") { |lib| require File.basename(lib, '.*') }
@@ -14,6 +15,6 @@ map "/" do
 	run Landing
 end
 
-map "/synergies" do
+map "/farmer" do
 	run Backend
 end
