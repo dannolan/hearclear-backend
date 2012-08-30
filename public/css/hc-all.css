@@ -1,0 +1,100 @@
+body {
+  background: #f0f0f0 url('../img/bg.png');
+  font-family: "Karla", sans-serif;
+}
+
+.content {
+  background: white url('../img/circles.png') repeat-x top center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 60px 0;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+}
+
+h1 {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+form {
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 1em;
+}
+form h3 {
+  margin-bottom: 0.6em;
+}
+
+input, button {
+  font-family: "Karla", sans-serif;
+}
+
+footer, footer a, footer a:hover {
+  color: #999999;
+}
+
+#features h3 {
+  margin-top: 1.2em;
+}
+#features h3 i {
+  margin-top: 3px;
+}
+#features h3:first-child {
+  margin-top: 0;
+}
+
+p#appstore {
+  margin-top: 2em;
+}
+
+#social {
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .content {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  p#appstore {
+    text-align: center;
+  }
+
+  img#iphone {
+    display: block;
+    margin: 0 auto 1em auto;
+    height: 375px;
+    width: 162px;
+  }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  img#iphone {
+    height: 375px;
+    width: 162px;
+  }
+}
+@media (min-width: 980px) and (max-width: 1199px) {
+  img#iphone {
+    height: 500px;
+    width: 216px;
+  }
+}
+@media (min-width: 1200px) {
+  img#iphone {
+    height: 625px;
+    width: 270px;
+  }
+}

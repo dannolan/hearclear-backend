@@ -27,7 +27,7 @@ class Landing < Sinatra::Base
 	end
 	
 	get "/" do
-		"Landing hi!"
+		haml :"landing/index", :layout => :"layouts/landing"
 	end
 	
 end
