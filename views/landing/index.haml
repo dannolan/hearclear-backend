@@ -4,7 +4,7 @@
 			.row
 				.span8.offset1
 					%h1
-						%img{:height => "158", :width => "158"}/
+						%img{:height => "220", :width => "158", :src => "/img/logo.svg"}/
 					%h2 HearClear - Collecting venue loudness data
 					%hr/
 					.row
@@ -41,6 +41,15 @@
 							%h3 Can I see the data you record on venues?
 							%p Unfortunately, not at first. However I am working on building a simple site to view data on venues, search venues and see what data was recorded on those venues and at what times though that may take a bit of time to complete.
 					%hr/
+					.modal#betrayalModal.hide.fade
+						.modal-header
+							%button.close{:type => "button", "data-dismiss" => "modal"} &times;
+							%h3 Seriously? You're admitting you're a monster?
+						.modal-body
+							%p I believe in you though and I imagine with a bit of... re-education we could persuade you to participate. Maybe this will help change your mind
+							%iframe{:src => "http://www.youtube.com/embed/9bZkp7q19f0?rel=0", :width => "320", :height => "215", :style => "margin: 0 auto; text-align:center;"}
+						.modal-footer
+							%button.btn.btn-danger{"data-dismiss" => "modal"} I submit to Zuul.
 					.row
 						.span4
 							%h3
@@ -61,10 +70,10 @@
 							%h3 Start checking in
 							%p Once you've got a build of the app, you're good to go. Start checking in like you always do and you'll be collecting invaluable data.
 							
-					%hr/
+					%hr/		
 					%form.form-inline
 						%a.btn.btn-primary.btn-large{:href => "http://www.google.com"} I'd love to help.
-						%a.btn.btn-danger.btn-large.disabled{:href => "http://www.google.com"} I'm a heartless monster.
+						%a.btn.btn-danger.btn-large{:href => "#betrayalModal", "data-toggle" => "modal"} I'm a heartless monster.
 					%hr/
 					%footer
 						%p

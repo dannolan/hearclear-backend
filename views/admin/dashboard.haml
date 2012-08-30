@@ -1,0 +1,54 @@
+.container-fluid.nopadding
+	.row-fluid
+		.span12
+			#header
+				.hright
+					.column#userinfo
+						%a.userinfo.dropdown-toggle{"data-toggle" => "dropdown", :href => "#userinfo"}
+							%img{:width => "24", :height => "24"}
+							%span
+								%strong Admin
+						%ul.dropdown-menu
+							%li
+								%a{:href => "#"}
+									Hello
+							%li.divider
+							%li
+								%a{:href => "/logout"} Logout
+.container-fluid#container
+	.row-fluid
+		.span3.leftmenu
+			%ul.nav
+				%li.active
+					%a{:href => "/dashboard"}
+						%span.ico
+							%i.icon-home
+						%span.text Dashboard
+				%li
+					%a{:href => "/venues"}
+						%span.ico
+							%i.icon-map-marker
+						%span.text Venues
+				%li
+					%a{:href => "/users"}
+						%span.ico
+							%i.icon-user
+						%span.text Users
+				%li
+					%a{:href => "/events"}
+						%span.ico
+							%i.icon-list-alt
+						%span.text Events
+				%li
+					%a{:href => "/analysis"}
+						%span.ico
+							%i.icon-filter
+						%span.text Analysis
+		.span9#content
+			.row-fluid
+				= partial :"admin/dashboard/checkin_table"		
+			.row-fluid
+				= partial :"admin/dashboard/session_table"
+			.row-fluid
+				= partial :"admin/dashboard/venue_table"
+						

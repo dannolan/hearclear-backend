@@ -4,7 +4,7 @@ require 'haml'
 require 'json'
 
 class Backend < Sinatra::Base
-
+	register Sinatra::Partial
 	configure do
 		set :public_folder, "#{File.dirname(__FILE__)}/public"
 		set :views, "#{File.dirname(__FILE__)}/views"
@@ -23,8 +23,11 @@ class Backend < Sinatra::Base
 	end
 
 	get "/" do
-		"Backend hi!"
-
+		haml :"admin/login", :layout => :"layouts/adminlogin"
+	end
+	
+	get "/dashboard" do
+		haml :"admin/dashboard", :layout => :"layouts/admin"
 	end
 
 end

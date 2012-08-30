@@ -1,0 +1,21 @@
+.container-fluid
+	.row-fluid
+		.span12
+			.box.login
+				.box-title
+					%span.ico
+						%i.icon-lock
+					Login
+				.box-content
+					.form-horizontal{:method => "post", :action => "/login"}
+						%p Please login to continue.
+						.control-group
+							%label.control-label{:for => "username"} Username
+							.controls
+								%input{:type => "text", :name => "login[username]"}
+						.control-group
+							%label.control-label{:for => "password"} Password
+							.controls
+								%input{:type => "password", :name => "login[password]"}
+						.form-actions
+							%input.btn.btn-primary.btn-large{:type => "submit"}
