@@ -38,6 +38,8 @@
 							%p The only data that is stored is anonymized checkin data (not linked to your foursquare account) and the sound levels the app records, along with the venue details and your current location. The application, just like foursquare needs your current location information to work. At the end of the trial period and upon the completion of the thesis project, the anonymised data will be handed over to UNSW for further study and potential future thesis projects for other students.
 							%h3 Wait so do you record what I say and transmit it somewhere?
 							%p Absolutely not. The app shows that it is recording information purely so I can get sound data in the background but all of the audio data is being discarded (written to /dev/null if you must know). The information I'm taking from the audio stream is the peak values of the audio channel, that is how high the voltage gets on the channel. The higher the voltage, the louder the noise coming through the microphone and thus the louder the venue. I collect this data over a period of time and transmit it along with information about the venue to a secure server. The information transmitted is all anonymous and none of the audio is retransmitted, broadcast or saved.
+							%h3 Can I see the data you record on venues?
+							%p Unfortunately, not at first. However I am working on building a simple site to view data on venues, search venues and see what data was recorded on those venues and at what times though that may take a bit of time to complete.
 					%hr/
 					.row
 						.span4
@@ -61,7 +63,7 @@
 							
 					%hr/
 					%form.form-inline
-						%a.btn.btn-primary.btn-large{:href => "http://www.google.com"} Hell Yeah! I'd love to help.
+						%a.btn.btn-primary.btn-large{:href => "http://www.google.com"} I'd love to help, sign me up.
 					%hr/
 					%footer
 						%p
