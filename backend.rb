@@ -4,6 +4,8 @@ require 'haml'
 require 'json'
 require 'pp'
 
+
+load 'routes/init'
 class Backend < Sinatra::Base
 	register Sinatra::Partial
 	configure do
@@ -32,15 +34,6 @@ class Backend < Sinatra::Base
 		haml :"admin/dashboard", :layout => :"layouts/admin"
 	end
 	
-	get "/users" do
-		@selected = "Users"
-		haml :"admin/users", :layout => :"layouts/admin"
-	end
-	
-	get "/venues" do
-		@selected = "Venues"
-		haml :"admin/venues", :layout => :"layouts/admin"
-	end
 	
 	get "/events" do
 		@selected = "Events"
