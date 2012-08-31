@@ -1,0 +1,32 @@
+.nav-collapse
+	%ul.nav
+		- if @selected == "Dashboard"
+			%li.active
+				%a{:href => "/farmer/dashboard"} Dashboard
+		- else
+			%li
+				%a{:href => "/farmer/dashboard"} Dashboard
+		- if @selected == "Users"
+			%li.active
+				%a{:href => "/farmer/users"} Users
+		- else
+			%li
+				%a{:href => "/farmer/users"} Users
+		- if @selected == "Venues"
+			%li.active
+				%a{:href => "/farmer/venues"} Venues
+		- else
+			%li
+				%a{:href => "/farmer/venues"} Venues
+		- if @selected == "Events"
+			%li.active
+				%a{:href => "/farmer/events"} Events
+		- else
+			%li
+				%a{:href => "/farmer/events"} Events
+		- if @selected == "Analyze"
+			%li.active
+				%a{:href => "/farmer/analyze"} Analyze
+		- else
+			%li
+				%a{:href => "/farmer/analyze"} Analyze

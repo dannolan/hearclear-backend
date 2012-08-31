@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/partial'
 require 'haml'
 require 'json'
+require 'pp'
 
 class Backend < Sinatra::Base
 	register Sinatra::Partial
@@ -27,7 +28,28 @@ class Backend < Sinatra::Base
 	end
 	
 	get "/dashboard" do
+		@selected = "Dashboard"
 		haml :"admin/dashboard", :layout => :"layouts/admin"
+	end
+	
+	get "/users" do
+		@selected = "Users"
+		haml :"admin/users", :layout => :"layouts/admin"
+	end
+	
+	get "/venues" do
+		@selected = "Venues"
+		haml :"admin/venues", :layout => :"layouts/admin"
+	end
+	
+	get "/events" do
+		@selected = "Events"
+		haml :"admin/events", :layout => :"layouts/admin"
+	end
+	
+	get "/analyze" do
+		@selected = "Analyze"
+		haml :"admin/analyze", :layout => :"layouts/admin"
 	end
 
 end

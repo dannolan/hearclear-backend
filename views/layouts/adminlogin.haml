@@ -7,9 +7,12 @@
 		%meta{:name => "description"}
 		%meta{:name => "author"}
 		%title HearClear - Backend
-		%link(rel="stylesheet" type="text/css" href="/css/hc.css" media="screen")
-		%link(rel="stylesheet" type="text/css" href="/css/hc-res.css" media="screen")
-		%link(rel="stylesheet" type="text/css" href="/css/hc-be.css" media="screen")
+		%link(rel="stylesheet" type="text/css" href="/css/hc-be-bs.css" media="screen" id="main-bs-script")
+		%link(rel="stylesheet" type="text/css" href="/css/hc-be-theme.css" media="screen" id="main-bs-theme")
+
+		%link(rel="stylesheet" type="text/css" href="/css/hc-res.css" media="screen" id="main-res-script")
+		%link(rel="stylesheet" type="text/css" href="/css/hc-be-nso.css" media="screen" id="main-sys-css")
+
 		:plain
 			<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
 		:plain
@@ -17,7 +20,7 @@
 			<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 			<![endif]-->
-	%body
+	%body#dashboard
 		= yield
 		%script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
 		%script(src="/js/hcmain.js")

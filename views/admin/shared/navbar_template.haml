@@ -1,0 +1,17 @@
+.navbar.navbar-fixed-top
+	.navbar-inner
+		.container-fluid
+			%a.btn.btn-navbar{"data-toggle" => "collapse", "data-target" => ".nav-collapse"}
+				%span.icon-bar
+				%span.icon-bar
+				%span.icon-bar
+			%a.brand{:href => "/farmer/dashboard"}HearClear Admin
+			.btn-group.pull-right
+				%a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+					%i.icon-user
+					You are Logged In
+					%span.caret
+				%ul.dropdown-menu
+					%li
+						%a{:href => "/farmer/logout"} Logout
+			= partial :"admin/shared/navbar"

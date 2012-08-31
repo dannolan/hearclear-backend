@@ -1,21 +1,16 @@
 .container-fluid
 	.row-fluid
-		.span12
-			.box.login
-				.box-title
-					%span.ico
-						%i.icon-lock
-					Login
-				.box-content
-					.form-horizontal{:method => "post", :action => "/login"}
-						%p Please login to continue.
-						.control-group
-							%label.control-label{:for => "username"} Username
-							.controls
-								%input{:type => "text", :name => "login[username]"}
-						.control-group
-							%label.control-label{:for => "password"} Password
-							.controls
-								%input{:type => "password", :name => "login[password]"}
-						.form-actions
-							%input.btn.btn-primary.btn-large{:type => "submit"}
+		.span3 &nbsp;
+		.span6
+			.page-header
+				%h1 Hearclear Management Login
+				%br/
+				%h4 Authorised access only
+			.box{:style => "margin-bottom:500px;"}
+				%h4.box-header.round-top HearClear MGMT Login
+				.box-container-toggle
+					.box-content
+						%form.well.form-search{:method => "POST", :action => "/login"}
+							%input.input-medium{:type => "text", :placeholder => "username"}
+							%input.input-medium{:type => "password", :placeholder => "password"}
+							%button.btn{:type => "submit"} Login
