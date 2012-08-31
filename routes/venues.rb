@@ -5,10 +5,9 @@ class Backend < Sinatra::Base
 		haml :"admin/venues", :layout => :"layouts/admin"
 	end
 	
-	get "/venue/:id" do
+	get "/venues/:id" do
 		@selected = "Venues"
 		haml :"admin/venues/venue", :layout => :"layouts/admin"
-		
 	end
 
 
