@@ -5,7 +5,7 @@ require 'json'
 require 'pp'
 
 
-load 'routes/init'
+load 'routes/init.rb'
 class Backend < Sinatra::Base
 	register Sinatra::Partial
 	configure do
@@ -35,10 +35,10 @@ class Backend < Sinatra::Base
 	end
 	
 	
-	get "/events" do
-		@selected = "Events"
-		haml :"admin/events", :layout => :"layouts/admin"
-	end
+	# get "/events" do
+	# 	@selected = "Events"
+	# 	haml :"admin/events", :layout => :"layouts/admin"
+	# end
 	
 	get "/analyze" do
 		@selected = "Analyze"

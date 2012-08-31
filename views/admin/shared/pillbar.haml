@@ -1,7 +1,9 @@
-%div
-	%ul.breadcrumb
-		%li
-			%a{:href => "/dashboard"} Dashboard
-			%span.divider /
-		%li.active
-			Your Dashboard
+.row-fluid
+	%div
+		%ul.breadcrumb
+			%li
+				%a{:href => @previoushref} 
+					= @previous
+				%span.divider /
+			%li.active
+				= @current
