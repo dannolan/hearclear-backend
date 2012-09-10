@@ -1,6 +1,6 @@
 set :user, 'synthetica'
 set :domain, "synthetica.com.au"
-set :application, "SyntheticaSite"
+set :application, "HearClear"
 set :repository,  "git@github.com:dannolan/hearclear-backend.git"
 
 set :scm, :git
