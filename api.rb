@@ -38,7 +38,10 @@ class API < Sinatra::Base
 	post "/venue/new" do
 		content_type :json
 		@data = JSON.parse(request.body.read) rescue {}
-		pp @data
+		#pp @data
+		if @data.has_key?('venue')
+			pp @data['venue']
+		end
 		
 		halt(200)
 	end
