@@ -13,46 +13,35 @@ class API < Sinatra::Base
 
 	end
 	
+	#Submit checkin information
+	#Check venue information
+	#Create venues?
 	
-	post "/user/info" do
-		
 	
+	
+	
+	post "venue/new" do
+		pp params
 		
+		halt(200)
 	end
 	
-	post "/user/new" do
-	
-	
-	
-	end
-	
-	
-	post "/checkin/info" do
+	get "venue/:id" do
 		
-		
-	end
-	
-	
-	post "/checkin/new" do
-		
-		
+		halt(404)
 	end
  	
 	
-	post "/session/new" do
-		
-		
+	post "/checkin/new" do
+		pp params
+		halt(200)
 	end
 	
-	post "/session/update" do
-		
-		
-	end
 	
-	post "/session/conclude" do
+	get "/venue/:id/volume" do
 		
 		
-		#process_session
+		halt(200)
 	end
 	
 	
