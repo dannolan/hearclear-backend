@@ -53,14 +53,10 @@ class API < Sinatra::Base
 		
 		@data = JSON.parse(request.body.read) rescue {}
 		pp @data
-		if params.has_key?('checkin')
-			#puts params
-			#pp JSON.parse(params['checkin'])
+		if @data.has_key?('checkin')
+			puts "yay data"
 		else
-			#puts params.keys.join(" ")
-			puts params
-			puts JSON.parse(params.to_json)
-			
+			halt(404)
 		end
 		halt(200)
 	end
