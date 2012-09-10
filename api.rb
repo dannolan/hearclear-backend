@@ -50,11 +50,14 @@ class API < Sinatra::Base
  	
 	
 	post "/checkin/new" do
+		
+		@data = JSON.parse(request.body.read) rescue {}
+		pp @data
 		if params.has_key?('checkin')
 			#puts params
 			#pp JSON.parse(params['checkin'])
 		else
-			puts params.keys.join(" ")
+			#puts params.keys.join(" ")
 			puts params
 			puts JSON.parse(params.to_json)
 			
