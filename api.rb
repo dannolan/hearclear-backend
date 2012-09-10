@@ -36,7 +36,9 @@ class API < Sinatra::Base
 	
 	
 	post "venue/new" do
-		pp params
+		content_type :json
+		@data = JSON.parse(request.body.read) rescue {}
+		pp @data
 		
 		halt(200)
 	end
