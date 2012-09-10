@@ -8,7 +8,8 @@ require 'pp'
 class API < Sinatra::Base
 	configure do
 		set :public_folder, "#{File.dirname(__FILE__)}/public"
-		enable :logging
+		enable :logging, :dump_errors, :raise_errors
+
 
 
 	end
