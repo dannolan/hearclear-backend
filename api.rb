@@ -50,6 +50,7 @@ class API < Sinatra::Base
  	
 	
 	post "/checkin/new" do
+	begin
 		if params.has_key?('checkin')
 			#puts params
 			#pp JSON.parse(params['checkin'])
@@ -59,6 +60,9 @@ class API < Sinatra::Base
 			
 		end
 		halt(200)
+	rescue Exception => e
+		pp e.message
+		pp e
 	end
 	
 	
