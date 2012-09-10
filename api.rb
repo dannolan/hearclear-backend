@@ -56,7 +56,7 @@ class API < Sinatra::Base
 			#pp JSON.parse(params['checkin'])
 		else
 			puts params
-			pp JSON.parse(params)
+			pp JSON.parse(params.to_json)
 			
 		end
 		halt(200)
