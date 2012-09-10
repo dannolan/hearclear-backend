@@ -8,7 +8,7 @@ require 'pp'
 class API < Sinatra::Base
 	configure do
 		set :public_folder, "#{File.dirname(__FILE__)}/public"
-		enable :logging, :dump_errors, :raise_errors
+		enable :logging
 
 
 	end
@@ -17,6 +17,20 @@ class API < Sinatra::Base
 	#Check venue information
 	#Create venues?
 	
+	
+	error do
+		content_type :json
+		status 400
+		e = env['sinatra.error']
+		{:result => 'error', :message => e.message}.to_json
+	end
+	
+	not_found do
+		content_type :json
+		status 404
+		
+		{:result => "notfound", :message => "Request not found"}.to_json
+	end
 	
 	
 	
@@ -27,6 +41,8 @@ class API < Sinatra::Base
 	end
 	
 	get "venue/:id" do
+		content_type :json
+		
 		
 		halt(404)
 	end
