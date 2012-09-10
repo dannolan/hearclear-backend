@@ -25,6 +25,7 @@ namespace :deploy do
 	task :stop do ; end
 	task :restart, :roles => :app, :except => { :no_release => true } do
 	run "cd #{deploy_to}/current && sudo bundle install"
+	run "test -d #{current_path}/log || mkdir #{current_path}/log"
 	run "cd #{deploy_to}/current/tmp && touch restart.txt"
 	#run "sudo /etc/init.d/nginx stop"
 	#run "sudo /etc/init.d/nginx start"
