@@ -50,11 +50,12 @@ class API < Sinatra::Base
  	
 	
 	post "/checkin/new" do
-		if params['checkin'].nil?
+		if params.has_key?('checkin')
 			puts params
-			pp JSON.parse(params)
-		else
 			pp JSON.parse(params['checkin'])
+		else
+			puts params
+			#pp JSON.parse(params['checkin'])
 			
 		end
 		halt(200)
