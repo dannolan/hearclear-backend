@@ -35,7 +35,7 @@ class API < Sinatra::Base
 	
 	
 	
-	post "venue/new" do
+	post "/venue/new" do
 		content_type :json
 		@data = JSON.parse(request.body.read) rescue {}
 		pp @data
@@ -43,7 +43,7 @@ class API < Sinatra::Base
 		halt(200)
 	end
 	
-	get "venue/:id" do
+	get "/venue/:id" do
 		content_type :json
 		
 		
