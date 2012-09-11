@@ -60,9 +60,9 @@ class API < Sinatra::Base
 	
 	get "/venue/:id" do
 		content_type :json
-		
-		
-		halt(404)
+		@venue = Venue.venue_for_foursquare_id(params[:id])
+		halt(404) if @venue.nil?
+		halt(200)
 	end
  	
 	
