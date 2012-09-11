@@ -1,11 +1,12 @@
 class Venue
 	include DataMapper::Resource
 	property :id, Serial
+	property :name, String
 	property :foursquareID, String
 	property :latitude, String
 	property :longitude, String
 	
-	has_n, :checkins
+	has n, :checkins
 	#id
 	#venue name
 	#foursquareID

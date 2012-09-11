@@ -12,6 +12,9 @@ log = File.new("log/sinatra.log", "a")
 $stdout.reopen(log)
 $stderr.reopen(log)
 
+APP_ROOT = File.expand_path(File.dirname(__FILE__)) unless defined?(APP_ROOT)
+
+
 map "/" do
 	run Landing
 end

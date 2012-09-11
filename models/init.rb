@@ -1,11 +1,13 @@
-APP_ROOT = File.expand_path(File.dirname(__FILE__)) unless defined?(APP_ROOT)
+require 'data_mapper'
+#DataMapper::Logger.new($stdout, :debug)
 
-DataMapper.setup(:default, "sqlite:///#{APP_ROOT}/custinfo.db")
+DataMapper.setup(:default, "sqlite::memory:")
 
-load 'models/checkin.rb'
-load 'models/session.rb'
 load 'models/user.rb'
 load 'models/venue.rb'
+load 'models/checkin.rb'
+load 'models/session.rb'
 
 
-DataMapper.auto_upgrade!
+DataMapper.finalize
+DataMapper.auto_migrate!
