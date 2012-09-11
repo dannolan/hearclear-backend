@@ -6,6 +6,8 @@ require 'pp'
 
 
 load 'routes/init.rb'
+load 'models/init.rb'
+
 class Backend < Sinatra::Base
 	register Sinatra::Partial
 	configure do

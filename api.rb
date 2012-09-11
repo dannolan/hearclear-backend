@@ -3,7 +3,11 @@ require 'sinatra/partial'
 require 'haml'
 require 'json'
 require 'pp'
+require 'data_mapper'
 
+
+
+load 'models/init.rb'
 
 class API < Sinatra::Base
 	configure do
