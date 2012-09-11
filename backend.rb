@@ -48,7 +48,7 @@ class Backend < Sinatra::Base
 	post "/login" do
 	if params['username'] == settings.username && params['password'] == settings.password
 		response.set_cookie(settings.username,settings.token)
-		redirect "/dashboard"
+		redirect "/farmer/dashboard"
 	else
 		redirect "/farmer"
 	end
