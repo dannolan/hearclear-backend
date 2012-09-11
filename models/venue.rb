@@ -15,5 +15,11 @@ class Venue
 	#venue longitude
 	#venue categories?
 	
+	def self.venue_for_foursquare_id(fsqid)
+		@venue = Venue.first(:foursquareID => fsqid)
+		return nil if @venue.nil?
+		@venue
+	end
+	
 	
 end

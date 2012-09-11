@@ -11,4 +11,10 @@ class User
 	
 	
 	
+	def self.user_for_UDID(udid)
+		@user = User.first(:deviceID => udid)
+		return nil if @user.nil?
+		@user
+	end
+	
 end
