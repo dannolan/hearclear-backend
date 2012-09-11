@@ -4,7 +4,7 @@ class User
 	property :deviceID, String
 	property :device, String
 	
-	has_n :checkins
+	has_n, :checkins
 	#has_many checkins
 	#UDID
 	#device string

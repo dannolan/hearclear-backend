@@ -4,7 +4,7 @@ class Checkin
 	
 	belongs_to :user
 	belongs_to :venue
-	has_n :sessions
+	has_n, :sessions
 	
 	#belongs_to user
 	#belongs_to venue
