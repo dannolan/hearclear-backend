@@ -47,10 +47,12 @@ class API < Sinatra::Base
 		@data = JSON.parse(request.body.read) rescue {}
 		pp @data
 		if @data.has_key?('venue')
-			pp @data['venue']
+			#pp @data['venue']
 			@venuedata = @data['venue']
 			
-			#@venue = Venue.new(:name => )
+			@venue = Venue.new(:name => @venuedata['name'], :foursquareID => @venuedata['id'], :longitude => @venuedata['longitude'].to_s, :latitude => @venuedata['latitude'].to_s)
+			
+			pp @venue
 		end
 		
 		halt(200)
