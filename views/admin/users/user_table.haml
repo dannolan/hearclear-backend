@@ -10,14 +10,20 @@
 							%tr
 								%th User ID
 								%th Checkins
-								%th Last Venue
+								%th Device
+								%th UDID
 								%th Sessions
 								%th Actions
 						%tbody
-							%tr
-								%td 109801980982
-								%td 72
-								%td The Pool Parlor
-								%td 875
-								%td
-									%a.btn.btn-info{:href => "/farmer/users/blah"} User Info
+							- @users.each do |user|
+								%tr
+									%td 
+										= user.id
+									%td TBD
+									%td
+										= user.device
+									%td 
+										= user.deviceID
+									%td TBD
+									%td
+										%a.btn.btn-info{:href => "/farmer/users/#{user.id}"} User Info

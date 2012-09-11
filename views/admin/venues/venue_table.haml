@@ -9,17 +9,23 @@
 						%thead
 							%tr
 								%th Venue Name
-								%th Venue Location
+								%th FSQ ID
+								%th Lat
+								%th Lon
 								%th Checkins
-								%th Sessions
-								%th Current Rating
 								%th Info
 						%tbody
-							%tr
-								%td The Pool Palace
-								%td 45.78, -32.56
-								%td 11
-								%td 76
-								%td Loud
-								%td
-									%a.btn.btn-info{:href => "/farmer/venues/blah"} Venue Info
+							- @venues.each do |venue|
+								%tr
+									%td 
+										= venue.name
+									%td
+										= venue.foursquareID
+									%td
+										= venue.latitude
+									%td
+										= venue.longitude
+									%td
+										TBD
+									%td
+										%a.btn.btn-info{:href => "/farmer/venues/#{venue.id}"} Venue Info
