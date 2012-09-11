@@ -3,6 +3,11 @@ require 'sinatra/partial'
 require 'haml'
 require 'json'
 require 'pp'
+require 'data_mapper'
+require 'dm-validations'
+require 'will_paginate'
+require 'will_paginate/data_mapper'
+require 'will_paginate-bootstrap'
 
 
 load 'routes/init.rb'
