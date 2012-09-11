@@ -45,10 +45,10 @@ class Backend < Sinatra::Base
 		haml :"admin/login", :layout => :"layouts/adminlogin"
 	end
 	
-	post '/login' do
+	post "/login" do
 	if params['username'] == settings.username && params['password'] == settings.password
 		response.set_cookie(settings.username,settings.token)
-		redirect "/farmer/dashboard"
+		redirect "/dashboard"
 	else
 		redirect "/farmer"
 	end
