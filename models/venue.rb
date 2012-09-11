@@ -5,7 +5,7 @@ class Venue
 	property :latitude, String
 	property :longitude, String
 	
-	has_n, :checkins
+	has_n :checkins
 	#id
 	#venue name
 	#foursquareID
