@@ -3,4 +3,8 @@
 		%h1 Venue List
 	.alert.alert-info
 		This is a list of all of the venues in the HearClear system. Newer venues are listed first.
-= partial :"admin/venues/venue_table"
+- if @venues.size > 0		
+	= partial :"admin/venues/venue_table"
+-else
+	.alert.alert-warning
+		There are currently no venues
