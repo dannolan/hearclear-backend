@@ -17,9 +17,19 @@ class Backend < Sinatra::Base
 	configure do
 		set :public_folder, "#{File.dirname(__FILE__)}/public"
 		set :views, "#{File.dirname(__FILE__)}/views"
+		set :username, 'synergy'
+		set :password, 'webinarwebinar'
+		set :token, '8yasd908fuhas980fy023iuygbjhabkfklasdlfjkauoidfiuahlkhsdbfblhl
 		enable :logging, :dump_errors, :raise_errors
+		'
+
+	end
 
 
+	helpers do
+		def admin?; request.cookies[settings.username] == settings.token; end
+		def protected!; halt[401,"Nope"] unless admin?; end
+		
 	end
 
 
@@ -35,7 +45,17 @@ class Backend < Sinatra::Base
 		haml :"admin/login", :layout => :"layouts/adminlogin"
 	end
 	
+	post '/login' do
+	if params['username'] == settings.username && params['password'] == settings.password
+		response.set_cookie(settings.username,settings.token)
+		redirect "/farmer/dashboard"
+	else
+		redirect "/farmer"
+	end
+	end
+	
 	get "/dashboard" do
+		protected!
 		@selected = "Dashboard"
 		haml :"admin/dashboard", :layout => :"layouts/admin"
 	end
@@ -47,6 +67,7 @@ class Backend < Sinatra::Base
 	# end
 	
 	get "/analyze" do
+		protected!
 		@selected = "Analyze"
 		haml :"admin/analyze", :layout => :"layouts/admin"
 	end
