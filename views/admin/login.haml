@@ -11,6 +11,6 @@
 				.box-container-toggle
 					.box-content
 						%form.well.form-search{:method => "POST", :action => "/farmer/login"}
-							%input.input-medium{:type => "text", :placeholder => "username"}
-							%input.input-medium{:type => "password", :placeholder => "password"}
+							%input.input-medium{:type => "text", :placeholder => "username", :name => "username"}
+							%input.input-medium{:type => "password", :placeholder => "password", :name => "password"}
 							%button.btn{:type => "submit"} Login
