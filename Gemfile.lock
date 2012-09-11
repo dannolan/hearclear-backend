@@ -92,9 +92,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   data_mapper
-  dm-aggregates
   dm-sqlite-adapter
-  dm-timestamps
   haml
   json
   sinatra
