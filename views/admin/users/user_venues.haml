@@ -23,6 +23,6 @@
 										%td
 											= Checkin.user_count_for_venue(@user, checkin.venue)
 										%td
-											TBD
+											= checkin.sessions.max(:timestamp).strftime("%d-%m-%y")
 										%td
 											= checkin.sessions.count
