@@ -1,6 +1,7 @@
 class Checkin
 	include DataMapper::Resource
 	property :id, Serial
+	property :user_estimate, Float
 	
 	has n, :sessions
 
