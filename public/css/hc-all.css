@@ -76,6 +76,8 @@ p#appstore {
   img#iphone {
     display: block;
     margin: 0 auto 1em auto;
+    width: 320px;
+    height: 480px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
