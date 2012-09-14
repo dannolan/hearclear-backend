@@ -1,30 +1,29 @@
 .row-fluid
 	.span12
 		.box
-			%h4.box-header.round-top 
-				User Venues
-			.box-container-toggle
-				.box-content
-					%table.table.table-striped.table-bordered
-						%thead
-							%tr
-								%th Venue
-								%th Checkins
-								%th Last Checkin
-								%th Samples
-						%tbody
-							%tr
-								%td The Yolo House
-								%td 10
-								%td Yesterday
-								%td 87
-							%tr
-								%td The Yolo House
-								%td 10
-								%td Yesterday
-								%td 87
-							%tr
-								%td The Yolo House
-								%td 10
-								%td Yesterday
-								%td 87
+			- if @user.checkins.nil? || @user.checkins.count == 0
+				%p No Checkins Yet
+			- else
+				%h4.box-header.round-top 
+					User Venues
+				.box-container-toggle
+					.box-content
+						%table.table.table-striped.table-bordered
+							%thead
+								%tr
+									%th Venue
+									%th Checkins
+									%th Last Checkin
+									%th Samples
+							%tbody
+								- @user.checkins.each do |checkin|
+								
+								%tr
+									%th 
+										= checkin.venue.name
+									%th
+										TBD
+									%th
+										TBD
+									%th
+										= checkin.sessions.count

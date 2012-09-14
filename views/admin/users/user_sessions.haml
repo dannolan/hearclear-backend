@@ -1,38 +1,28 @@
 .row-fluid
 	.span12
 		.box
-			%h4.box-header.round-top 
-				User Sessions
-			.box-container-toggle
-				.box-content
-					%table.table.table-striped.table-bordered
-						%thead
-							%tr
-								%th Date
-								%th Venue
-								%th Session ID
-								%th Samples
-								%th Lat & Lon
-								%th Concluded?
-						%tbody
-							%tr
-								%td 12/12/12
-								%td The Wet Jihad
-								%td 019809802
-								%td 67
-								%td 48.5,-89.2
-								%td Yes
-							%tr
-								%td 12/12/12
-								%td The Wet Jihad
-								%td 019809802
-								%td 67
-								%td 48.5,-89.2
-								%td Yes
-							%tr
-								%td 12/12/12
-								%td The Wet Jihad
-								%td 019809802
-								%td 67
-								%td 48.5,-89.2
-								%td Yes
+			- if @user.checkins.nil? || @user.checkins.count == 0
+				%p No Checkins
+			- else
+				%h4.box-header.round-top 
+					User Sessions
+				.box-container-toggle
+					.box-content
+						%table.table.table-striped.table-bordered
+							%thead
+								%tr
+									%th Date
+									%th Venue
+									%th Session ID
+									%th Samples
+							%tbody
+								- @user.checkins.each do |checkin|
+									%tr
+										%td
+											TBD
+										%td
+											= checkin.venue.name
+										%td
+											= checkin.id
+										%td
+											= checkin.sessions.count

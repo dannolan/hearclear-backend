@@ -19,11 +19,13 @@
 								%tr
 									%td 
 										= user.id
-									%td TBD
+									%td 
+										= user.checkins.count
 									%td
 										= user.device
 									%td 
 										= user.deviceID
-									%td TBD
+									%td 
+										= user.checkins.count
 									%td
 										%a.btn.btn-info{:href => "/farmer/users/#{user.id}"} User Info

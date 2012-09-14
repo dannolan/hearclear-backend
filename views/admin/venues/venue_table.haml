@@ -26,6 +26,6 @@
 									%td
 										= venue.longitude
 									%td
-										TBD
+										= venue.checkins.count
 									%td
 										%a.btn.btn-info{:href => "/farmer/venues/#{venue.id}"} Venue Info
