@@ -61,7 +61,7 @@ class API < Sinatra::Base
 			
 			@user = User.new(:deviceID => @userdata['deviceID'], :device => @userdata['device'])
 			
-			pp @user
+			@user.save
 		else
 			halt(403)
 		end
@@ -81,7 +81,8 @@ class API < Sinatra::Base
 			
 			@venue = Venue.new(:name => @venuedata['name'], :foursquareID => @venuedata['id'], :longitude => @venuedata['longitude'].to_s, :latitude => @venuedata['latitude'].to_s)
 			
-			pp @venue
+			@venue.save
+			#pp @venue
 		else
 			halt(403)
 		end
@@ -103,6 +104,9 @@ class API < Sinatra::Base
 		pp @data
 		if @data.has_key?('checkin')
 			@checkin = @data['checkin']
+			#venue from id
+			#user from userid
+			
 			# ID
 			# name
 			# deviceID
