@@ -36,9 +36,9 @@ class Backend < Sinatra::Base
 		haml "Not Found"
 	end
 
-	error do
-		haml "Whoops"
-	end
+	# error do
+	# 	haml "Whoops"
+	# end
 
 	get "/" do
 		haml :"admin/login", :layout => :"layouts/adminlogin"
