@@ -8,6 +8,6 @@ load 'models/venue.rb'
 load 'models/checkin.rb'
 load 'models/session.rb'
 
-
+#zoidberg
 DataMapper.finalize
 DataMapper.auto_upgrade!
