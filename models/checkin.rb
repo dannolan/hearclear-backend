@@ -19,7 +19,7 @@ class Checkin
 	
 	
 	def self.sessions_count_for_user(user)
-		Checkin.all(:user_id => venue).sessions.count
+		Checkin.all(:user => user).sessions.count
 	end
 	
 	#start_time
