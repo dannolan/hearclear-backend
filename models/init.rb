@@ -10,4 +10,4 @@ load 'models/session.rb'
 
 
 DataMapper.finalize
-DataMapper.auto_upgrade!
+#DataMapper.auto_upgrade!
