@@ -4,7 +4,7 @@ class Backend < Sinatra::Base
 		protected!
 		@selected = "Venues"
 		@venues = Venue.all
-		pp @venues
+		#pp @venues
 		haml :"admin/venues", :layout => :"layouts/admin"
 	end
 	
