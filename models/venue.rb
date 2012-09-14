@@ -25,5 +25,9 @@ class Venue
 		"#{self.latitude},#{self.longitude}"
 	end
 	
+	def self.per_page
+		20
+	end
+	
 	
 end

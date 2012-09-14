@@ -17,4 +17,9 @@ class User
 		@user
 	end
 	
+	
+	def self.per_page
+		20
+	end
+	
 end
