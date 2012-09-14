@@ -15,6 +15,7 @@ load 'models/init.rb'
 
 class Backend < Sinatra::Base
 	register Sinatra::Partial
+	register WillPaginate::Sinatra
 	configure do
 		set :public_folder, "#{File.dirname(__FILE__)}/public"
 		set :views, "#{File.dirname(__FILE__)}/views"
