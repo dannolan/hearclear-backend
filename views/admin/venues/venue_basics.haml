@@ -12,18 +12,23 @@
 								%th Value
 						%tbody
 							%tr
-								%th Foursquare ID 
-								%td 09180918
+								%th Foursquare ID
+								%td 
+									= @venue.foursquareID
 							%tr
 								%th Venue Name
-								%td The Tiny Widget
+								%td 
+									= @venue.name
 							%tr
 								%th Venue Lat & Lon
-								%td 33.2,-87.6
+								%td 
+									= @venue.lat_lon
 							%tr
 								%th Checkins
-								%td 98
+								%td 
+									= @venue.checkins.count
 							%tr
 								%th Sessions
-								%td 876
+								%td 
+									= @venue.checkins.sessions.count
 								

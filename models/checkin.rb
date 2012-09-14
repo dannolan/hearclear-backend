@@ -22,6 +22,22 @@ class Checkin
 		Checkin.all(:user => user).sessions.count
 	end
 	
+	
+	def average_string
+		min = self.sessions.min(:averageLevel)
+		max = self.sessions.max(:averageLevel)
+		avg = self.sessions.avg(:averageLevel)
+		"#{min}, #{max}, #{avg}"
+	end
+	
+	
+	def peak_string
+		min = self.sessions.min(:maxLevel)
+		max = self.sessions.max(:maxLevel)
+		avg = self.sessions.avg(:maxLevel)
+		"#{min}, #{max}, #{avg}"
+	end
+	
 	#start_time
 	
 	#end_time

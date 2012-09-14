@@ -1,40 +1,29 @@
 .row-fluid
 	.span12
 		.box
-			%h4.box-header.round-top 
-				Venue Samples
-			.box-container-toggle
-				.box-content
-					%table.table.table-striped.table-bordered
-						%thead
-							%tr
-								%th Date
-								%th Peak Value
-								%th Average Value
-								%th Converted Value
-								%th Error?
-						%tbody
-							%tr
-								%td HH:MM:SS DD/MM/YYYY +Z
-								%td 0.87081
-								%td 0.3562
-								%td 0.55677
-								%td Error
-							%tr
-								%td HH:MM:SS DD/MM/YYYY +Z
-								%td 0.87081
-								%td 0.3562
-								%td 0.55677
-								%td Error
-							%tr
-								%td HH:MM:SS DD/MM/YYYY +Z
-								%td 0.87081
-								%td 0.3562
-								%td 0.55677
-								%td Error
-							%tr
-								%td HH:MM:SS DD/MM/YYYY +Z
-								%td 0.87081
-								%td 0.3562
-								%td 0.55677
-								%td Error
+			- if @venue.checkins.nil? || @venue.checkins.count == 0
+				%p No Checkins
+			- else
+				%h4.box-header.round-top 
+					Venue Sessions
+				.box-container-toggle
+					.box-content
+						%table.table.table-striped.table-bordered
+							%thead
+								%tr
+									%th Checkin Time
+									%th Avg Values
+									%th Peak Values
+									%th Session Length
+							%tbody
+								- @venue.checkin.each do |checkin|
+									%tr
+										%td
+											= checkin.sessions.min(:timestamp).strftime("%d-%m-%y")
+										%td
+											= checkin.average_string
+										%td
+											= checkin.peak_string
+										%td
+											= checkin.sessions.count
+								

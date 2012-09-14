@@ -21,5 +21,9 @@ class Venue
 		@venue
 	end
 	
+	def lat_lon
+		"#{self.latitude},#{self.longitude}"
+	end
+	
 	
 end
