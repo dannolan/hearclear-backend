@@ -5,6 +5,7 @@
 		This is the list of all of the current users in the HearClear system. Newest users are listed first.
 - if @users.size > 0
 	= partial :"admin/users/user_table"
+	= partial :"admin/shared/paginate"
 - else
 	.alert.alert-warning
 		No Users at this time

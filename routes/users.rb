@@ -3,7 +3,8 @@ class Backend < Sinatra::Base
 	get "/users" do
 		protected!
 		@selected = "Users"
-		@users = User.all
+		@users = User.all.paginate(:page => params[:page])
+		@collection = @users
 		haml :"admin/users", :layout => :"layouts/admin"
 	end
 	

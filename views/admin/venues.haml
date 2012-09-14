@@ -5,6 +5,7 @@
 		This is a list of all of the venues in the HearClear system. Newer venues are listed first.
 - if @venues.size > 0		
 	= partial :"admin/venues/venue_table"
+	= partial :"admin/shared/paginate"
 -else
 	.alert.alert-warning
 		There are currently no venues
