@@ -57,9 +57,11 @@ class API < Sinatra::Base
 		pp @data
 		if @data.has_key?('user')
 			@userdata = @data['user']
-			pp @userdata
+			#pp @userdata
 			
+			@user = User.new(:deviceID => @userdata['deviceID'], :device => @userdata['device'])
 			
+			pp @user
 		else
 			halt(403)
 		end
