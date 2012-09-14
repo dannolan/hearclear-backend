@@ -74,7 +74,7 @@ class API < Sinatra::Base
 	post "/venue/new" do
 		content_type :json
 		@data = JSON.parse(request.body.read) rescue {}
-		pp @data
+		#pp @data
 		if @data.has_key?('venue')
 			#pp @data['venue']
 			@venuedata = @data['venue']
@@ -82,6 +82,8 @@ class API < Sinatra::Base
 			@venue = Venue.new(:name => @venuedata['name'], :foursquareID => @venuedata['id'], :longitude => @venuedata['longitude'].to_s, :latitude => @venuedata['latitude'].to_s)
 			
 			pp @venue
+		else
+			halt(403)
 		end
 		
 		halt(200)
@@ -101,6 +103,20 @@ class API < Sinatra::Base
 		pp @data
 		if @data.has_key?('checkin')
 			@checkin = @data['checkin']
+			# ID
+			# name
+			# deviceID
+			# lat
+			# lon
+			if @data.has_key?('samples')
+				@data['samples'].each do |sample|
+					@session = Session.new(:timestamp => Session.datetime_from_timestring(sample['sampleDate']), :averageLevel => sample['avgSample'], :maxLevel => sample['maxSample'])
+					
+					pp @session
+				end
+			end
+			
+			
 			puts "====================="
 			pp @checkin
 			puts "====================="
