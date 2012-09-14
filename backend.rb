@@ -21,7 +21,7 @@ class Backend < Sinatra::Base
 		set :username, 'synergy'
 		set :password, 'webinarwebinar'
 		set :token, '8yasd908fuhas980fy023iuygbjhabkfklasdlfjkauoidfiuahlkhsdbfblhl'
-		enable :logging, :dump_errors, :raise_errors
+		enable :logging, :dump_errors, :raise_errors, :show_exceptions
 	end
 
 
