@@ -27,7 +27,6 @@ class Backend < Sinatra::Base
 	helpers do
 		def admin?; request.cookies[settings.username] == settings.token; end
 		def protected!; halt[401,"Nope"] unless admin?; end
-		
 	end
 
 
