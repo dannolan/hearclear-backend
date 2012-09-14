@@ -18,11 +18,11 @@
 							%tbody
 								- @user.checkins.each do |checkin|
 									%tr
-										%th 
+										%td 
 											= checkin.venue.name
-										%th
+										%td
 											TBD
-										%th
+										%td
 											TBD
-										%th
+										%td
 											= checkin.sessions.count
