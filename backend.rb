@@ -21,8 +21,6 @@ class Backend < Sinatra::Base
 		set :password, 'webinarwebinar'
 		set :token, '8yasd908fuhas980fy023iuygbjhabkfklasdlfjkauoidfiuahlkhsdbfblhl'
 		enable :logging, :dump_errors, :raise_errors
-		
-
 	end
 
 

@@ -30,13 +30,16 @@ class API < Sinatra::Base
 		content_type :json
 		status 400
 		e = env['sinatra.error']
+		puts "error error error"
+		pp e
+		puts "error"
 		{:result => 'error', :message => e.message}.to_json
 	end
 	
 	not_found do
 		content_type :json
 		status 404
-		
+		puts "not found"
 		{:result => "notfound", :message => "Request not found"}.to_json
 	end
 	
