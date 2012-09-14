@@ -3,7 +3,7 @@ class Backend < Sinatra::Base
 	get "/venues" do
 		protected!
 		@selected = "Venues"
-		@venues = Venue.all.paginate(:page => params[:page])
+		@venues = Venue.all(:order => [:id.desc]).paginate(:page => params[:page])
 		@collection = @venues
 		#pp @venues
 		haml :"admin/venues", :layout => :"layouts/admin"
