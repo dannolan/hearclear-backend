@@ -56,6 +56,9 @@ class Backend < Sinatra::Base
 	get "/dashboard" do
 		protected!
 		@selected = "Dashboard"
+		@users = User.all(:order => [:id.desc], :limit => 5)
+		@checkins = Checkin.all(:order => [:id.desc], :limit => 5)
+		@venue = Venue.all(:order => [:id.desc], :limit => 5)
 		haml :"admin/dashboard", :layout => :"layouts/admin"
 	end
 	

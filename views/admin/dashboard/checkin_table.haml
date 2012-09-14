@@ -9,62 +9,16 @@
 						%tr
 							%th User
 							%th Venue
-							%th Venue Type
 							%th Time
-							%th Session Data?
+							%th Sessions
 					%tbody
-						%tr
-							%td
-								1656748
-							%td
-								The Cool Lounge
-							%td
-								Bar
-							%td
-								23:32 24/08/12
-							%td
-								Yes
-						%tr
-							%td
-								1656748
-							%td
-								The Pool Room
-							%td
-								Sporting Venue
-							%td
-								23:32 24/08/12
-							%td
-								Yes
-						%tr
-							%td
-								1656748
-							%td
-								The Pool Room
-							%td
-								Sporting Venue
-							%td
-								23:32 24/08/12
-							%td
-								Yes
-						%tr
-							%td
-								1656748
-							%td
-								The Pool Room
-							%td
-								Sporting Venue
-							%td
-								23:32 24/08/12
-							%td
-								Yes
-						%tr
-							%td
-								1656748
-							%td
-								The Pool Room
-							%td
-								Sporting Venue
-							%td
-								23:32 24/08/12
-							%td
-								Yes
+						- @checkins.each do |checkin|
+							%tr
+								%td
+									= checkin.user.deviceID
+								%td
+									= checkin.venue.name
+								%td
+									= checkin.sessions.min(:timeStamp).strftime("%d-%m-%y %H:%M")
+								%td
+									= checkin.sessions.count

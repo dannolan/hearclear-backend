@@ -8,38 +8,17 @@
 					%thead
 						%tr
 							%th Venue
-							%th Category
+							%th VenueID
 							%th Lat & Lon
 							%th Checkins
-							%th Current Rating
 					%tbody
-						%tr
-							%td The Pool Place
-							%td Bar
-							%td 44.56,-35.78
-							%td 12
-							%td Loud
-						%tr
-							%td The Pool Place
-							%td Bar
-							%td 44.56,-35.78
-							%td 12
-							%td Loud
-						%tr
-							%td The Pool Place
-							%td Bar
-							%td 44.56,-35.78
-							%td 12
-							%td Loud
-						%tr
-							%td The Pool Place
-							%td Bar
-							%td 44.56,-35.78
-							%td 12
-							%td Loud
-						%tr
-							%td The Pool Place
-							%td Bar
-							%td 44.56,-35.78
-							%td 12
-							%td Loud
+						- @venues.each do |venue|
+							%tr
+								%td
+									= venue.name
+								%td
+									= venue.foursquareID
+								%td
+									= venue.lat_lon
+								%td
+									= venue.checkins.count
