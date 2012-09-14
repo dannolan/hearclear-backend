@@ -4,7 +4,7 @@ require 'haml'
 require 'json'
 require 'pp'
 require 'data_mapper'
-require 'dm-aggregate'
+require 'dm_aggregates'
 require 'will_paginate'
 require 'will_paginate/data_mapper'
 require 'will_paginate-bootstrap'
@@ -27,7 +27,8 @@ class Backend < Sinatra::Base
 
 	helpers do
 		def admin?; request.cookies[settings.username] == settings.token; end
-		def protected!; halt[401,"Nope"] unless admin?; end
+		def protected!; redirect "/farmer/" unless admin?; end
+		def logout; request.cookies[settings.username] == nil; end
 	end
 
 
