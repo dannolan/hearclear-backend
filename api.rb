@@ -53,6 +53,7 @@ class API < Sinatra::Base
 	end
 	
 	post "/user/create" do
+		content_type :json
 		@data = JSON.parse(request.body.read) rescue {}
 		pp @data
 		if @data.has_key?('user')
@@ -93,13 +94,14 @@ class API < Sinatra::Base
 	get "/venue/:id" do
 		content_type :json
 		@venue = Venue.venue_for_foursquare_id(params[:id])
+		pp @venue
 		halt(404) if @venue.nil?
 		halt(200)
 	end
  	
 	
 	post "/checkin/new" do
-		
+		content_type :json
 		@data = JSON.parse(request.body.read) rescue {}
 		pp @data
 		if @data.has_key?('checkin')
