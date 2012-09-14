@@ -122,7 +122,11 @@ class API < Sinatra::Base
 			@checkin = @data['checkin']
 			#venue from id
 			#user from userid
-			
+			@venue = Venue.venue_for_foursquare_id(@checkin['id'])
+			@user = User.user_for_UDID(@checkin['deviceID'])
+			@check_in = Checkin.new
+			@venue.checkins << @check_in
+			@user.checkins << @check_in
 			# ID
 			# name
 			# deviceID
@@ -131,8 +135,9 @@ class API < Sinatra::Base
 			if @checkin.has_key?('samples')
 				@checkin['samples'].each do |sample|
 					@session = Session.new(:timestamp => Session.datetime_from_timestring(sample['sampleDate']), :averageLevel => sample['avgSample'], :maxLevel => sample['maxSample'])
-					
-					pp @session
+					@check_in.sessions << @session
+					#pp @session
+					@check_in.save
 				end
 			end
 			
