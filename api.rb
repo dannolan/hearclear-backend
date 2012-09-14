@@ -108,8 +108,8 @@ class API < Sinatra::Base
 			# deviceID
 			# lat
 			# lon
-			if @data.has_key?('samples')
-				@data['samples'].each do |sample|
+			if @checkin.has_key?('samples')
+				@checkin['samples'].each do |sample|
 					@session = Session.new(:timestamp => Session.datetime_from_timestring(sample['sampleDate']), :averageLevel => sample['avgSample'], :maxLevel => sample['maxSample'])
 					
 					pp @session
@@ -117,9 +117,9 @@ class API < Sinatra::Base
 			end
 			
 			
-			puts "====================="
-			pp @checkin
-			puts "====================="
+			# puts "====================="
+			# pp @checkin
+			# puts "====================="
 		else
 			halt(404)
 		end
