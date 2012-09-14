@@ -42,6 +42,33 @@ class API < Sinatra::Base
 	
 	
 	
+	get "/user/:id" do
+		content_type :json
+		# check for user, return status code if not existing
+		@user = User.user_for_UDID(params[:id])
+		
+		halt(404) if @user.nil?
+		
+		halt(200)
+	end
+	
+	post "/user/create" do
+		@data = JSON.parse(request.body.read) rescue {}
+		pp @data
+		if @data.has_key?('user')
+			@userdata = @data['user']
+			pp @userdata
+			
+			
+		else
+			halt(403)
+		end
+		
+		
+		halt(200)
+	end
+	
+	
 	post "/venue/new" do
 		content_type :json
 		@data = JSON.parse(request.body.read) rescue {}
