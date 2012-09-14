@@ -26,6 +26,6 @@
 									%td 
 										= user.deviceID
 									%td 
-										= user.checkins.count
+										= Checkin.sessions_count_for_user(user)
 									%td
 										%a.btn.btn-info{:href => "/farmer/users/#{user.id}"} User Info
