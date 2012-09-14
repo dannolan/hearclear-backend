@@ -58,7 +58,7 @@ class Backend < Sinatra::Base
 		@selected = "Dashboard"
 		@users = User.all(:order => [:id.desc], :limit => 5)
 		@checkins = Checkin.all(:order => [:id.desc], :limit => 5)
-		@venue = Venue.all(:order => [:id.desc], :limit => 5)
+		@venues = Venue.all(:order => [:id.desc], :limit => 5)
 		haml :"admin/dashboard", :layout => :"layouts/admin"
 	end
 	
