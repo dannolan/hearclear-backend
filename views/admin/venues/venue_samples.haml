@@ -16,7 +16,7 @@
 									%th Peak Values
 									%th Session Length
 							%tbody
-								- @venue.checkin.each do |checkin|
+								- @venue.checkins.each do |checkin|
 									%tr
 										%td
 											= checkin.sessions.min(:timestamp).strftime("%d-%m-%y")
