@@ -12,8 +12,8 @@
 							%thead
 								%tr
 									%th Session ID
-									%th Date
 									%th Venue
+									%th Date
 									%th Samples
 							%tbody
 								- @user.checkins.each do |checkin|
@@ -21,8 +21,8 @@
 										%td
 											= checkin.id
 										%td
-											= checkin.sessions.max(:timestamp)
-										%td
 											= checkin.venue.name
+										%td
+											= checkin.sessions.max(:timestamp)
 										%td
 											= checkin.sessions.count
