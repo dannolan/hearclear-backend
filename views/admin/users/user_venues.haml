@@ -17,13 +17,12 @@
 									%th Samples
 							%tbody
 								- @user.checkins.each do |checkin|
-								
-								%tr
-									%th 
-										= checkin.venue.name
-									%th
-										TBD
-									%th
-										TBD
-									%th
-										= checkin.sessions.count
+									%tr
+										%th 
+											= checkin.venue.name
+										%th
+											TBD
+										%th
+											TBD
+										%th
+											= checkin.sessions.count
