@@ -23,6 +23,6 @@
 										%td
 											= checkin.venue.name
 										%td
-											= checkin.sessions.max(:timestamp)
+											= checkin.sessions.max(:timestamp).strftime("%d-%m-%y %H:%M")
 										%td
 											= checkin.sessions.count
