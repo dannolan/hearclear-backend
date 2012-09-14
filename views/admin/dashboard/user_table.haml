@@ -1,0 +1,21 @@
+.span6
+	.box
+		%h4.box-header.round-top 
+			Last 5 Added Users
+		.box-container-toggle
+			.box-content
+				%table.table.table-striped.table-bordered
+					%thead
+						%tr
+							%th UserID
+							%th Device
+							%th Checkins
+					%tbody
+						- @users.each do |user|
+							%tr
+								%td
+									= user.deviceID
+								%td
+									= user.device
+								%td
+									= user.checkins.count
