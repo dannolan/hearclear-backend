@@ -11,17 +11,17 @@
 						%table.table.table-striped.table-bordered
 							%thead
 								%tr
+									%th Session ID
 									%th Date
 									%th Venue
-									%th Session ID
 									%th Samples
 							%tbody
 								- @user.checkins.each do |checkin|
 									%tr
 										%td
-											TBD
+											= checkin.id
 										%td
-											= checkin.venue.name
+											= checkin.sessions.max(:timestamp)
 										%td
 											= checkin.id
 										%td
