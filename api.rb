@@ -122,7 +122,7 @@ class API < Sinatra::Base
 			@checkin = @data['checkin']
 			#venue from id
 			#user from userid
-			@venue = Venue.venue_for_foursquare_id(@checkin['id'])
+			@venue = Venue.venue_for_foursquare_id(@checkin['ID'])
 			@user = User.user_for_UDID(@checkin['deviceID'])
 			@check_in = Checkin.new
 			@venue.checkins << @check_in
