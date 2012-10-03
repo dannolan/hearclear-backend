@@ -30,6 +30,7 @@ class Venue
 		20
 	end
 	
+	#hardcoded for venue info
 	def group_sessions
 		set = self.checkins.all.sessions.group_by {|session| session.timestamp.strftime("%a")}
 		set.keys.each do |key|
@@ -41,7 +42,6 @@ class Venue
 			session_array.each do |session|
 				session_time = Time.parse(session.timestamp.to_s)
 				session_time = session_time + 10*60*60
-				puts session_time.hour
 				if (session_time.hour > 6 && session_time.hour < 22)
 					if(session_time.hour >= 6 && session_time.hour <10)
 						
@@ -59,19 +59,24 @@ class Venue
 				end
 			end
 			puts key
+			str = key.downcase
 			puts "=================================="
 			puts "First"
 			puts Venue.average_peak_for_sessions(first)
 			puts Venue.average_average_for_sessions(first)
+			puts "#{str}_first_block"
 			puts "Second"
 			puts Venue.average_peak_for_sessions(second)
 			puts Venue.average_average_for_sessions(second)
+			puts "#{str}_second_block"
 			puts "Third"
 			puts Venue.average_peak_for_sessions(third)
 			puts Venue.average_average_for_sessions(third)
+			puts "#{str}_third_block"
 			puts "Fourth"
 			puts Venue.average_peak_for_sessions(fourth)
 			puts Venue.average_average_for_sessions(fourth)
+			puts "#{str}_fourth_block"
 			puts "==================================="
 		end
 		
