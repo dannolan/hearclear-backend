@@ -127,11 +127,8 @@ class API < Sinatra::Base
 			@check_in = Checkin.new
 			@venue.checkins << @check_in
 			@user.checkins << @check_in
-			# ID
-			# name
-			# deviceID
-			# lat
-			# lon
+
+		
 			if @checkin.has_key?('samples')
 				@checkin['samples'].each do |sample|
 					@session = Session.new(:timestamp => Session.datetime_from_timestring(sample['sampleDate']), :averageLevel => sample['avgSample'], :maxLevel => sample['maxSample'])
