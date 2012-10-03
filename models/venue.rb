@@ -58,21 +58,44 @@ class Venue
 					end
 				end
 			end
+			puts key
 			puts "=================================="
 			puts "First"
-			pp first
+			puts Venue.average_peak_for_sessions(first)
+			puts Venue.average_average_for_sessions(first)
 			puts "Second"
-			pp second
+			puts Venue.average_peak_for_sessions(second)
+			puts Venue.average_average_for_sessions(second)
 			puts "Third"
-			pp third
+			puts Venue.average_peak_for_sessions(third)
+			puts Venue.average_average_for_sessions(third)
 			puts "Fourth"
-			pp fourth
+			puts Venue.average_peak_for_sessions(fourth)
+			puts Venue.average_average_for_sessions(fourth)
 			puts "==================================="
 		end
 		
 		
 		#set.keys
 		#take the set, lowercase it, then split until you're getting the right times then boom
+	end
+	
+	def self.average_peak_for_sessions(session_array)
+		float = 0.0
+		return float if session_array.size == 0
+		session_array.each do |session|
+			float = float + session.maxLevel
+		end
+		float / session_array.size
+	end
+	
+	def self.average_average_for_sessions(session_array)
+		float = 0.0
+		return float if session_array.size == 0
+		session_array.each do |session|
+			float = float + session.averageLevel
+		end
+		float/session_array.size
 	end
 	
 	
