@@ -33,6 +33,9 @@ class Venue
 	#hardcoded for venue info
 	def group_sessions
 		set = self.checkins.all.sessions.group_by {|session| session.timestamp.strftime("%a")}
+		if self.venueloudness.nil?
+			self.venueloudness = Venueloudness.new
+		end
 		set.keys.each do |key|
 			session_array = set[key]
 			first = []
@@ -60,24 +63,13 @@ class Venue
 			end
 			puts key
 			str = key.downcase
-			puts "=================================="
-			puts "First"
-			puts Venue.average_peak_for_sessions(first)
-			puts Venue.average_average_for_sessions(first)
-			puts "#{str}_first_block"
-			puts "Second"
-			puts Venue.average_peak_for_sessions(second)
-			puts Venue.average_average_for_sessions(second)
-			puts "#{str}_second_block"
-			puts "Third"
-			puts Venue.average_peak_for_sessions(third)
-			puts Venue.average_average_for_sessions(third)
-			puts "#{str}_third_block"
-			puts "Fourth"
-			puts Venue.average_peak_for_sessions(fourth)
-			puts Venue.average_average_for_sessions(fourth)
-			puts "#{str}_fourth_block"
-			puts "==================================="
+			self.venueloudness.send("#{str}_first_block=",Venue.average_average_for_sessions(first))
+			self.venueloudness.send("#{str}_second_block=",Venue.average_average_for_sessions(second))
+			self.venueloudness.send("#{str}_third_block=",Venue.average_average_for_sessions(third))
+			self.venueloudness.send("#{str}_fourth_block=",Venue.average_average_for_sessions(fourth))
+			self.venueloudness.save
+			pp self.venueloudness
+			
 		end
 		
 		
