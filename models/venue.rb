@@ -31,7 +31,8 @@ class Venue
 	end
 	
 	def group_sessions
-		pp	self.checkins.all.sessions
+		set = self.checkins.all.sessions.group_by {|session| session.timestamp.strftime("%a")}
+		pp set
 	end
 	
 	
