@@ -11,4 +11,5 @@ load 'models/venueloudness.rb'
 
 #zoidberg
 DataMapper.finalize
-DataMapper.auto_upgrade!
+#DataMapper.auto_upgrade!
+DataMapper::Model.descendants.each {|m| m.auto_upgrade! if m.superclass == Object}
