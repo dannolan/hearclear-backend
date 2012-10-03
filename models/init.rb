@@ -7,6 +7,7 @@ load 'models/user.rb'
 load 'models/venue.rb'
 load 'models/checkin.rb'
 load 'models/session.rb'
+load 'models/venueloudness.rb'
 
 #zoidberg
 DataMapper.finalize

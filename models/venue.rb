@@ -7,6 +7,7 @@ class Venue
 	property :longitude, String
 	
 	has n, :checkins
+	has 1, :venueloudness
 	#id
 	#venue name
 	#foursquareID
@@ -27,6 +28,10 @@ class Venue
 	
 	def self.per_page
 		20
+	end
+	
+	def group_sessions
+		pp	self.checkins.all.sessions
 	end
 	
 	
