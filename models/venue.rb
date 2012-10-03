@@ -40,6 +40,7 @@ class Venue
 			fourth = []
 			session_array.each do |session|
 				session_time = Time.parse(session.timestamp.to_s)
+				session_time = session_time + 10*60*60
 				puts session_time.hour
 				if (session_time.hour > 6 && session_time.hour < 22)
 					if(session_time.hour >= 6 && session_time.hour <10)
