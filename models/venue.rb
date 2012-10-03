@@ -59,15 +59,16 @@ class Venue
 			self.venueloudness = Venueloudness.new
 		end
 		set.keys.each do |key|
+			puts key
 			session_array = set[key]
-			set = session_array.collect(&:averageLevel)
-			pp set
+			dataset = session_array.collect(&:averageLevel)
+			pp dataset
 			puts "Std Dev"
-			puts set.standard_deviation
+			puts dataset.standard_deviation
 			puts "Mean"
-			puts set.mean
+			puts dataset.mean
 			puts "Sample Variance"
-			puts set.sample_variance
+			puts dataset.sample_variance
 			first = []
 			second = []
 			third = []
