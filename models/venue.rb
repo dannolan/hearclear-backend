@@ -56,18 +56,19 @@ class Venue
 					end
 				end
 			end
+			puts "=================================="
+			puts "First"
+			pp first
+			puts "Second"
+			pp second
+			puts "Third"
+			pp third
+			puts "Fourth"
+			pp fourth
+			puts "==================================="
 		end
 		
-		puts "=================================="
-		puts "First"
-		pp first
-		puts "Second"
-		pp second
-		puts "Third"
-		pp third
-		puts "Fourth"
-		pp fourth
-		puts "==================================="
+		
 		#set.keys
 		#take the set, lowercase it, then split until you're getting the right times then boom
 	end
