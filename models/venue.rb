@@ -101,7 +101,8 @@ class Venue
 		# 	self.venueloudness.save
 		# 	pp self.venueloudness
 		# 	
-		end
+		
+		#break into four hour incremements, time.start, time.end
 		
 		
 		#set.keys
