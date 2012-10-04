@@ -157,8 +157,10 @@ class API < Sinatra::Base
 	get "/venue/:id/volume_array" do
 		@venue = Venue.venue_for_foursquare_id(params[:id])
 		halt (404) if @venue.nil?
-		
-		halt(200)
+		hash = {}
+		hash['venue'] = @venue
+		hash['volinfo'] = @venue.day_volume_values
+		hash.to_json
 	end
 	
 	get "/venue/:id/volume" do
@@ -167,10 +169,11 @@ class API < Sinatra::Base
 		halt (404) if @venue.nil?
 		halt (404) if @venue.checkins.sessions.count < 2
 		hash = {}
-		hash['volume'] = 
+		hash['venue'] = @venue
+		hash['volume'] = @venue.volume_average
 		
 		#TODO: Implement this to work properly so I can return volumes for an array of IDs
-		halt(200)
+		hhash.to_json
 	end
 	
 	
