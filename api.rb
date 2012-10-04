@@ -136,7 +136,8 @@ class API < Sinatra::Base
 					#pp @session
 					@check_in.save
 					#calculate the new venue group session times
-					@venue.group_sessions
+					#todo do this here
+					#@venue.group_sessions
 				end
 			end
 			
