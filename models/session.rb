@@ -4,6 +4,7 @@ class Session
 	property :timestamp, DateTime
 	property :averageLevel, Float
 	property :maxLevel, Float
+	property :outlier, Boolean, :default => false
 	
 	belongs_to :checkin
 	
