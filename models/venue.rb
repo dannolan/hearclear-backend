@@ -54,7 +54,7 @@ class Venue
 	
 	
 	def venue_day_sets
-		self.checkins.all.sessions.group_by {|session| session.timestamp.strftime("%a")}
+		self.checkins.all.sessions(:outlier => false).group_by {|session| session.timestamp.strftime("%a")}
 	end
 	
 	#hardcoded for venue info
@@ -114,8 +114,26 @@ class Venue
 		#take the set, lowercase it, then split until you're getting the right times then boom
 	end
 	
+	
+	def day_volume_values
+		day_sets = self.venue_day_sets
+		return_set = {}
+		day_sets.keys.each do |key|
+			time_set = day_sets[key]
+			return_set[key] = []
+			grouped_set = time_set.group_by {|session| session.timestamp.strftime("%H")}
+			grouped_set.keys.each do |time_key|
+				time_period = {}
+				time_period['time_interval'] = time_key
+				time_period[average] = grouped_set[time_key].mean
+				return_set[key] << time_period
+			end
+		end
+		pp return_set
+	end
+	
 	def volume_average
-		pp self.venue_day_sets
+		day_volume_values
 		self.checkins.sessions.avg(:averageLevel, :outlier => false)
 	end
 	
