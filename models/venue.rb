@@ -53,6 +53,27 @@ class Venue
 	end
 	
 	
+	def volume_bounds
+		#silent, soft, low, average, loud, very loud, deafening
+		#silent [0.00000000000000001 -> 0.1]
+		#> 0, -> 0.1
+		#soft [0.1 -> 0.2]
+		#low [0.2 -> 0.3]
+		#avg [0.3 -> 0.5]
+		#loud[0.5 -> 0.65]
+		#very loud [0.65 -> [0.8]
+		#deafening [0.8 -> 1.0]
+		bounds = []
+		bounds << {:name => "Silent", :lowBound => 0.000000000001, :upBound => 0.1}
+		bounds << {:name => "Soft", :lowBound => 0.1, :upBound => 0.2}
+		bounds << {:name => "Low", :lowBound => 0.2, :upBound => 0.4}
+		bounds << {:name => "Average", :lowBound => 0.4, :upBound => 0.5}
+		bounds << {:name => "Loud", :lowBound => 0.5, :upBound => 0.65}
+		bounds << {:name => "Very Loud", :lowBound => 0.65, :upBound => 0.8}
+		bounds << {:name => "Deafening", :lowBound => 0.8, :upBound => 1.0}
+		bounds
+	end
+	
 	def venue_day_sets
 		self.checkins.all.sessions(:outlier => false).group_by {|session| session.timestamp.strftime("%a")}
 	end

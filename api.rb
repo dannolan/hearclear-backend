@@ -153,8 +153,23 @@ class API < Sinatra::Base
 		halt(200)
 	end
 	
+	get "/venue/volume_bounds" do
+		content_type :json
+		bounds = []
+		bounds << {:name => "Silent", :lowBound => 0.000000000001, :upBound => 0.1}
+		bounds << {:name => "Soft", :lowBound => 0.1, :upBound => 0.2}
+		bounds << {:name => "Low", :lowBound => 0.2, :upBound => 0.4}
+		bounds << {:name => "Average", :lowBound => 0.4, :upBound => 0.5}
+		bounds << {:name => "Loud", :lowBound => 0.5, :upBound => 0.65}
+		bounds << {:name => "Very Loud", :lowBound => 0.65, :upBound => 0.8}
+		bounds << {:name => "Deafening", :lowBound => 0.8, :upBound => 1.0}
+		bounds
+		bounds.to_json
+	end
+	
 	
 	get "/venue/:id/volume_array" do
+		content_type :json
 		@venue = Venue.venue_for_foursquare_id(params[:id])
 		halt (404) if @venue.nil?
 		hash = {}
