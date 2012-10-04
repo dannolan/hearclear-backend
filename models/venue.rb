@@ -121,7 +121,7 @@ class Venue
 		day_sets.keys.each do |key|
 			time_set = day_sets[key]
 			return_set[key] = []
-			grouped_set = time_set.group_by {|session| session.timestamp.strftime("%H")}
+			grouped_set = time_set.group_by {|session| session.timestamp.strftime("%H:00 %z")}
 			pp grouped_set
 			grouped_set.keys.each do |time_key|
 				time_period = {}
