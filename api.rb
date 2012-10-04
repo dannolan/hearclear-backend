@@ -173,7 +173,7 @@ class API < Sinatra::Base
 		hash['volume'] = @venue.volume_average
 		
 		#TODO: Implement this to work properly so I can return volumes for an array of IDs
-		hhash.to_json
+		hash.to_json
 	end
 	
 	
