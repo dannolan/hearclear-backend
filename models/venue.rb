@@ -52,6 +52,11 @@ class Venue
 		20
 	end
 	
+	
+	def venue_day_sets
+		self.checkins.all.sessions.group_by {|session| session.timestamp.strftime("%a")}
+	end
+	
 	#hardcoded for venue info
 	def group_sessions
 		# set = self.checkins.all.sessions.group_by {|session| session.timestamp.strftime("%a")}
@@ -110,6 +115,7 @@ class Venue
 	end
 	
 	def volume_average
+		pp self.venue_day_sets
 		self.checkins.sessions.avg(:averageLevel, :outlier => false)
 	end
 	
