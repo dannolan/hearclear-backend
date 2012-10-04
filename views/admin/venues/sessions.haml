@@ -1,0 +1,13 @@
+- @previous = "Venues"
+- @previoushref = "/farmer/venues/#{@venue.id}"
+- @current = "Venue Name"
+= partial :"admin/shared/pillbar"
+.row-fluid
+	.page-header
+		%h1 
+			= @venue.name
+			Sessions
+
+= partial :"admin/venues/sessions_table"
+
+

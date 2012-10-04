@@ -35,3 +35,8 @@
 								%th Venue Average Weighting
 								%td
 									= @venue.volume_average
+							- if @venue.checkins.sessions.count > 1
+								%tr
+									%th Checkins Page
+									%td
+										%a{:href => "/farmer/venues/#{@venue.id}/sessions"} Sessions page

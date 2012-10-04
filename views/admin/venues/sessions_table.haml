@@ -1,0 +1,28 @@
+.row-fluid
+	.span12
+		.box
+			- if @venue.checkins.nil? || @venue.checkins.size == 0
+				%p No Checkins Yet
+			- else
+				%h4.box-header.round-top 
+					Venue Sessions
+				.box-container-toggle
+					.box-content
+						%table.table.table-striped.table-bordered
+							%thead
+								%tr
+									%th Date
+									%th Average
+									%th Peak
+									%th Valid
+							%tbody
+								- @venue.checkins.sessions.each do |session|
+									%tr
+										%td
+											= session.timestamp.to_s
+										%td 
+											= session.averageLevel
+										%td
+											= session.peakLevel
+										%td
+											= !session.outlier

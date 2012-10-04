@@ -17,6 +17,14 @@ class Backend < Sinatra::Base
 		halt 404 if @venue.nil?
 		haml :"admin/venues/venue", :layout => :"layouts/admin"
 	end
+	
+	get "/venues/:id/sessions" do
+		protected!
+		@selected = "Venues"
+		@venue = Venue.get(params[:id])
+		halt 404 if @venue.nil?
+		haml :"admin/venues/sessions", :layout => :"layouts/admin"
+	end
 
 
 end
