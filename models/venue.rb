@@ -125,7 +125,7 @@ class Venue
 			grouped_set.keys.each do |time_key|
 				time_period = {}
 				time_period['time_interval'] = time_key
-				time_period[average] = grouped_set[time_key].mean
+				time_period['average'] = grouped_set[time_key].mean
 				return_set[key] << time_period
 			end
 		end
