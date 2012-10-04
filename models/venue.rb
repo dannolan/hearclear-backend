@@ -122,10 +122,11 @@ class Venue
 			time_set = day_sets[key]
 			return_set[key] = []
 			grouped_set = time_set.group_by {|session| session.timestamp.strftime("%H")}
+			pp grouped_set
 			grouped_set.keys.each do |time_key|
 				time_period = {}
 				time_period['time_interval'] = time_key
-				time_period['average'] = grouped_set[time_key].mean
+				time_period['average'] = grouped_set[time_key].collect(&:averageLevel).mean
 				return_set[key] << time_period
 			end
 		end
