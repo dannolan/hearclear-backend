@@ -94,8 +94,8 @@ class Venue
 			#pp grouped_set
 			grouped_set.keys.each do |time_key|
 				time_period = {}
-				time_period['time_interval'] = time_key
-				time_period['average'] = grouped_set[time_key].collect(&:averageLevel).mean
+				time_period[:time] = time_key
+				time_period[:average] = grouped_set[time_key].collect(&:averageLevel).mean
 				return_set[key] << time_period
 			end
 		end
