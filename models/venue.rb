@@ -83,6 +83,24 @@ class Venue
 	
 	end
 	
+	def day_max_volume_values
+		day_sets = self.venue_day_sets
+		return_set = {}
+		day_sets.keys.each do |key|
+			time_set = day_sets[key]
+			return_set[key] = []
+			grouped_set = time_set.group_by {|session| session.timestamp.strftime("%H:00")}
+			#pp grouped_set
+			grouped_set.keys.each do |time_key|
+				time_period = {}
+				time_period[:time] = time_key
+				time_period[:average] = grouped_set[time_key].collect(&:maxLevel).mean
+				return_set[key] << time_period
+			end
+		end
+		return_set
+	end
+	
 	
 	def day_volume_values
 		day_sets = self.venue_day_sets

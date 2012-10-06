@@ -43,6 +43,11 @@ class API < Sinatra::Base
 		{:result => "notfound", :message => "Request not found"}.to_json
 	end
 	
+	get "/info" do
+		
+		haml :"API/api", :layout => :"layouts/apidoc"
+	end
+	
 	
 	
 	get "/user/:id" do
