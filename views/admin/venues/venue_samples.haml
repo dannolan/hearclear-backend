@@ -21,7 +21,7 @@
 								- @venue.checkins.each do |checkin|
 									%tr
 										%td
-											= checkin.sessions.min(:timestamp).strftime("%d-%m-%y %HH:%MM")
+											= checkin.sessions.min(:timestamp).strftime("%d-%m-%y %H:%M")
 										%td
 											= checkin.average_string
 										%td
