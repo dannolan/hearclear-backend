@@ -49,18 +49,24 @@ class Checkin
 	
 	
 	def average_string
-		min = self.sessions.min(:averageLevel)
-		max = self.sessions.max(:averageLevel)
-		avg = self.sessions.avg(:averageLevel)
-		"#{min}, #{max}, #{avg}"
+		avg = self.sessions.average(:averageLevel, :outlier => false)
+		"#{avg}"
+	end
+	
+	def average_string_outliers
+		avg = self.sessions.average(:averageLevel)
+		"#{avg}"
 	end
 	
 	
 	def peak_string
-		min = self.sessions.min(:maxLevel)
-		max = self.sessions.max(:maxLevel)
-		avg = self.sessions.avg(:maxLevel)
-		"#{min}, #{max}, #{avg}"
+		avg = self.sessions.average(:maxLevel, :outlier => false)
+		"#{avg}"
+	end
+	
+	def peak_string_outliers
+		avg = self.sessions.average(:maxLevel)
+		"#{avg}"
 	end
 	
 	#start_time
