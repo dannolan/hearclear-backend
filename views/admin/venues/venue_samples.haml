@@ -12,18 +12,24 @@
 							%thead
 								%tr
 									%th Checkin Time
-									%th Avg Values
-									%th Peak Values
+									%th Avg (No Outliers)
+									%th Avg (Outliers)
+									%th Peak (No Outliers)
+									%th Peak (Outliers)
 									%th Session Length
 							%tbody
 								- @venue.checkins.each do |checkin|
 									%tr
 										%td
-											= checkin.sessions.min(:timestamp).strftime("%d-%m-%y")
+											= checkin.sessions.min(:timestamp).strftime("%d-%m-%y %H:%M")
 										%td
 											= checkin.average_string
 										%td
+											= checkin.average_string_outliers
+										%td
 											= checkin.peak_string
+										%td
+											= checkin.peak_string_outliers
 										%td
 											= checkin.sessions.count
 								

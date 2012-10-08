@@ -13,9 +13,18 @@ class Backend < Sinatra::Base
 		protected!
 		@selected = "Venues"
 		@venue = Venue.get(params[:id])
-		pp @venue.group_sessions
+		#@venue.evaluate_outliers
+		#pp @venue.group_sessions
 		halt 404 if @venue.nil?
 		haml :"admin/venues/venue", :layout => :"layouts/admin"
+	end
+	
+	get "/venues/:id/sessions" do
+		protected!
+		@selected = "Venues"
+		@venue = Venue.get(params[:id])
+		halt 404 if @venue.nil?
+		haml :"admin/venues/sessions", :layout => :"layouts/admin"
 	end
 
 

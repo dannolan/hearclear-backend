@@ -1,0 +1,27 @@
+.row-fluid
+	.span12
+		.box
+			- if @venue.day_max_volume_values.keys.nil?
+				%h1 No Volume Values
+			- else
+				%h4.box-header.round-top 
+					Max Value Venue Averages
+				.box-container-toggle
+					.box-content
+						%table.table.table-striped.table-bordered
+							%thead
+								%tr
+									%th Day
+									%th Time
+									%th Value
+							%tbody
+								- @venue.day_max_volume_values.keys.each do |key|
+									- @venue.day_max_volume_values[key].each do |timetuple|
+										%tr
+											%td
+												= key
+											%td
+												= timetuple[:time]
+											%td
+												= timetuple[:average]
+										

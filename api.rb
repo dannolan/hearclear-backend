@@ -43,6 +43,11 @@ class API < Sinatra::Base
 		{:result => "notfound", :message => "Request not found"}.to_json
 	end
 	
+	get "/info" do
+		
+		haml :"API/api", :layout => :"layouts/apidoc"
+	end
+	
 	
 	
 	get "/user/:id" do
@@ -105,12 +110,31 @@ class API < Sinatra::Base
 		halt(200)
 	end
 	
-	get "/venue/:id" do
+	get "/venue/:id/volume" do
 		content_type :json
 		@venue = Venue.venue_for_foursquare_id(params[:id])
-		pp @venue
+		halt (404) if @venue.nil?
+		hash = {}
+		hash['venue'] = @venue
+		hash['volinfo'] = @venue.day_volume_values
+		hash.to_json
+	end
+	
+	get "/venue/:id" do
+		content_type :json
+		#this should return the average volume as well
+		@venue = Venue.venue_for_foursquare_id(params[:id])
+		#pp @venue
 		halt(404) if @venue.nil?
-		halt(200)
+		hash = {}
+		if @venue.checkins.sessions.count < 2
+			hash['volume'] = nil
+		else
+			hash['volume'] = @venue.volume_average
+		end
+			hash['venue'] = @venue
+			
+			hash.to_json
 	end
  	
 	
@@ -136,7 +160,9 @@ class API < Sinatra::Base
 					#pp @session
 					@check_in.save
 					#calculate the new venue group session times
-					@venue.group_sessions
+					#todo do this here
+					@venue.evaluate_outliers
+					#@venue.group_sessions
 				end
 			end
 			
@@ -150,12 +176,23 @@ class API < Sinatra::Base
 		halt(200)
 	end
 	
-	
-	get "/venue/:id/volume" do
-		
-		#TODO: Implement this to work properly so I can return volumes for an array of IDs
-		halt(200)
+	get "/venue/volume_bounds" do
+		content_type :json
+		bounds = []
+		bounds << {:name => "Silent", :lowBound => 0.000000000001, :upBound => 0.1}
+		bounds << {:name => "Soft", :lowBound => 0.1, :upBound => 0.2}
+		bounds << {:name => "Low", :lowBound => 0.2, :upBound => 0.4}
+		bounds << {:name => "Average", :lowBound => 0.4, :upBound => 0.5}
+		bounds << {:name => "Loud", :lowBound => 0.5, :upBound => 0.65}
+		bounds << {:name => "Very Loud", :lowBound => 0.65, :upBound => 0.8}
+		bounds << {:name => "Deafening", :lowBound => 0.8, :upBound => 1.0}
+		bounds
+		bounds.to_json
 	end
+	
+	
+
+	
 	
 	
 	
