@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="latexinput" content="mmd-article-header"/>
+	<title>HearClear loudness ratings for venues</title>
+	<meta name="latexmode" content="memoir"/>
+	<meta name="author" content="Daniel Nolan"/>
+	<meta name="stdnum" content="dnol845"/>
+	<meta name="latexinput" content="mmd-article-begin-doc"/>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.0.4/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">	
+<h2 id="introduction">Introduction</h2>
+
+<p>We live in a world exploding with more and more data with every passing second. We&#8217;re slowly becoming a society of data-driven beings, making decisions based on what to do based on the recommendations of friends and family but increasingly based on recommendations from complete strangers on the internet. Our desire for more data about our decisions comes from one central fact, every second of time we spend is one we no longer have. We desire more data about the ways in which we can spend our time so we make sure our it isn&#8217;t wasted. It&#8217;s now de-rigeur in my social circles to check Rotten Tomatoes to see if a movie has a positive recommendation (or in some circumstances a downright devastating one) before floating viewing it with friends. Sites like Rotten Tomatoes, Urbanspoon, Yelp and others act as aggregators of opinion. There are, of course, the traditional opinion gatekeepers, say the Mark Kermode of film criticism of the Terry Durack of food criticism, but they can&#8217;t view each film or eat every dish at every restaurant. We have to rely on the wisdom of crowds. There&#8217;s now data for almost everything to do with venues; the NSW police puts out crime statistics on the most violent pubs and clubs, social aggregating services like Yelp let users leave tips or recommendations for each other at venues and Foursquare can help users explore and find places recommended by others in their own neighbourhood that they previously would not have thought to visit. One of the main reasons for the preponderance of this data is the ease of collection. It takes almost no time at all on a modern smartphone to check into a venue on Foursquare, take a photo of your beer or meal and add a pithy one line review. Whilst one or two of these bon mots can seem ephemeral, the existence of some data on the venue tends to attract more data. If a place has a substantial amount of positive reviews and you have a poor experience, you&#8217;re more likely to leave a negative review to save someone else the time or more cynically, to punish the owner of the venue and vice versa. People are willing to add more and more of this data to the services they use; Google maps, for example, is the result of millions of corrections and additions added by its users on top of its existing data [cite]. If you have no data, you have nothing to offer savvy modern consumers. </p>
+
+<p>Venues are expanding with even more and more consumer added metadata, be it cuisine types, opening hours, recommended dishes or drinks and even descriptions of the vibe and decor. There is however one piece of metadata about venues that is incredibly difficult to find, venue loudness. Gauging venue loudness is much more difficult than simply offering your opinion on the venue&#8217;s menu. You may have different degrees of loudness throughout the day at different venues. A quiet country pub may be quite quiet in the beer garden throughout the day but on friday nights when it becomes a place for the local metal bands to battle it out for rock supremacy, it is daresay quite a bit louder. When talking about the collection of such venue data or metadata the question has to be asked, why collect loudness information? There are two main reasons, the first is that loudness can have a serious impact on human hearing. Anyone who has been to a loud rock concert knows how deafening they can be and the dreaded ringing in your ears the following days bring. By quantifying and providing venue loudness data those who don&#8217;t wish to spend a day or so with ringing in their ears can choose to opt out of attending the venue, rather than turning up completely uninformed. The second is those with hearing impairments that use hearing aids. A venue&#8217;s ambient loudness is of incredible importance to users of hearing aids, as even though the aids are quite well tuned to amplifying the required frequencies of human speech to enhance hearing, in a loud or very echoey environment it substantially diminishes the efficiency of these devices and thus their ability to communicate. </p>
+
+<p>Given the case that this data needs to be collected, how do you do it? This project was designed from the very beginning </p>
+
+<p>The hardest element comes down to collection, how do you collect and quantify loudness data? How do you present it?</p>
+
+<h2 id="scopechanges">Scope Changes</h2>
+
+<p>The project outlined in this document is vastly different from the project outlined in the initial thesis plan. The original project centred around the weighting of recorded values on the device based on the frequency response of the device. The ability to divine the frequency response of the device with the resources and time available simply became unfeasible given the scope of this project. </p>
+
+<h3 id="frequencyresponse">Frequency response</h3>
+
+<p>In order to calculate the frequency response of the device a speaker with a flat frequency response would be required to get as valid a sound as possible when estimating the output of the device in response to different sounds. Audiophiles desire speakers with a flatter frequency response because it allows a better experience of music and sounds they wish to listen to [cite]. Unfortunately, speakers that provide a flat frequency response are not inexpensive [cite]. Not only would speakers with a flat frequency response be required but also a very powerful (and expensive) amplifier would be required to drive the speakers. The flatter the frequency response of the speakerm, the more accurate to the signal they have to be and the more power they consume to replicate that soundwave [cite]. </p>
+
+<h3 id="anechoicchamber">Anechoic chamber</h3>
+
+<p>The second element of the original plan was to locate or construct an anechoic chamber and use that as a tool for validating the accuracy of the device&#8217;s weighted readings versus a hardware decibel meter. The costs and time required to construct the anechoic chamber were underestimated and attempts replicate one on campus or hire one off campus were unsuccessful. Analysing the frequency response of the devices and then providing further information on them was far too ambitious and left far too much up to chance when it came to the final software and project completion. The project to analyse and weight the frequency responses of different devices would best be left for a PHD thesis as the scale and scope of the proposal was simply too long given the timeline for this project.</p>
+
+<h3 id="shiftingfocus">Shifting Focus</h3>
+
+<p>The primary goal of this project was to provide a simple and efficient way to use a smartphone to collect venue loudness data. The key was making sure the venue information was accurate and that venue loudness data could be sampled in a fast and effective manner. There wasn&#8217;t time to perform error correction and analysis on the device and instead the scope was changed to perform that analysis on the server. This vastly shifted the scale of the project but also increased the complexity on the server side. Instead of trying to approximate a decibel reading from a voltage signal on the device, using it to provide a relative understanding of the loudness of the venue based on statistical analysis of submitted data seemed to be more effective. The benefits were twofold, by making the iOS client simply a client that logged unaltered data and submitted it, the more data that was collected the more accurate the venue analysis would be. Using basic statistical tools outliers could be removed from the sampled collection[cite]. The more data that was collected by users at different time intervals the more accurate a weighting could be applied to that data and the more accurate the venue loudness data became. This also meant modifications to the statistical model to provide better information to the client could be performed on the server and presented to the client without requiring the client software to be updated. The more clients that submitted data and the more that the statistical model was tweaked the better the data presented to clients would become.</p>
+
+<h2 id="iosandiosdevices">iOS and iOS Devices</h2>
+
+<h3 id="notallsmartphoneoperatingsystemsarecreatedequal">Not all smartphone operating systems are created equal</h3>
+
+<p>iOS is the name Apple has coined for the fork of its desktop operating system &#8220;OS X&#8221; that runs on its smartphone platform. The smartphone platform consists of many devices including the iPhone, iPod touch, iPad and even the Apple TV. It&#8217;s a UNIX operating system and it shares the common Darwin foundation with OS X. </p>
+
+<p><em>Devices that run iOS here</em></p>
+
+<p>iOS was originally called iPhone OS and was released to the public when the original iPhone was released on June 29, 2007 [cite]. Apple has since aggressively iterated the operating system yearly, rebranding the operating system as iOS with the release of the iPad. When the operating system was initially released there was no native support for third party applications on the platform, Apple did however provide web APIs to developers to allow them to optimise their sites for the version of mobile safari used on the original release of the operating system. There were third-party toolchains available and jailbreaking the phone (removing the user chroot jail EXPAND_INFO [cite]) and getting around the memory protection and code signing on the device allowed many people to sideload applications from the popular Cydia program [cite] before Apple released the tools for developers to build native apps for the platform with the release of iOS (neé iPhone OS) 2.0. Apple has rapidly expanded the APIs provided to developers and the quality of the tools given to developers to build for iOS devices. </p>
+
+<p><em>EXAMPLE OF CYDIA ON IPHONE SCREEN HERE</em></p>
+
+<p>From the first release though it was clear that iOS was all about graphical performance and user experience. Table views [provide example] in the original iPhone scrolled incredibly smoothly, something that Android (a competing smartphone operating system from Google [cite]) is still struggling to provide four years later with their &#8216;project butter&#8217; [cite]. The difference between the performance of the two approaches is substantial, Apple performs all touch interaction and UI updating in a highly prioritised main thread [cite]. This enables the UI to be incredibly responsive and update without latency. On Android the user interface is given a standard priority thread [cite] and as such it is competing for resources with other threads. This means that network operations and other time-intensive queries can impact UI responsiveness which can degrade the overall user experience [cite]. </p>
+
+<p><em>Image of a shitty pre-iPhone android phone because I am a cunt</em></p>
+
+<p>The reason for these differences in architecture is simple, Apple had more experience building operating systems than Google did. The core team working on OS X had members who had been building the original Darwin foundation on top of code that Apple had acquired when they bought NeXT in (DATE) [cite]. Apple had experience with GPU acceleration that Google did not, particularly when it came to building the CORE_ANIMATION QUARTZ_2D etc APIs on OS X [cite]. They had a wealth of experience and a team who could build an fork of OS X from the ground up to be highly reliant on the GPU for almost all display processing. Their team had knowledge of the intricacies and difficulties of utilising a GPU for UI composition [cite]. As such the quality and speed of the GPU-acceleration in iOS is instrumental to its performance dividends and superior user experience in almost every regard when compared to the Android platform.</p>
+
+<h3 id="theframeworksonios">The Frameworks on iOS</h3>
+
+<p>The key reason for the explosion of interest in iOS and developing for iOS is not just the proliferation of the devices (though at the writing of this Thesis there are currently more than 450m activated iOS devices out there capable of running apps written by developers [cite]). The APIs and the documentation and tools provided by Apple are incredibly powerful, comprehensive and highly polished. Apple has taken the issue of mobile performance incredibly seriously and as such has invested heavily into the LLVM and LLDB projects [cite] to provide first-class development tools for their platform, instead of relying on community additions to GCC [cite]. </p>
+
+<h4 id="aquickoverviewofobjective-c">A quick overview of Objective-C</h4>
+
+<p>Objective-C is a high level object oriented programming language that is a superset of C. It provides object oriented conventions and uses a smalltalk-esque message passing system for managing communication between objects. It&#8217;s the de-facto language for developing for Mac OS X and iOS. </p>
+
+<p>To send a message to an object you do the following:</p>
+
+<p><em>OBJC_CODE_EXAMPLE</em></p>
+
+<p>The targets of messages are resolved at runtime instead of compile time. </p>
+
+<p><em>HELLO_WORLD_EXAMPLE</em></p>
+
+<p>There&#8217;s a fully featured guide to Objective-C at[cite] that goes into much more detail. A full analysis of the language is out of scope for the purposes of this document.</p>
+
+<h4 id="llvmimprovements">LLVM Improvements</h4>
+
+<p>LLVM (coupled with Clang) becoming the de-facto toolchain for iOS development saw the following binary size and code speed benefits over GCC for the same binaries:</p>
+
+<p><em>GRAPH_FROM_SOME_SITE_ABOUT_THIS_SHIT</em></p>
+
+<p>Not only did Apple investing in LLVM (and Clang) allow them to take greater control over the tools that were instrumental to the performance of their platform, they also were able to walk away from the legacy constraints of GCC [cite]. While GCC is an incredibly performant piece of software with a fantastic history, the direction that Apple wished to go in was not concomitant with the direction the GCC team were moving [cite]. Whilst Apple maintained their own internal fork of GCC [cite], investing in the LLVM development community and bringing a lot of that development in-house (whilst still maintaining the open-source status of the project) allowed for a re-imagining of what tools could be added via LLVM. One of those major tools that was added was the LLVM Static Analyzer, a tool that has proven invaluable during code development, review and testing. </p>
+
+<p><em>IMAGE_OF_THE_STATIC_ANALYZER_HERE</em></p>
+
+<h5 id="blocks">Blocks</h5>
+
+<p>Introduced alongside Apple&#8217;s desktop operating system Mac OS 10.6 Snow Leopard was the concept of blocks and a new system of managing concurrent and asynchronous programming known as Grand Central Dispatch [cite]. GCD was built to provide an intelligent way for developers to support multi-core processors by providing an abstraction to enhance task parellization. The system is effectively a highly optimized operating system managed collection of thread pools. Tasks are dispatched onto particular queues and the operating system takes care of spinning up or down the particular threads these tasks are performed on [cite]. Blocks are effectively Apple&#8217;s take on closures or lambdas, an encapsulated block of code that can be performed as needed. </p>
+
+<p><em>BLOCK_EXAMPLE_IMAGE</em></p>
+
+<p>With the introduction of iOS 4 and the introduction of the iPhone 4, Apple brought GCD and blocks to iOS. Now many of Apple&#8217;s APIs (particularly animation APIs [cite]) required blocks as completion handlers so performing activity after animation would not block or impact performance of the main UI thread</p>
+
+<p><em>Image of dismiss with completion</em></p>
+
+<p>Instead of manually managing NSThread instances developers could now easily build their own APIs using blocks as callbacks on functions and take advantage of the inherent multi-threading performance benefits that Apple&#8217;s GCD and other APIs provided. A full detailed description of how GCD and blocks work on mobile devices is out of scope for this document, but there is an excellent outline of all of this information in Apple&#8217;s developer documentation here, I highly recommend reading it if this is an area of interest: http://developer.apple.com/library/mac/#featuredarticles/BlocksGCD/</p>
+
+<h3 id="appdeploymentandcodesigning">App Deployment and Code Signing</h3>
+
+<p>One of the main barriers to entry for developing on iOS is the requirement of a developer account ($99 per year) to run code on any actual hardware device. Apple provides an x86 implementation of many of the iOS frameworks [cite] with Xcode, their developer tools that allow you to run code you&#8217;ve written in an iOS simulator.</p>
+
+<p><em>PICTURE_OF_SIMULATOR</em></p>
+
+<p>However the simulator has a subset of the actual iOS frameworks and many things like accessing a camera or using backgrounding APIs simply are not available in the iOS simulator [cite]. The performance in the simulator is not an indication of the performance on a device. </p>
+
+<p>All apps that run on iOS devices are required to be code signed before they will even execute. Generally speaking if you aren&#8217;t a developer the only apps you can get access to are ones that have been pre-vetted and code signed by Apple and are available through the App Store [cite]. The device when launching an app will check to see that the app is code signed and if not it will refuse to run the application [cite]. During the development process you can build a wildcard profile you can install on a device that will let it run applications sideloaded through Xcode. However this is not an efficient or effective way to distribute apps as it requires every individual you wish to have use your app also have an Apple developer account. The code signing on iOS effectively acts as a layer of Digital Rights Management (DRM) to give Apple the ability to choose what software does and does not run on their devices [cite]. During development you can build &#8216;ad-hoc&#8217; distribution profiles that allow you to sign the binary you create and distribute it onto a list of devices that have been pre-authorised. To pre-authorise a device to run the application you are building you have to collect the Unique Device Identifier (UDID) and enrol it in the portal</p>
+
+<p><em>IMAGE OF ENROL UDID IN PORTAL</em></p>
+
+<p>In order to prevent people just enrolling hundreds or thousands of devices and setting up a competing App Store, Apple limits the amount of devices you can enrol to 100. The process of building ad-hoc profiles is integral to testing and QA throughout development. Luckily there is a free service called TestFlight that makes this process a lot simpler. TestFlight allows you to recruit users and have them sign up to join your beta or testing program. When the user signs up for a TestFlight account they are prompted to install a TestFlight profile that retrieves their device&#8217;s UDID and transmits it to the developer. The developer can then enrol that UDID and build a binary of their App that will run on that device. TestFlight will then inform the user and allow them to install that build on their device. What must be mentioned though is the provisioning profiles that Apple allows you to sign binaries with have a built in expiry date. From first generation of that profile you have on average 120 days until the binary will expire and no longer work on any devices. </p>
+
+<p><em>PICTURE_OF_CERT_EXPIRY</em> </p>
+
+<h3 id="sandboxing">Sandboxing</h3>
+
+<p>Unlike a traditional operating system, all apps deployed onto an iOS device are limited to accessing their own data. Apps are deployed into their own &#8216;home&#8217; directory, effectively a chrooted jail [cite] and the system will not allow them to access any content on disk outside of that home directory. Sandboxing is a simple way for Apple to control flaws in one app impacting and providing a vulnerability in other apps or even in the operating system. Sandboxing does not in and of itself prevent flaws in the app from being exploitable. As the App is sandboxed it makes inter-app communication much more difficult than on Android, which has a very powerful inter-app communication system known as &#8216;intents&#8217; [cite]. </p>
+
+<p><em>SANDBOX_FOLDER_INFO</em></p>
+
+<h3 id="thechallengesofmobiledevelopment">The challenges of mobile development</h3>
+
+<p>Developing for mobile is an entirely different experience than developing for the desktop. While Apple provides a consistent set of tools (Xcode) for performing both tasks, mobile is a far more constrained and difficult platform to develop for. Not only do you have the display and other physical constraints of the platform they also have far less power, memory and disk space in comparison with traditional desktop computers. The consequences of design and architecture decisions on the performance of your app are substantially greater on mobile devices than on a traditional desktop computer. </p>
+
+<h4 id="reducedresources">Reduced Resources</h4>
+
+<p>The machine I&#8217;m writing this document on has 16GB of memory, 2TB of storage space and a quad core intel i7 processor. This is an order of magnitude more processing power, memory and storage than even the most advanced smartphone available on the market, the iPhone 5.</p>
+
+<p><em>iPhone 5 Geekbench score table</em></p>
+
+<p><em>iMac Geekbench score table</em></p>
+
+<p>As the Geekbench scores show, the performance of this desktop machine is an order of magnitude more than the iPhone 5. For mobile you need to optimize to support the least powerful phone that can run your applications. The least powerful device that can run iOS 6 (The latest version of iOS) is the iPhone 3GS [RELEASED IN ETC], with a geekbench score of 263. The iPhone 3GS doesn&#8217;t have the dual core high-speed CPU of the iPhone 5, it has a single core Cortex-A8. It doesn&#8217;t have the 1GB of memory of the iPhone 5 it has only 256MB of memory to run not just your app but the entire operating system.</p>
+
+<p>One of the major limitations of mobile in comparison with a desktop is that on mobile there is no paging of VM to disk. If you run out of available memory your app could simply just crash. Apple provides APIs that allow your app to detect when it is working in low memory conditions and respond accordingly. &#8220;The best way to do this is to remove strong references to caches, image objects, and other data objects that can be recreated later.&#8221; [cite APPLE]. Reducing memory usage will help with overall application performance as the system isn&#8217;t dynamically terminating other applications to provide the foreground app with more memory. </p>
+
+<p>Unlike in a desktop environment on iOS when an application is not in the foreground it is effectively suspended. There are several backgrounding APIs provided to allow for applications to continue running (albeit in a reduced priority state) but unlike on desktop the applications running in the background can be terminated at any time if the operating system wants to reclaim their resources.</p>
+
+<p><em>IMAGE_OF_BAR_OF_APPS_TASK_SWITCHER</em></p>
+
+<p>There are some upsides though, most algorithms for desktop are entirely CPU bound and very rarely use any form of hardware optimization. On the desktop performing a function like adding a blur filter to an image can be entirely performed on the CPU because of how high performance current generation CPUs are. On an iOS device performing that kind of calculation on the CPU would slow the device to a crawl and take seconds if not minutes. Apple provides the accelerate API [cite] that allows developers to build custom code that will be hardware accelerated and run on the device&#8217;s digital signal processor. The Core Graphics and the Accelerate framework allow developers to use the GPU to perform image manipulation instead of the CPU massively increasing the performance of actions that GPUs would be better tasked for [cite]. In many instances the ARM platform that iOS devices run on [cite] offer ways to optimize algorithms and use hardware acceleration to provide performance [cite] that is comparable to functions performed entirely on the CPU on much faster computers. Developers have to dedicate time and effort to understanding the differences between the performance constraints on desktop and on mobile and use that knowledge to optimize algorithms or re-architect solutions to provide better performance on mobile that takes advantage of the strengths of the platform.</p>
+
+<h4 id="appperformance">App Performance</h4>
+
+<p>The easiest way to provide a highly performant user experience is to make sure to never perform long-running operations on the main thread and block the UI. GCD and blocks provide an easy method for performing tasks asynchronously. If you need to perform a task on the main thread but do not want to block the run loop and thus UI and touch events there is an ability to access the main thread&#8217;s current operation queue and add a block to be performed on it without blocking the main thread. For example using the main thread to perform a non-blocking network request rather than a background thread on GCD can have a substantial impact on the response time of that network request</p>
+
+<p><em>TABLE_FOURSQUARE_API_QUERY_TIME_DIFFERENCE</em></p>
+
+<h4 id="networkconstraints">Network Constraints</h4>
+
+<p>The most popular iOS device sold, the iPhone has both WiFi and a 3G radio for data and making calls. Every single iOS device has support for WiFi [cite]. It is incredibly important that developers are mindful of data usage and the ways in which data is transmitted or received on iOS, particularly when it comes to using 3G data. 3G data can come at a substantial cost to the end user and not being mindful of this can end in a poor user experience. 3G and WiFi networking can be intermittent as well, network queries made over a congested 3G network can take quite a great deal of time to complete, if they are able to complete at all. Developers also need to account for circumstances where the network is not available and network requests fail, simply leaving a page loading without demonstrating that the request has failed ends in a poor experience for the user.</p>
+
+<h4 id="batterylife">Battery Life</h4>
+
+<p>One constraint that desktop developers are now only just beginning to take notice of is power usage. Mobile devices are extremely power sensitive, the iPhone absolutely so. The reason that Apple provides limited backgrounding APIs in contrast to Android (where applications can run in the background indefinitely) is to preserve battery life[cite]. Apple themselves make several recommendations on ways to preserve battery life or use less battery on devices[cite] alongside providing a module in the analysis program &#8216;instruments&#8217; to see how much power is consumed by actions performed in the application.</p>
+
+<p><em>INSTRUMENTS_SHOT_HERE</em></p>
+
+<p>The API that consumes the most power on the device is location services[cite]. Location services provide an API to retrieve the current location of the user (in the form of their current latitude and longitude to a certain accuracy). Location services caches the most recently retrieved location in the system globally and so when using the API developers need to be wary of the fact that the location they are receiving may be substantially out of date or incorrect. The Location Services API allows you to specify a degree of accuracy required when querying the API for the user&#8217;s current location [cite]. Relying on or requiring a very accurate location can use a substantial amount of energy as the GPS on the device searches for a more accurate location.</p>
+
+<p>The architecture of network requests and the manner in which they are made can also have a substantial impact on battery life and power consumption. Apple&#8217;s own documentation makes recommendations that data is submitted in bursts and in small request and queries [cite] rather than keeping a socket open and streaming the content continuously. In developing and designing network queries developers need to think about building the least amount of data required into that request and making the request as simple as possible to use. Requests that are made unless they are incredibly time sensitive should be cached in order to reduce the amount of network operations that are performed and the toll they have on the device as well.</p>
+
+<p>In terms of general recommendations for iOS power consumption</p>
+
+<ol>
+<li>Do not turn the screen brightness up unless you need to turn the brightness up.</li>
+<li>If you use more power to perform a task in less time but it means that your app will be on screen for less time it may be beneficial to do so.</li>
+<li>Only disable the screen timeout timer if you need to (this timer defines the amount of time without a touch event that will pass before the device will automatically lock itself).</li>
+<li>Be intelligent about network queries made while using backgrounding APIs.</li>
+<li>Consider disabling certain processor-intensive functionality with a notification if the device&#8217;s battery is below a certain point.</li>
+</ol>
+
+<h4 id="hardwareconstraints">Hardware Constraints</h4>
+
+<p>The current version of iOS is iOS 6.0 and there are several pieces of hardware that support this version.</p>
+
+<p><em>TABLE_OF_HARDWARE_HERE</em></p>
+
+<p>As the above table demonstrates many of these different devices have different screen resolutions (accounting for the &#8216;retina&#8217; display which is what apple calls their high-DPI displays on the new iPad and iPhone models iPhone 4 and above), some of them have front-facing cameras, others do not. When building for the platform developers need to intelligently take into account the fact that unless they specify requiring certain hardware, they&#8217;ll need to test for and validate whether hardware they wish to request exists. The other constraint is that different devices have different functionality when it comes to input or output. The iPhone 4S and iPhone 5 both have multiple noise cancelling microphones on the device to remove background noise. In these instances the onboard signal processors will use those microphones to remove any extraneous noise.</p>
+
+<p>The main point to be made about developing for iOS is to test for performance on the smallest target. The iPhone 3GS has the weakest processor and the least amount of memory of all of the current supported iOS devices and as such when developing for iOS, developers should be mindful of the performance on the 3GS [cite]. By working to reduce application complexity, working on intelligent and judicious use of platform-optimized algorithms and being mindful of the performance capability of the 3GS developers can greatly improve the performance of their applications on the 3GS and thus all iOS devices[cite]. The alternative is to only provide CPU-intensive functionality on devices that can support it. Developers can interrogate at runtime what device their application is being run on and choose to enable or disable specific functionality depending on the device[cite]. This is frowned upon though as it does not provide an equal experience to all users of the current iOS version. However it should be noted that Apple has in the past performed this same manoeuvre to get around the limitations of older hardware [cite].</p>
+
+<h3 id="webservices">Web Services</h3>
+
+<p>The most popular mobile applications on iOS are ones that integrate with an existing service or system. Native apps provide an interface to information from a service or system. Native apps like Facebook allow you to log into your facebook account on the go and send messages to your friends or read information they send you</p>
+
+<p><em>FACEBOOK_APP_IMAGE</em></p>
+
+<p>The key element of integrating a Mobile App with a web service is the API you provide for it. The app queries the API and uses the API to receive the information it needs to display to the user. With the rise of social media services like Facebook and Twitter, building a functional, intelligent and well documented API that other developers can develop against is becoming de-facto in the startup community. In 2010 Twitter revealed that 75% of their traffic was via their API (over 3 billion calls per day)[cite]. A quick search on the app store will show dozens of twitter clients that provide users with the ability to log in, view and update their tweets. One of the reasons for twitter&#8217;s massive success was their ability to provide a feature-rich API that developers could leverage to build clients for their platform[cite].</p>
+
+<h4 id="buildingfunctionalapis">Building Functional APIs</h4>
+
+<p>When you&#8217;re building an API that will be consumed by a mobile application it&#8217;s important to organise it in a functional, consistent and logical way and several conventions have emerged over the years as APIs become more and more popular.</p>
+
+<h5 id="restvssoapxmlvsjson">REST vs SOAP; XML vs JSON</h5>
+
+<p>SOAP (Simple Object Access Protocol) was the de-facto standard for Web APIs for a long period of time[cite]. Objects would have defined URLs and actions on those URLs that could be queried. Most of these APIs provided XML representations of objects and relied on the XML schema to allow the client to infer the types and parameters on the object. Over the past three to four years JSON (JavaScript Object Notation) has arisen as an alternative to XML[cite]. Twitter and Foursquare in their newest API versions have both disabled XML and now only offer JSON feeds[cite].</p>
+
+<p><em>JSON_VS_XML_INTERPRETATION_OF_OBJECT</em></p>
+
+<p>JSON is a &#8216;fat free&#8217; data-interchange format for describing objects. It has several types:</p>
+
+<p><em>JSON_TYPES_TABLE</em></p>
+
+<p>Almost every language in the world now has a native library for JSON. JSON is self-describing just like XML but with far less verbosity. When transferring data and information across low-bandwidth mobile networks that may have intermittent coverage the fewer bytes sent the better. JSON allows developers to trim the fat from their APIs and just transfer bare bones objects with types that are easily inferred and documented by the standard.</p>
+
+<p>In contrast with SOAP the new convention for building APIs for querying objects is REST (REpresentational State Transfer). In a RESTful design, the resources are identified, they can be objects or entities or collections or even just a simple text string. However instead of providing extended URLs to perform actions on objects RESTFul APIs interpret the standard HTTP verbs (GET, PUT, POST, DELETE) to provide an easier way to interact with a resource. </p>
+
+<p><em>REST_TABLE_GET_PUT_POST_DELETE_HERE</em> </p>
+
+<p>By using HTTP verbs a RESTFul API requires less complexity (than the comparable SOAP API that requires routes for all of the actions that can be performed on the object) to retrieve, create, modify or destroy resources on an API. All a developer needs to know is the route for the object and the rest of the functionality is inferred.</p>
+
+<h5 id="versioninganddeprecation">Versioning and Deprecation</h5>
+
+<p>A good API is one that is being consistently refined. The problem with consistently refining an API is that you may break compatibility with clients that are used to using an existing format on your API. </p>
+
+<p><em>TABLE_COMPARING_API_CHANGES_TWITTER1.0_TWITTER1.1</em></p>
+
+<p>If, say, you decide to rename a resource in your API, users who don&#8217;t know you&#8217;ve made that API change will get an error when querying against the API they think you are currently providing for consumption. The easiest way to allow flexibility to refine and iterate an API is to version it.</p>
+
+<p>Let&#8217;s say you&#8217;ve built API that allows people to submit and view pictures of cats but later decide to rename the model to a feline as people were submitting photos of lions. Instead of changing the query for the cat resource from &#8220;http://foo.bar/cat/1&#8221; to &#8220;http://foo.bar/feline/1&#8221;, you can provide an API with a version element. The URL for your first version would be, &#8220;http://foo.bar/api/v1.0/cat/1&#8221; which will always return a consistent result (until that API is deprecated). The URL for your updated feline version could be &#8220;http://fo.bar/api/v1.1/feline/1&#8221;. Versioning an api allows an easy way to test new ways of providing a method for an API to be consumed without breaking existing clients. Though a similar method has been used by twitter to remove features from clients as it is impeding their ability to monetise the service[cite], but best practice can sometimes be used for nefarious ends.</p>
+
+<h5 id="apiresponses">API Responses</h5>
+
+<p>The response an API provides is generally to be defined by the circumstances in which a client is querying it. Normally you will provide a JSON representation of an object (or objects) that have been queried on an interface. One important factor though is to take into account the context of the query when it comes to returning the object.</p>
+
+<p>HTTP status codes can be used as shorthand when responding to a query from a client. In this example say there is a client that is querying a list of paintings. Some paintings can be marked private and can only be accessed by valid clients. In the first instance the client queries a painting object and as it can access it, a JSON version of the object is returned. In the second instance the client queries an object that no longer exists. As you know the client is a mobile application, instead of providing a long and verbose response such as a &#8220;object not found&#8221; page, you can simply return in the header a HTTP Status 404 (Not Found) error. The HTTP response then doesn&#8217;t require a long body [cite] with information on the error, the client knows that a 404 means the object does not exist and can parse it appropriately. The less data transmitted to this mobile client, the better. The client then tries to query a painting that does exist but it is not authorised to view, instead of returning an error that the client is not authorised, the server can return a 403 &#8220;Forbidden&#8221; HTTP Status code. By honouring the HTTP status code specification [cite] clients can easily infer more information about the state of a RESTFul interface query than relying on further information from the API.</p>
+
+<p>An alternative to the above approach is to be slightly more verbose in responses by attaching a &#8216;meta&#8217; object to the return on every request. An example of this &#8216;meta&#8217; object on an API query exists in the Foursquare API [cite]. Each query to the Foursquare venues API will return a meta object with a HTTP status code and a message with more information in the event of an error. A more powerful and more functional API like foursquare may require this but in the scenarios where an API doesn&#8217;t involve many objects or many endpoints, keeping verbosity to a minimum is a valid recommendation.</p>
+
+<p><em>GZIP_MAYBE</em></p>
+
+<h4 id="sinatrawebapplicationframework">Sinatra Web Application Framework</h4>
+
+<p>Sinatra is a web application development framework written in ruby and inspired by the web application framework Ruby on Rails [cite]. Unlike Ruby on Rails, Sinatra does not include all of the boilerplate, templates and other such elements that come bundled with rails:</p>
+
+<p>&#8220;While Rails is a framework focused on writing model driven web applications, Sinatra is a library for dealing with HTTP from the server side. If you think in terms of HTTP requests/responses, Sinatra is the ideal tool.&#8221; - Konstantin Haase, maintainer of Sinatra</p>
+
+<p>Sinatra is an excellent tool for rapidly prototyping and building a web application that does not have too much extended functionality. Sinatra effectively acts as a domain specific language for HTTP requests. A simple Sinatra app that responds with &#8220;Hello world&#8221; from a query to it is only four lines:</p>
+
+<p><em>SINATRA_HELLO_WORLD_EXAMPLE</em></p>
+
+<p>Where Sinatra really shines though is viewing it as a library for dealing with &#8220;HTTP requests/responses&#8221;. This functionality makes Sinatra a natural choice for building clean and easy to define and iterate web APIs for mobile applications. Sinatra is also modular, you can mount multiple Sinatra apps in one deployment, configuring them to exist on different endpoints. This functionality alone makes versioning an API quite easy, if you want to iterate your API&#8217;s versioning without impacting the existing clients using the API simply build a newer version and mount it on /api/v1.1 instead of /api/v1.0. Sinatra is used by some major companies to run APIs and sites. Github uses Sinatra to run their entire GitHub API [cite].</p>
+
+<p><em>IMAGE_OF_MOUNTING_IN_CONFIG_RU</em></p>
+
+<p>Iteration and rapid development of a web application is easy when using Sinatra combined with HAML (HTML Abstraction Markup Language)[cite]. HAML is a language that is far less verbose than HTML which is compiled to HTML by the web application. HAML has become the de-facto standard for view templates in the rails and Sinatra communities because of its integration with the assets pipeline and the speed at which HAML documents can be created [cite].</p>
+
+<p><em>HAML_VS_HTML_EXAMPLE</em></p>
+
+<h4 id="datamapper">DataMapper</h4>
+
+<p>DataMapper is an object relational mapper written entirely in ruby [cite]. DataMapper is a database agnostic layer that allows models to be defined with properties (and relationships) that can be used on top of any number of databases. There are currently bindings for MySQL, Sqlite3, PostgreSQL and Oracle[cite]. DataMapper provides a domain specific language for defining model objects and the properties on those models. It provides a concise and easy API to use for querying the models as well, instead of writing a long and complicated SQL statement. If you&#8217;ve defined an object &#8216;cat&#8217; and want to retrieve all of them, you simply go Cat.all and DataMapper executes the required &#8216;select * from &#8216;cat&#8217;&#8217; query[cite].</p>
+
+<p>DataMapper&#8217;s flexibility and power allow for rapid prototyping and development by making it trivial to add attributes to models and define models and relationships even if the database has already been created. If newer models and attributes are added the handler will migrate that data over to a new version of the database that reflects the attribute and model changes [cite].</p>
+
+<p>DataMapper also has extensions, in particular the dm-aggregate extension allows for performing mathematical functions across the database. Functions like max, min, sum and average make calculations for statistical purposes substantially faster than querying the models and performing those calculations on the returned set of model objects in memory in the Sinatra application.</p>
+
+<h4 id="foursquarethefoursquareapi">FourSquare &amp; the FourSquare API</h4>
+
+<p>Foursquare is a social networking service that allows users to &#8216;check in&#8217; to venues to receive points and compete with their friends to accrue the most points. Foursquare is of great interest because of their consistent effort to build valid and verified venue data. FourSquare provides the ability to search for venues around a latitude and longitude location and will return a list of venues and the distance away those venues are from that location. Foursquare has made some API changes recently that allow applications to register for an auth token and make venue searches with an application auth token rather than requiring a user with an existing foursquare user account to log in. This means that foursquare&#8217;s venue information can be used to provide information to users that do not have foursquare accounts. </p>
+
+<h2 id="hearclear-theproject">HearClear - The Project</h2>
+
+<p>The system that constitutes HearClear is two equal but wildly different parts. The first of those parts is the iOS client application, an application designed to provide a simple and easy to use method for sampling the average loudness at a venue. The second part of HearClear (Which itself constitutes two different parts) is the web service that the iOS client communicates with. Both were developed in tandem but the majority of initial work was spent on researching and building the iOS client so sample data could be submitted to the constantly changing web service backend. The version that this document outlines is the product of months of work and constant testing, redeploying and tweaking. There are changes and modifications that could be made and the <em>FURTHER_WORK</em> section outlines just a few of those ideas, but at this stage the web service and the client app function as expected. Users can check in and sample loudness information at venues, upon finishing the check-in the client will submit that information to the server. The server will then scan that information for outliers or statistical anomalies and update the venue&#8217;s average volume rating for that time period. The more samples of average volume made at different venues the more accurate the analysis becomes and the more accurate the information that is presented becomes. This project was initially started as a purely iOS project, but like so many things the scope changed as time moved on. Separating the functionality into two separate apps and shifting a lot of the burden over to the server made sense when the decision was made to shift it over then and makes sense now. </p>
+
+<h3 id="hearclearforios">HearClear for iOS</h3>
+
+<h4 id="overview">Overview</h4>
+
+<p><em>HEARCLEAR_WELCOME_SCREEN</em></p>
+
+<p>HearClear for iOS is an application developed and targeted for iOS devices capable of running iOS 5 and up. Halfway through the development timeline Apple released iOS 6 and the iPhone 5[cite]. At this point a decision was made to only support iOS 6 and thus the devices (non-iPad) that support iOS 6. </p>
+
+<p><em>DEVICES_SUPPORTED_TABLE</em></p>
+
+<p>The iOS application is deceptive in its simplicity. The application itself only has five different screens. This was a deliberate decision. The original goal of this app was to make it as easy as possible for someone to pull out their phone at a venue and start sampling the venue loudness without too much messing around. The end desire of the application is to pair valid location information with valid loudness information. There are obvious potential pitfalls in trying to collect this data and a great deal of the time spent on designing and engineering was dedicated to reducing the possibility of invalid location information and invalid loudness information.</p>
+
+<h4 id="applicationdesign">Application Design</h4>
+
+<p>The primary goal from the first iteration of this application was to make the process of opening the application to checking in at a venue take less than 20 seconds. Every single element of the process was tuned to reduce the latency between opening the app, viewing the list of venues and then checking into one and beginning the sampling process. HearClear was designed to be self-explanatory, they would need no user manual to start using the app and start sampling the loudness of their environment.</p>
+
+<p>There are no excess screens and no excess waste of screen real estate. Instead of building a highly customised user interface, the app was developed keeping in mind the standard UI grammars for iOS [cite]. </p>
+
+<p>The end goal of this vision was to have a user check in and then leave their phone on the table sampling the venue loudness in the background, hopefully forgetting that it&#8217;s even sampling. </p>
+
+<p>The process is very straightforward:</p>
+
+<ol>
+<li>Launch the Application</li>
+<li>View a list of nearby venues</li>
+<li>The Application displays that it is loading venues while it waits for location information from the GPS that it determines is recent and accurate enough to be near to their location.</li>
+<li>The Application then queries foursquare using this location information.</li>
+<li>The Application then presents the results from foursquare ordered by distance away from the user.</li>
+<li>The user can then tap on a venue in the venues list and view more information about the venue (distance from the user, where it is on a map, etc)</li>
+<li>If the venue has already had users supplying sample data at that location the user can view loudness for the periods of time that have been sampled for.</li>
+<li>The user can choose to check in at the location. When the user chooses to check in the Application automatically starts sampling the loudness of the sounds that it receives through the microphone.</li>
+<li>After a pre-determined time period (or the user decides to terminate the sampling manually) the Application will stop sampling and submit the samples it has retrieved to the server for processing.</li>
+<li>The Application will then return to the home screen allowing the user to check in at their next venue and sample there if they desire.</li>
+</ol>
+
+<h5 id="venuelist">Venue List</h5>
+
+<p><em>VENUE_LIST_INFO</em></p>
+
+<p>The venue list view allows users to see the venues for their location that the FourSquare service has returned on the query. The application is designed with the standard UI Paradigm of a &#8220;Pull to refresh&#8221;. This venue list is designed to only initiate the query when the user&#8217;s location has become fixed to a certain accuracy (a horizontal accuracy of under +- 60 metres). To view a venue&#8217;s information, the user simply taps the table view cell row of the appropriate venue.</p>
+
+<p>Unlike FourSquare&#8217;s native application where venues are listed in order of popularity, these venues are listed in order of distance from the user&#8217;s current location. One of the core engineering principles of this client application was to provide a speedy way for users to check into venues. By organising the venues in order of user proximity, the user does not have to waste as much time searching through the list to find the venue they wish to check in at. </p>
+
+<h5 id="venueinfo">Venue Info</h5>
+
+<p><em>VENUE_INFO</em></p>
+
+<p>When a user has tapped on the venue they wish to find out more about or check in at, the venue info page is displayed. The venue info page shows the location of the venue that was provided by FourSquare on a map. They can also see how far away the venue is from them. If there has been information collected on the venue a &#8216;venue info&#8217; button will appear allowing the user to view the estimated venue loudness at existing times that have been sampled. If there are no samples for that venue the venue extended information button will not be displayed.</p>
+
+<p><em>VENUE_INFO_BUTTON</em></p>
+
+<h5 id="venueloudnessinformation">Venue Loudness Information</h5>
+
+<p><em>VENUE_LOUDNESS_INFO</em></p>
+
+<p>If the venue does have extended info, the venue loudness page displays the loudness values determined by the backend and provides a quantified value for it (soft, average, loud etc) in the interface. The quantified values are determined by the server and the process for defining them is outlined in the server section of this document. The venue loudness element displays the loudness values broken up into hourly values and days of the week. The manner in which this information is displayed is based on the information provided by the server, so the display could change to say four hour blocks if it is determined by the server that this is a more accurate way of displaying loudness data for venues.</p>
+
+<h5 id="sampling">Sampling</h5>
+
+<p><em>SAMPLING_VIEW_INFO</em></p>
+
+<p>The sampling view begins sampling the moment it is displayed. There is a live status of how far away you are from the venue and an animated speaker icon to display that sampling is currently ongoing. The user can choose to end the sampling at any time. The user at this point can lock the device and the sampling will continue in the background until the user leaves the location or five minutes has passed. In earlier prototypes the sampling screen was displayed but the user could choose to start sampling before the sampling began. After prototypes this was decided against because the choice to start sampling from the venue info view implicitly implied that the user wished to begin sampling. By requiring the user to touch &#8216;begin sampling&#8217; again from the venue view was effectively &#8216;double handling&#8217; and increased the complexity of the application. The fewer points of interaction with the app and the less the user had to think about their decisions in the app the better.</p>
+
+<h4 id="engineeringdesign">Engineering Design</h4>
+
+<p>The user interface and layout of the application are simple and intuitive as a point of design an architecture. The fewer screens and elements the more time and effort could be dedicated to optimising the experience and working on the polish and performance of the application. Design is not just skin deep, the application went through several iterations and paper prototypes until the current user interface was decided upon. A great deal of the design decisions in terms of the data model, networking decisions and the APIs built into the app were attempts to provide a great experience on the platform by using iOS best practice design techniques. This use case requires incredibly fast performance and the major non-functional requirement as such was to reduce lag and delay as much as possible.</p>
+
+<h5 id="models">Models</h5>
+
+<p>There are three main models used in this application, the first being the venue model, an object that is provided by foursquare. The second being the venue checkin, an object we create on sample. The third is a venue sample object, a recording of the venue loudness values as the application takes samples of the microphone&#8217;s voltage levels.</p>
+
+<h6 id="venue">Venue</h6>
+
+<ul>
+<li>id</li>
+<li>name</li>
+<li>lat</li>
+<li>lng</li>
+<li>distance</li>
+</ul>
+
+<p>Venues are retrieved from the FourSquare API. The venue model used inside the application is a pared down version of the information provided by FourSquare. The full FourSquare venue model is available at [CITE]</p>
+
+<h6 id="venuecheckin">Venue Checkin</h6>
+
+<ul>
+<li>id</li>
+<li>name</li>
+<li>lat</li>
+<li>lng</li>
+<li>samples [array]</li>
+</ul>
+
+<p>A venue checkin is instantiated when the venue sample view is presented. The venue checkin consists of the metadata required to have the checkin associated with the correct venue object on the server. At the end of each defined sample time period, a time sample is instantiated and added to the samples array. This design allows for modifications to the time sample period, something that was consistently changed for the purposes of attempting to gain better accuracy out of the APIs provided.</p>
+
+<h6 id="venuesample">Venue Sample</h6>
+
+<ul>
+<li>maxPower</li>
+<li>averagePower</li>
+<li>date [timestamp]</li>
+</ul>
+
+<p>A venue sample contains two floats that both contain a 0 - 1 value of the voltages returned by the API over the period of time they were queried. The maxPower contains a normalised value of the max power for channel API. The averagePower contains a normalised value of the average power for API channel. The date contains a localised date value created with the time at which the sample period for that sample began.</p>
+
+<h5 id="networking">Networking</h5>
+
+<p>As the application interacted with two network services, two separate network services APIs needed to be built for internal use. The first was a library and a utility for integrating with FourSquare and querying their venue information. The second was for querying and submitting venue data to the server component of this application. As the requirement for these networking queries was to maintain high performance and speed, there were several design decisions put in place in order to reduce the time users spent waiting for results or information. </p>
+
+<p>Multiple networking APIs have been built on top of Apple&#8217;s networking APIs and many third party libraries exist to make networking easier on iOS. However Apple&#8217;s standard NSURLConnection library provides fantastic performance if used according to their guidelines [cite]. In order to not block the main thread and break the user experience and UI, all of the networking queries needed to be asynchronous. NSURLConnection provides a method for sending a network connection asynchronously on an NSOperationQueue (An NSOperationQueue is what it sounds, a series of operations that are performed in order) with a block for a callback.</p>
+
+<p><em>EXAMPLE_IMAGE_HERE</em></p>
+
+<p>A standard way that objective-C classes interact is through the use of delegates and callbacks on delegates. It&#8217;s kind of like an observer pattern on steroids. An object implements a protocol defined by the delegate (think like an interface in java). The delegate can then create an instance of the networking object and call the requisite methods on that networking object. Now instead of waiting for that networking object to return synchronously, by defining the class that instantiated the networking object as the delegate of that networking object, the main class can continue to execute as normal. When the networking object has finished its network routines, it calls a method defined by the protocol on its delegate (the initial class). That way the class is informed when the network query has finished and is returned the information from the network query asynchronously rather than blocking the run loop while waiting for it to return. This is the first way to provide a positive experience with networking, but these networking requests if you are instantiating a new NSOperationQueue are performed on a secondary thread and can take quite a lot longer to resolve. Using new NSOperationQueue in the query to foursquare results sometimes took as long as 10 seconds to return even on the incredibly fast uniwide connection. Given the main goal of the application is to provide a speedy way to let users check into venues as quickly as possible, this was not an acceptable turnaround when a standard CURL to the API returned in under half a second. Thankfully the NSOperationQueue class provides an ability to obtain the current OperationQueue for the main thread. Now this is automatically prioritised to favour UI and touch events but you can insert operations into it. By inserting the network operations into the main thread&#8217;s main queue the performance of all network queries improved substantially.</p>
+
+<p><em>TABLE_FSQ_HC_API_MAIN_VS_OTHER_THREAD_TABLE</em></p>
+
+<p>The network elements of the client application were always going to be the most important elements. If users are unable to get venue data or submit sampling data then the client application is effectively useless. As there were multiple screens querying the same networking elements, overloading and building multiple protocols for the implementation of network callbacks on those screens was simply untenable and not a clean way of implementing a decoupled network delegate protocol. As such a standard networking response was defined for both the FourSquare API and the HearClear server API that returned in the response an enum value for the query type and the result type along with a dictionary item for the response. Instead of then implementing methods like responseForVenueInfo and responseForVenueFurtherInfo, the delegate could check to see what the responseType was and then act accordingly. Delegates that did not need to query venue information and the like but only check to see if a venue existed in the backend would then only need to respond when the responseType was of one that they implemented. Instead of needing 30 different network delegate protocols, only one was needed.</p>
+
+<h5 id="backgrounding">Backgrounding</h5>
+
+<p>One of the major benefits of using the standard Apple APIs for querying the venue loudness as voltage on the AVAudioRecorder API was the ability to easily enable backgrounding in the application. Each app bundle (which is just a renamed zip file) contains an Info.plist file. A Plist is simply an XML property list, it&#8217;s Apple&#8217;s standard way of denoting things. In this plist file you can request backgrounding &#8216;privileges&#8217;. In order to enable the ability to record in the background, you only need to add one line to that plist. Now any time an AVAudioRecorder is being used and the user closes the application, the user will be notified that the application&#8217;s recorder is still running in the multitasking bar.</p>
+
+<p><em>EXAMPLE_HEARCLEAR_BAR</em></p>
+
+<p>This also means that the application will continue to record when the device is locked. Instead of writing my own core foundation (a C API onto the hardware microphone exposed) I could concentrate on getting the sample frequency and the recording frequency correct.</p>
+
+<p>The application also uses the CoreLocation framework in concert with the GPS in the device to make sure the user is still at the venue and discontinue sampling if they leave the location. This worked in concert with the strategy that in order to get users to sample venues, they need to be able to check in rapidly and then forget while the device samples. One of the major concerns about using Apple&#8217;s backgrounding APIs is they do have a significant impact on the battery life and performance of the device. Recording and using GPS simultaneously (particularly at the resolution required to make sure the user is within a hundred or so meters of a location) can be quite a drain on battery life. As such when a checkin is concluded, the audio and GPS sessions need to be shut down as soon as possible to make sure that the impact on battery life is not more than necessary. There is a more battery life friendly mechanism with CoreLocation that doesn&#8217;t continuously update the GPS location, regions. In an application you can define a region and the location delegate will fire a callback when the user exits or enters this region. This was the initial approach for the purposes of saving battery life (in my basic tests it seemed that the region system used four to five times less battery over the same period of time) but the region callbacks would take far too long to fire when the user left the small defined region. As such the decision was made to use the GPS at full power but shut down the moment the user was too far away from the venue, rather than use less power but collect more invalid data.</p>
+
+<h5 id="sampling">Sampling</h5>
+
+<p>The sampling in the application is made possible by the API provided by AVAudioRecorder, the standard audio recording framework provided by Apple. </p>
+
+<p>The AVAudioRecorder can record average and peak voltage levels for the channel of the microphone by setting a flag on the instance of the recorder (meteringEnabled) to true. Using this API a timer can be fired at a certain interval to obtain the levels for average and peak over the course of that time interval. This allows for either granular or wide sampling periods. The more samples taken the more information that has to be transmitted back to the backend. A balance had to be chosen between obtaining valid samples and minimising the amount of data collected and data transmitted to the backend.</p>
+
+<p>Using a standard sound source (a computer playing a 2600hz wav file) and a standard distance (10cm from the computer). A decibel meter was used to compare with the outcomes of the peak voltage for channel and the average voltage for channel over several sample intervals. They were sampled at intervals that would estimate Each one was sampled at least 10 times.</p>
+
+<ul>
+<li>0.5</li>
+<li>1.0</li>
+<li>2</li>
+</ul>
+
+<p>Based on the analysis across several sample decibel levels (65dB, 70dB, 75dB, 80dB and 85dB) using the average values at a one second sample rate seemed to provide the best tradeoff between sample rate and sample accuracy. The way the levels are calculated inside Apple&#8217;s API are entirely inscrutable and unavailable for public consumption. However the averages would skew towards zero the lower the sample frequency became. Given that a lot of the sounds that will be sampled by the system are background noise and conversation, it made sense to skew to a higher sample rate and then use that data for further analysis on the server. There were some mildly problematic issues with this analysis and those are covered in the analysis section of this document. There is a link to the dataset for these calculations in Appendix A to this document.</p>
+
+<p>User weighting was initially suggested as an idea by Wayne Wobcke, my thesis supervisor. However a way of applying these estimates across different venues was simply too difficult given the time at which the suggestion was made. There was simply not enough time available to take into account the user estimate along with the device information to skew or modify the data to take into account their estimation of venue loudness. It seemed more intelligent to rely on the impartiality of the device&#8217;s voltage levels itself and then perform further analysis on the backend as needed.</p>
+
+<h5 id="displayingvenueloudnessinformation">Displaying Venue Loudness &amp; Information</h5>
+
+
+
+<p>If there is further venue loudness information available on the server then the application will display a &#8216;more info&#8217; button allowing users to view that information. There are two parts to this, the first is the query from the server that returns the groupings of venue loudness organised by day and time of day. The second is the weightings by which the device determines how to turn the average loudness float value into a human readable string. In the first versions of the application this information was hardcoded, however as more data was collected and after further analysis of the logarithmic manner in which the different device microphones defined average and peak values, a decision was made to allow the server to dictate loudness. An architecture change had to be made on the client app to no longer define the terms of loudness, the server will substitute in the loudness value for the given float on the fly and return simply an array of days and hours with an human readable loudness value (silent, soft, loud etc). As such as more analysis goes on, changes can be made to how the loudness values are displayed on the device by making changes on the server.</p>
+
+<h4 id="ethicalissuesandprivacyconcerns">Ethical issues and privacy concerns</h4>
+
+<p>The initial version of the application had the sound recording information go to /dev/null on the device as it was recorded. One of the key concerns of this project was making sure users were aware we were not recording their conversations but were just sampling venue loudness. However with the release of iOS 6 the ability to record to /dev/null was no longer available. A temporary file had to be set up, one that was created in the cache area on the device. As I did not want to have a recording of the venue sample, but purely wanted the sample, the decision was made to use the changed recording API but destroy the recording if the application is ever killed (so the recording cannot be accessed by browsing the caches) or the moment sampling is finished, before the sample information is submitted to the server. This may cause ethical or other issues in terms of release forms for using this application outside of educational situations but it was the only way to bridge the changes in the APIs with iOS6 and above.</p>
+
+<h3 id="hearclearwebservice">HearClear Web Service</h3>
+
+<h4 id="overview">Overview</h4>
+
+<p>The HearClear web service is broken up into two separate mounted applications. The first of those applications is the API, the mechanism through which the client interacts with the server. The second is the administrative overview layer that made viewing and managing data in the backend (as well as testing different mechanisms for interpreting the data and different methods for statistical analysing the data). </p>
+
+<p>This section will touch on the design decisions of the server-side application, the reasons for using components for the two elements and a broad overview of some of the statistical methods used on the server side for analysis. More information on the analysis and information about where to acquire the data is covered in the next section, the Analysis section of this document.</p>
+
+<p>Though there were two separate mounted applications, through the modularity of Sinatra, it was trivial to include the same model-level access to the data through both the API endpoint and the administrative viewer without integrating the two applications directly. </p>
+
+<h4 id="entities">Entities</h4>
+
+<ul>
+<li>Document and outline the different entities used and the reasons for them</li>
+<li>Venues</li>
+<li>Checkins</li>
+<li>Sessions</li>
+</ul>
+
+<h4 id="api">API</h4>
+
+<p>The primary design decisions for the API revolved around the entities that could be interacted with. After a trial and error process of defining nested relationships and returning a nested relationship for a venue with samples and other elements a decision was made to provide an array of days and dates with venue loudness when requested and provide a simple API for submitting samples when a checkin session had finished.</p>
+
+<h5 id="checkingin">Checking In</h5>
+
+<p>The checkin api is very straightforward. The object that the checkin API expects is based entirely off the structure of the checkin and sample objects on the client side. The client on conclusion of a sampling session, serializes the checkin values to JSON and POSTs them to the new session URI. The full list of API endpoints is available in Appendix 2. The information is received by the server, scanned for outliers and either a new value for that time period (the hour period in which the sample is supplied) is generated or the existing sample value for that hour period is updated to reflect the newer sample data.</p>
+
+<h5 id="queryingvenues">Querying Venues</h5>
+
+<p>In order to provide flexibility and consistency, it was decided that ID queries for venues would use their FourSquare ID rather than the venue ID that was automatically allocated by the database. The reasoning for this is outlined above under the venue entity.</p>
+
+<p>The client can query the venue entity for basic information about it (a serialized version of the entity outlined above, plus information about the mean average volume and the number of previous checkins that have been performed at the venue). This information is not currently displayed to the user in the client app but could be made available through an update.</p>
+
+<p>The API allows for the construction of new venues when a user taps on them in the table view. When the venue info controller loads, a post is made to the new API with a venue object. If the venue does not exist it is created in the backend. The RESTful interface on venues makes the creation and querying of venues straight forward and easy to implement. </p>
+
+<p>For venue loudness information, the route for the query is extended. As the extended loudness information has a calculation overhead the information is not included and calculated on a standard venue query due to the computational cost of doing so. Instead the client queries the object through the normal RESTFul interface but with an extended parameter, that volume information is required. The server then dynamically generates the date and data sets for this query, grouping the existing samples by day of the week and then by hour of the day providing an estimate of how loud the venue is at those different points in time. The server then converts the average sound estimates to a value string, this is so that as the bounds for different loudness levels are shifted they can be updated without requiring an update to the client. The goal is to be as flexible as possible in regards to information sent to the client and the manner in which the client displays that information.</p>
+
+<p>If volume information doesn&#8217;t exist for that venue (there have been no checkins at that venue) the API returns a 404 status code. The API throughout it uses status codes on entities not being found and other elements to speed up error handling and to reduce network traffic. The API is designed to tightly integrate with the iOS counterpart but provide flexibility so that a client for a different platform (Say Windows Phone or Blackberry) could be developed and integrated into the existing infrastructure.</p>
+
+<p>The API need to be built to use as little data as possible and be as responsive as possible. Sinatra is built on top of a HTTP request/response middleware known as Rack[cite]. Rack provides a library called &#8216;deflate&#8217; that allows automatic usage of gzip for all submissions and responses[cite]. iOS automatically supports gzip, and by compressing queries and submissions by including this library network traffic can be substantially reduced, particularly for submissions of data that come to several kilobytes if the user has been sampling for several minutes.
+At every point in the API care and design decisions were made to improve both the responsiveness of the API and to decrease whatever bandwidth was used.</p>
+
+<h4 id="admindatamanagement">Admin &amp; Data Management</h4>
+
+<p>The Administration and data management component was mounted into a separate app on &#8220;/farmer&#8221;. Information on how to access and review this section is included in Appendix 2. This element was built primarily for the purposes of demonstrating the data that was being submitted and providing an easy way to see how tweaks to the different statistical models impacted the reported information (and thus loudness) at venues. The system was built entirely using twitter bootstrap, a web user interface framework that allows for the rapid construction of interfaces that are responsive, that is that scale down for mobile devices and the like. At many points in time the backend needed to be checked after a session out and about was logged, using bootstrap to develop this site made querying it while on a mobile device substantially easier. The administration section was broken into four elements: Dashboard, Venues, Users and Sessions</p>
+
+<h5 id="dashboard">Dashboard</h5>
+
+<p>The dashboard is fairly straightforward, it provides the ability to at a glance see what the last five venues checked in at were, the last five users to join the program or submit data and the last five checkins at different venues. It was built primarily as a tool for validating that submissions to the API had been successful. </p>
+
+<p><em>IMAGE_HERE</em></p>
+
+<h5 id="venues">Venues</h5>
+
+<p>Venues provided a list of venues ordered by latest order. On the venue pages you could see the checkins from each venue and could also view where the venue was on a map. It was designed to make it easy to see when users were checking into venues and where these venues were.</p>
+
+<p><em>IMAGE</em></p>
+
+<h5 id="sessions">Sessions</h5>
+
+<p>Sessions were held within venues. As the key element of this platform was to get valid session information, under the venue you could view sessions and see whether they were considered outliers or not and view the statistical information about each checkin and session, as well as the overall statistical information about the venue.</p>
+
+<p><em>IMAGE</em></p>
+
+<h5 id="users">Users</h5>
+
+<p>Taking into account privacy constraints there were initially reservations about collecting the type of devices that was being used to record information and an identifier for that device. The one reason I wanted the identifier for that device was to make sure that I had a point of control for all checkins from a certain user. By generating a unique ID for that user I could link all of the checkins they submitted. If there were any irregularities or those checkins were unfairly skewing the ratings at different venues they could be removed. Though there is only basic statistical analysis performed, the information about devices could also be valuable if certain devices tended to skew louder or softer than other devices when sampling and collecting data.</p>
+
+<p><em>IMAGE</em></p>
+
+<h5 id="calculationscalingconstraints">Calculation &amp; Scaling Constraints</h5>
+
+<p>The current version uses a flat Sqlite3 database to store all tables and entities defined in the models. Sqlite3 can scale fine to tens of thousands of rows of data. This project was never going to collect tens of thousands of rows of data due to the timing constraints. If this data model is to be used in future and this information made public there are a few changes that should be made. Firstly, the system should migrate to a PostgreSQL or a NoSQL (MongoDB or other document database) system instead of using sqlite. That will offer a substantial performance increase once more data is collected. Secondly, calculations of venue loudness should be cached and not performed on a user query. A queue should be used to iterate through venues as check-in samples come in and that should calculate and store that venue information in a separate entity that can be queried much faster than performing the calculation each time venue information is queried. At the moment this is not much of an issue but again as more data is submitted and more users access the service, those changes will have a substantial impact on overall system performance and overall user experience because of it.</p>
+
+<h2 id="analysis">Analysis</h2>
+
+<p><em>TO BE COMPLETED</em></p>
+
+<h2 id="furtherwork">Further Work</h2>
+
+<p>The project as it currently stands is a proof of concept, an attempt to see if something that didn&#8217;t currently exist outside of toy apps could be built. Something that could demonstrate the ability to sample venue loudness at venues could be possible and feasible on the blank slate of a smartphone. As this is a proof of concept there is more work that could be performed and many ways in which this project could be extended. This section of the document outlines a few ways in which further findings could be taken from this work.</p>
+
+<h3 id="devicework">Device Work</h3>
+
+<p>As mentioned in the scope modification section of this document, there is definitely room for enhancing the sampling code on the iOS side to take into account frequency analysis performed on certain devices. This project didn&#8217;t provide the timeline for such an analysis but a PHD thesis or similar could provide scope for performing the frequency analysis and putting together a much more superior algorithm for translating the voltage values sampled by the device&#8217;s microphones to an absolute value. By developing an algorithm that returns more accurate sound measurement values the data recorded and the analysis performed on the server could be much more valuable in the long run. Though, as noted, that would be an incredibly time-consuming body of work and would best need to be performed by someone as part of a Masters or PHD thesis.</p>
+
+<h3 id="analysiswork">Analysis Work</h3>
+
+<h4 id="venuecomparisons">Venue Comparisons</h4>
+
+<p>One of the main ideas I had when deciding to switch from trying to figure out a decibel value for the samples made by the device and using a relative scale inferred through a combination of statistical means and real life comparisons with a Decibel Meter was the ability to compare venue loudness. Ideally if a venue was too loud or too quiet for you, you could see a list of venues that were either comparatively the same volume or comparatively louder or quieter. A simple way of doing this is performing an analysis of variance test against the two venues, or building analysis of variance information against multiple venues. A similar mean between two venues implies a similar loudness profile and as such the ability to recommend similar venues is just comparative statistics. The methods for divining whether other venues are louder or quieter also involves a simple ANOVA but the calculations and complexity of doing so when there are multiple venues makes it prohibitive to do in a computational fashion currently. Perhaps calculating means and standard deviations on different venues will allow for collecting similar venues which can then be compared using ANOVA. However the time and scope of the project made implementing that analysis not possible at the current stage.</p>
+
+<h3 id="venuework">Venue Work</h3>
+
+<p>Currently the system works only on venues that are provided by FourSquare. If Foursquare&#8217;s information is incorrect or erroneous (and online mapping services can be as we have seen [cite]), users have no way to choose or input a new venue. The application could be enhanced to allow the submission of these venues and moderation of them. A partnership could potentially be struck with FourSquare to use HearClear users to help them vet their venue information and remove venues that are incorrect or false. Integrating with FourSquare aside the work needed to add this support is not trivial and would take a month of two of development and testing before being implemented.</p>
+
+<h4 id="predictiveanalysisoutliers">Predictive Analysis &amp; Outliers</h4>
+
+<p>Removing outliers is key to removing skew on different venue information. As the set of information increases a better model can be built but there are still concerns and issues with that model. Using systems like machine learning on top of the existing data (where appropriate) the statistics could be extrapolated and venue loudness could be provided for intervals where there is no data. Venues could also have an estimated &#8216;average loudness&#8217; that seeks to act as a guide when less information about the venue is available because of a reduction in samples and sessions taken at that venue. The key element of this platform is the analysis and in weighting and using the data that has been collected to intelligently estimate the loudness of certain venues. By extending that analysis and by making the analysis more robust and less easy to game, the information that the system provides becomes more valuable.</p>
+
+<h3 id="stakeholderwork">Stakeholder Work</h3>
+
+<p>The true goal of the project wasn&#8217;t just the creation and building of these services to prove that they could be done, it was to provide a way for people to get venue loudness information and use that information to inform the choices they make. Ideally an organisation could be put together, or work could be done with existing stakeholders such as the Society for Hard of Hearing People or even WorkCover to offer incentives to venues to reduce venue loudness and to make venue loudness information available. An awareness campaign could be worked on with stakeholders to make people aware of the dangers of hearing loss due to damage caused from loudness in their environments. Designs could be collated and put together that dampen loudness in environments and provide venues with information they can use to make their public-facing areas more friendly to those with hearing aids. This information is incredibly valuable and most venues and locations would be more than happy to work with stakeholders be they NGOs, Governments or private institutions to make their venues more friendly to those with issues related to hearing.</p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>Even from just a small amount of work this proof of concept has many potential avenues it could go in. There may be more work to be performed on an academic level or the project could be open sourced and hosted on github or a similar social coding site where many people could contribute, expand and develop the project. Ideally moving it to an open source project and building a community around it makes the most sense in terms of collecting data and making that data available, however the costs of doing so may be prohibitive at this stage. Ideally this proof of concept leads to existing social networking services implementing similar functionality in the &#8216;check in&#8217; components of their applications. However given that many of these services are fixated on &#8216;monetisation&#8217;, there may be no scope for something like this unless users demand it.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>It works. As a proof of concept and for basic venue loudness the system works incredibly well. This was originally a labour of love, a chance to try and do something to help people who are hard of hearing and have a difficult time choosing where they can go out. The overarching goal of this project was to build a system that helped people find out more about the venues they wanted to attend and this system does it. Though there may not be that much data at the moment and though there may be only one person using it (myself), it&#8217;s a start. The HearClear system as it stands provides a simple way for people who aren&#8217;t that technologically savvy to contribute to the project. Nothing special other than an iOS device is required. The barrier to contributing is downloading the app and running it, that&#8217;s it.</p>
+
+<p>Throughout the course of this project there have been many setbacks, none as large as the realisation that almost the entirety of my thesis 1A plan was irrelevant. Though getting pushed onto the back foot six months into a year long project had a huge impact, by taking a hard look at what the project was meant to do and what data I wanted to collect, I re imagined the manner in which I&#8217;d perform this collection and it seems to have worked. At the moment the system is overly aggressive and it does tend to mark venues as louder than they may actually be. That&#8217;s a feature, not a bug. It&#8217;s far better that the system over-estimates a venue&#8217;s loudness than underestimates it. A false positive is far more valuable than a false negative. </p>
+
+<p>Timeline constraints have been tough but by refocusing the scope of the project and by moving a lot of the complexity to the server side an ecosystem in which this information can be collected has been created. Focus could have been changed to just work on the iOS app as per my initial plans, but it simply wasn&#8217;t feasible. Both elements of this project work in concert with each other. The iOS app collecting data with nowhere to share or save it adds nothing of value. The backend being able to analyse the data with no data to be sent to it is of no use. Splitting time between two entirely different development mentalities, two different IDEs and two different ways of doing things did take a bit of a toll, it did lead to a reduction in overall efficiency but developing both elements in tandem was the right decision. As reflected on above, ideally I&#8217;d like to make this Open Source and put together an API and see if there exists a community of people on the internet that want to band together and make this thing happen.</p>
+
+<p>This has been an incredibly hard slog. Allowing a slight moment of candour this project has happened on top of a lot of other things so the fact that you&#8217;re reading this document and able to play around with the project is somewhat of a miracle. The bottom line is still there though, we all carry around these incredible devices and most of us have them on us at all times bar when we&#8217;re asleep. It&#8217;s time we tapped into them further and start finding out more about what they say about the world around them.</p>
+</div>
+</body>
+</html>
