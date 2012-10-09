@@ -7,7 +7,7 @@
 				%table.table.table-striped.table-bordered
 					%thead
 						%tr
-							%th User
+							%th Device
 							%th Venue
 							%th Time
 							%th Sessions
@@ -15,7 +15,7 @@
 						- @checkins.each do |checkin|
 							%tr
 								%td
-									= checkin.user.deviceID
+									= checkin.user.device
 								%td
 									= checkin.venue.name
 								%td

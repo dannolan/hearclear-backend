@@ -11,7 +11,6 @@
 								%th User ID
 								%th Checkins
 								%th Device
-								%th UDID
 								%th Sessions
 								%th Actions
 						%tbody
@@ -23,8 +22,6 @@
 										= user.checkins.count
 									%td
 										= user.device
-									%td 
-										= user.deviceID
 									%td 
 										= Checkin.sessions_count_for_user(user)
 									%td

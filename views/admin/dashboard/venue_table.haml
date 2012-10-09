@@ -8,17 +8,11 @@
 					%thead
 						%tr
 							%th Venue
-							%th VenueID
-							%th Lat & Lon
 							%th Checkins
 					%tbody
 						- @venues.each do |venue|
 							%tr
 								%td
 									= venue.name
-								%td
-									= venue.foursquareID
-								%td
-									= venue.lat_lon
 								%td
 									= venue.checkins.count

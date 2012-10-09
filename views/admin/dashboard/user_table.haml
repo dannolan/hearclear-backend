@@ -7,14 +7,11 @@
 				%table.table.table-striped.table-bordered
 					%thead
 						%tr
-							%th UserID
 							%th Device
 							%th Checkins
 					%tbody
 						- @users.each do |user|
 							%tr
-								%td
-									= user.deviceID
 								%td
 									= user.device
 								%td
