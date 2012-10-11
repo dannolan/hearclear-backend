@@ -1,11 +1,11 @@
 .row-fluid
 	.span12
 		.box
-			- if @venue.day_volume_values.keys.nil?
+			- if @venue.day_max_volume_values.keys.nil?
 				%h1 No Volume Values
 			- else
 				%h4.box-header.round-top 
-					Average Venue Averages
+					Max Value Venue Averages
 				.box-container-toggle
 					.box-content
 						%table.table.table-striped.table-bordered
@@ -15,8 +15,8 @@
 									%th Time
 									%th Value
 							%tbody
-								- @venue.day_volume_values.keys.each do |key|
-									- @venue.day_volume_values[key].each do |timetuple|
+								- @venue.day_max_volume_values.keys.each do |key|
+									- @venue.day_max_volume_values[key].each do |timetuple|
 										%tr
 											%td
 												= key
@@ -24,15 +24,14 @@
 												= timetuple[:time]
 											%td
 												= timetuple[:average]
-										
 .row-fluid
 	.span12
 		.box
-			- if @venue.day_avg_volume_values_no_outliers
+			- if @venue.day_max_volume_values_no_outliers.keys.nil?
 				%h1 No Volume Values
 			- else
 				%h4.box-header.round-top 
-					Average Venue Averages Outliers Included
+					Max Value Venue Averages No Outliers
 				.box-container-toggle
 					.box-content
 						%table.table.table-striped.table-bordered
@@ -42,8 +41,8 @@
 									%th Time
 									%th Value
 							%tbody
-								- @venue.day_avg_volume_values_no_outliers.keys.each do |key|
-									- @venue.day_avg_volume_values_no_outliers[key].each do |timetuple|
+								- @venue.day_max_volume_values_no_outliers.keys.each do |key|
+									- @venue.day_max_volume_values_no_outliers[key].each do |timetuple|
 										%tr
 											%td
 												= key

@@ -74,6 +74,10 @@ class Venue
 		bounds
 	end
 	
+	def venue_day_sets_no_outliers
+		self.checkins.all.sessions.group_by {|session| session.timestamp.strftime("%a")}
+	end
+	
 	def venue_day_sets
 		self.checkins.all.sessions(:outlier => false).group_by {|session| session.timestamp.strftime("%a")}
 	end
@@ -81,6 +85,42 @@ class Venue
 	#hardcoded for venue info
 	def group_sessions
 	
+	end
+	
+	def day_max_volume_values_no_outliers
+		day_sets = self.venue_day_sets_no_outliers
+		return_set = {}
+		day_sets.keys.each do |key|
+			time_set = day_sets[key]
+			return_set[key] = []
+			grouped_set = time_set.group_by {|session| session.timestamp.strftime("%H:00")}
+			#pp grouped_set
+			grouped_set.keys.each do |time_key|
+				time_period = {}
+				time_period[:time] = time_key
+				time_period[:average] = grouped_set[time_key].collect(&:maxLevel).mean
+				return_set[key] << time_period
+			end
+		end
+		return_set
+	end
+	
+	def day_avg_volume_values_no_outliers
+		day_sets = self.venue_day_sets_no_outliers
+		return_set = {}
+		day_sets.keys.each do |key|
+			time_set = day_sets[key]
+			return_set[key] = []
+			grouped_set = time_set.group_by {|session| session.timestamp.strftime("%H:00")}
+			#pp grouped_set
+			grouped_set.keys.each do |time_key|
+				time_period = {}
+				time_period[:time] = time_key
+				time_period[:average] = grouped_set[time_key].collect(&:averageLevel).mean
+				return_set[key] << time_period
+			end
+		end
+		return_set
 	end
 	
 	def day_max_volume_values
