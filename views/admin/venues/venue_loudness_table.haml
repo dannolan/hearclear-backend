@@ -28,7 +28,7 @@
 .row-fluid
 	.span12
 		.box
-			- if @venue.day_avg_volume_values_no_outliers
+			- if @venue.day_avg_volume_values_no_outliers.keys.nil?
 				%h1 No Volume Values
 			- else
 				%h4.box-header.round-top 
