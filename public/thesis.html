@@ -1,26 +1,380 @@
-<!DOCTYPE html>
-<html>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+"http://www.w3.org/TR/2001/REC-MathML2-20010221/dtd/xhtml-math11-f.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 	<meta charset="utf-8"/>
+	<meta name="format" content="complete"/>
 	<meta name="latexinput" content="mmd-article-header"/>
 	<title>HearClear loudness ratings for venues</title>
 	<meta name="latexmode" content="memoir"/>
 	<meta name="author" content="Daniel Nolan"/>
 	<meta name="stdnum" content="dnol845"/>
 	<meta name="latexinput" content="mmd-article-begin-doc"/>
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.0.4/css/bootstrap.min.css"/>
+	<meta name="latexinput" content="mmd-natbib-plain"/>
+	<meta name="bibtex" content="references.bib"/>
+  <style type="text/css">
+/* +++ master +++ */
+/* html elements */
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    overflow:hidden;
+    background-color: #f2f2f2;
+    color: #3c3c3c;
+    font-size: 62.5%;
+    -webkit-font-smoothing: antialiased;
+}
+a {
+    color: #308bd8;
+    text-decoration:none;
+}
+a:hover {
+    text-decoration: underline;
+}
+/* headings */
+h1, h2 {
+    line-height:1.2em;
+    margin-top:32px;
+    margin-bottom:12px;
+}
+h1:first-child {
+    margin-top:0;
+}
+h3, h4, h5, h6 {
+    margin-top:12px;
+    margin-bottom:6px;
+}
+h5, h6 {
+    font-size:0.9em;
+    line-height:1.0em;
+    margin-bottom:0;
+}
+/* end of headings */
+p {
+    margin:0 0 24px 0;
+}
+p:last-child {
+    margin-bottom:0;
+}
+hr {
+    width: 100%;
+    margin: 3em auto;
+    border: 0;
+    color: #eee;
+    background-color: #ccc;
+    height: 1px;
+    -webkit-box-shadow:0px 1px 0px rgba(255, 255, 255, 0.75);
+}
+/* lists */
+ol {
+    list-style: outside decimal;
+}
+ul {
+    list-style: outside disc;
+}
+ol, ul {
+    padding-left:0;
+    margin-bottom:24px;
+}
+ol li {
+    margin-bottom:16px;
+    margin-left:28px;
+}
+ul li {
+    margin-bottom:16px;
+    margin-left:16px;
+}
+li:last-child {
+    margin-bottom:0;
+}
+li > p {
+    margin-bottom:12px;
+}
+li > ol, li > ul {
+    margin-top: 16px !important;
+    padding-left:16px;
+}
+dl {
+    margin-bottom:24px;
+}
+dl dt {
+    font-weight:bold;
+    margin-bottom:8px;
+}
+dl dd {
+    margin-left:0;
+    margin-bottom:12px;
+}
+dl dd:last-child, dl:last-child {
+    margin-bottom:0;
+}
+/* end of lists */
+pre {
+    white-space: pre-wrap;
+    width: 96%;
+    margin-bottom: 24px;
+    overflow: hidden;
+    padding: 3px 10px;
+    -webkit-border-radius: 3px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+}
+code {
+    white-space: nowrap;
+    font-size: 1.1em;
+    padding: 2px;
+    -webkit-border-radius: 3px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+}
+pre code {
+    white-space: pre-wrap;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    -webkit-border-radius: 0;
+}
+blockquote {
+    margin-left: 0;
+    margin-right: auto;
+    width: 96%;
+    padding: 0 10px;
+    border-left: 3px solid #ddd;
+    color: #777;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-spacing: 0;
+}
+table th {
+    padding: 3px 10px;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+table tr {
+}
+table td {
+    padding: 3px 10px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+figure {
+    display: block;
+    text-align: center;
+}
+img {
+    display: block;
+    text-align: center;
+    border: none;
+    margin: 1em auto;
+    max-width: 100%;
+}
+figcaption {
+    font-size: 0.8em;
+    font-style: italic;
+}
+mark {
+    background: #fefec0;
+    padding:1px 3px;
+}
+
+/* unique elements */
+
+#wrapper {
+    position: fixed;
+    width: 99.9%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-size: 1.0em;
+}
+#content {
+    width: 850px;
+    margin: 0 auto 0 auto;
+    padding: 30px 0 30px 0;
+    font-family: 'Baskerville', Palatino, Georgia, serif;
+    font-size: 1.7em;
+    line-height: 1.400000em;
+}
+
+#wrapper::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+    -webkit-transition: all .45s ease-in;
+    position: relative;
+}
+#wrapper::-webkit-scrollbar-button:start:decrement, #wrapper::-webkit-scrollbar-button:end:increment {
+    height: 0px;
+    display: block;
+    background-color: transparent;
+}
+#wrapper::-webkit-scrollbar-track-piece {
+    background-color:
+    transparent;
+    -webkit-border-radius: 6px;
+}
+#wrapper::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    background-color: #c8c8c8;
+    -webkit-border-radius: 6px;
+    -webkit-transition: all .45s ease-in;
+}
+
+/* classes */
+
+.markdowncitation {
+}
+.footnote {
+    font-size: 0.8em;
+    vertical-align: super;
+}
+.footnotes ol {
+    font-weight: bold;
+}
+.footnotes ol li p {
+    font-weight: normal;
+}
+
+/* custom formatting classes */
+
+.shadow {
+    -webkit-box-shadow: 0 2px 4px #999;
+}
+
+.source {
+    text-align: center;
+    font-size: 0.8em;
+    color: #777;
+    margin: -40px;
+}
+/* --- master --- */
+/* +++ export overrides +++ */
+#wrapper {
+    width: 99.9%;
+}
+#content {
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobile support */
+@media only screen and (max-device-width:1024px) {
+    html {
+        overflow: auto;
+    }
+
+    #wrapper {
+        overflow: auto;
+        position: relative;
+    }
+}
+/* --- export overrides --- */
+/* Printing support (Print and export to PDF).
+ * Override all printing colors to match the Light theme.
+ */
+@media print {
+    img, pre, blockquote, table, figure {
+        page-break-inside: avoid;
+    }
+    body {
+        background-color:#fff;
+    }
+    #wrapper {
+        position: static;
+        overflow: hidden;
+        color: #3c3c3c;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .footnotes {
+        page-break-before: always;
+    }
+    #content {
+        margin: 0 auto;
+        padding: 0;
+        width: 98%;
+    }
+    #top-fader, #bottom-fader {
+        display: none;
+    }
+    a {
+        color: #3c3c3c;
+    }
+    hr {
+        color:#ddd;
+        background-color:#ddd;
+        -webkit-box-shadow:0px 1px 0px #ddd;
+    }
+    pre {
+        background-color:transparent;
+        border: 1px solid #ddd;
+    }
+    code {
+        background-color:transparent;
+        border: 1px solid #ddd;
+    }
+    blockquote {
+        border-left: 3px solid #ddd;
+        color: #3c3c3c;
+    }
+    table {
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+    table th {
+        background-color:transparent;
+        border-top: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+    table td {
+        border-top: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+    mark {
+        background:transparent;
+        color: #3c3c3c;
+    }
+    .source {
+        color: #3c3c3c;
+    }
+}
+  </style>
 </head>
 <body>
-<div class="container">	
+  <div id="wrapper">
+    <div id="content">
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<ul>
+<li>To do</li>
+<li>thank you all</li>
+</ul>
+
 <h2 id="introduction">Introduction</h2>
 
-<p>We live in a world exploding with more and more data with every passing second. We&#8217;re slowly becoming a society of data-driven beings, making decisions based on what to do based on the recommendations of friends and family but increasingly based on recommendations from complete strangers on the internet. Our desire for more data about our decisions comes from one central fact, every second of time we spend is one we no longer have. We desire more data about the ways in which we can spend our time so we make sure our it isn&#8217;t wasted. It&#8217;s now de-rigeur in my social circles to check Rotten Tomatoes to see if a movie has a positive recommendation (or in some circumstances a downright devastating one) before floating viewing it with friends. Sites like Rotten Tomatoes, Urbanspoon, Yelp and others act as aggregators of opinion. There are, of course, the traditional opinion gatekeepers, say the Mark Kermode of film criticism of the Terry Durack of food criticism, but they can&#8217;t view each film or eat every dish at every restaurant. We have to rely on the wisdom of crowds. There&#8217;s now data for almost everything to do with venues; the NSW police puts out crime statistics on the most violent pubs and clubs, social aggregating services like Yelp let users leave tips or recommendations for each other at venues and Foursquare can help users explore and find places recommended by others in their own neighbourhood that they previously would not have thought to visit. One of the main reasons for the preponderance of this data is the ease of collection. It takes almost no time at all on a modern smartphone to check into a venue on Foursquare, take a photo of your beer or meal and add a pithy one line review. Whilst one or two of these bon mots can seem ephemeral, the existence of some data on the venue tends to attract more data. If a place has a substantial amount of positive reviews and you have a poor experience, you&#8217;re more likely to leave a negative review to save someone else the time or more cynically, to punish the owner of the venue and vice versa. People are willing to add more and more of this data to the services they use; Google maps, for example, is the result of millions of corrections and additions added by its users on top of its existing data [cite]. If you have no data, you have nothing to offer savvy modern consumers. </p>
+<p>We live in a world exploding with more and more data with every passing second. We&#8217;re slowly becoming a society of data-driven beings, making decisions based on what to do based on the recommendations of friends and family but increasingly based on recommendations from complete strangers on the internet. Our desire for more data about our decisions comes from one central fact, every second of time we spend is one we no longer have. We desire more data about the ways in which we can spend our time so we make sure our it isn&#8217;t wasted. It&#8217;s now de-rigeur in my social circles to check Rotten Tomatoes to see if a movie has a positive recommendation (or in some circumstances a downright devastating one) before floating viewing it with friends. Sites like Rotten Tomatoes, Urbanspoon, Yelp and others act as aggregators of opinion. There are, of course, the traditional opinion gatekeepers, say the Mark Kermode of film criticism of the Terry Durack of food criticism, but they can&#8217;t view each film or eat every dish at every restaurant. We have to rely on the wisdom of crowds. There&#8217;s now data for almost everything to do with venues; the NSW police puts out crime statistics on the most violent pubs and clubs, social aggregating services like Yelp let users leave tips or recommendations for each other at venues and Foursquare can help users explore and find places recommended by others in their own neighbourhood that they previously would not have thought to visit. One of the main reasons for the preponderance of this data is the ease of collection. It takes almost no time at all on a modern smartphone to check into a venue on Foursquare, take a photo of your beer or meal and add a pithy one line review. Whilst one or two of these bon mots can seem ephemeral, the existence of some data on the venue tends to attract more data. If a place has a substantial amount of positive reviews and you have a poor experience, you&#8217;re more likely to leave a negative review to save someone else the time or more cynically, to punish the owner of the venue and vice versa. People are willing to add more and more of this data to the services they use; Google maps, for example, is the result of millions of corrections and additions added by its users on top of its existing data. If you have no data, you have nothing to offer savvy modern consumers. </p>
 
 <p>Venues are expanding with even more and more consumer added metadata, be it cuisine types, opening hours, recommended dishes or drinks and even descriptions of the vibe and decor. There is however one piece of metadata about venues that is incredibly difficult to find, venue loudness. Gauging venue loudness is much more difficult than simply offering your opinion on the venue&#8217;s menu. You may have different degrees of loudness throughout the day at different venues. A quiet country pub may be quite quiet in the beer garden throughout the day but on friday nights when it becomes a place for the local metal bands to battle it out for rock supremacy, it is daresay quite a bit louder. When talking about the collection of such venue data or metadata the question has to be asked, why collect loudness information? There are two main reasons, the first is that loudness can have a serious impact on human hearing. Anyone who has been to a loud rock concert knows how deafening they can be and the dreaded ringing in your ears the following days bring. By quantifying and providing venue loudness data those who don&#8217;t wish to spend a day or so with ringing in their ears can choose to opt out of attending the venue, rather than turning up completely uninformed. The second is those with hearing impairments that use hearing aids. A venue&#8217;s ambient loudness is of incredible importance to users of hearing aids, as even though the aids are quite well tuned to amplifying the required frequencies of human speech to enhance hearing, in a loud or very echoey environment it substantially diminishes the efficiency of these devices and thus their ability to communicate. </p>
 
-<p>Given the case that this data needs to be collected, how do you do it? This project was designed from the very beginning </p>
-
-<p>The hardest element comes down to collection, how do you collect and quantify loudness data? How do you present it?</p>
+<p>Given the case that this data needs to be collected, how do you collect it? You can’t simply wander to each venue with a decibel meter and take note of the average loudness. With that as the collection method you’d be hard pressed getting more than a handful of people to record that information. The method of collection needs to be easy to use and seamless. The iPhone is the most popular camera in the world according to flickr’s upload statistics. How did a camera on a smartphone become the most popular camera in the world? Because it was easy to use. Because using the camera on your smartphone is far quicker and far more effortless than pulling out a bulky SLR. Almost everyone in the developed world carries a smartphone on them nowadays. These smartphones enable us to do incredible things, to converse with people, research, play games, navigate to our destinations and pretty much anything developers can envision and create on the platform. They are effectively blank slates for developers to project their ideas onto. Smartphones are the perfect vector for this information and the perfect way to collect this data. Instead of requiring bulky hardware or a decibel meter with someone to write down information on a venue, why not harness the hundreds of millions of people that have smartphones to collect this data? That’s what this project boils down to; is there a way to use smartphones to collect this data in the aggregate and present it in a way that has meaning. Is there a way to get around the pitfalls of this data, erroneous data, incorrect venues and the like. Loudness is a relative value, a plane taking off is orders of magnitude louder than a car door slamming or a heated conversation. How is that displayed and how do you quantify that information with the tools and features made available to you on a modern smartphone? HearClear is a combined iOS client and web server system to record venue loudness. This document outlines the issues faced, the decisions made and the data that has been collected. This document exists to help answer those questions, how do you take something as ephemeral as the loudness of a moment in time and extrapolate it to help people make more informed decisions about how they spend their limited time. This project was envisioned as a passion project - there wasn’t a ready made topic to go for this thesis outside of the very broad scope of a ‘generalised iPhone development project’. As this document outlines, the project that was built goes far over and above just a simple iPhone application. This project’s goal is to provide that data and to help increase the quality of life for those who use hearing aids. There is a personal element to it as well; my mother started going deaf at a young age and requires hearing aids in order to communicate. When we go out, say to dinner, if the venue is more than a bit loud, if the place is too prone to echoes or a large amount of background noise her ability to communicate with and understand others is severely impacted. There is currently no way we can tell whether venues may be loud or quiet, whether they’re loud or quiet at different times of the day. Going somewhere new presents a gamble, will the night be ruined by the loudness of the venue? There’s also a degree of self interest here, her hearing loss is heriditary. There’s a quite significant chance that when I least expect it my hearing will start to fade till it is almost completely gone. If that’s the case I’d like to have more information on where I can still communicate with the people I care about if I do require the use of hearing aids. In essence this is a civil project, an attempt to give back to society by helping collect and make this information available to people that need it. Whether this project succeeds in this goal is up to the reader to decide and this document to outline.</p>
 
 <h2 id="scopechanges">Scope Changes</h2>
 
@@ -28,7 +382,7 @@
 
 <h3 id="frequencyresponse">Frequency response</h3>
 
-<p>In order to calculate the frequency response of the device a speaker with a flat frequency response would be required to get as valid a sound as possible when estimating the output of the device in response to different sounds. Audiophiles desire speakers with a flatter frequency response because it allows a better experience of music and sounds they wish to listen to [cite]. Unfortunately, speakers that provide a flat frequency response are not inexpensive [cite]. Not only would speakers with a flat frequency response be required but also a very powerful (and expensive) amplifier would be required to drive the speakers. The flatter the frequency response of the speakerm, the more accurate to the signal they have to be and the more power they consume to replicate that soundwave [cite]. </p>
+<p>In order to calculate the frequency response of the device a speaker with a flat frequency response would be required to get as valid a sound as possible when estimating the output of the device in response to different sounds. Audiophiles desire speakers with a flatter frequency response because it allows a better experience of music and sounds they wish to listen to <span class="externalcitation">[#audiophile]</span>. Unfortunately, speakers that provide a flat frequency response are not inexpensive. Not only would speakers with a flat frequency response be required but also a very powerful (and expensive) amplifier would be required to drive the speakers. The flatter the frequency response of the speakerm, the more accurate to the signal they have to be and the more power they consume to replicate that soundwave <span class="externalcitation">[#d_a_s_p]</span>. I simply couldn’t afford to spend $5,000 on speakers for a couple of months of testing even if at the end I could sell those speakers on eBay for around $4,000. I can’t really think of many students who could.</p>
 
 <h3 id="anechoicchamber">Anechoic chamber</h3>
 
@@ -36,7 +390,15 @@
 
 <h3 id="shiftingfocus">Shifting Focus</h3>
 
-<p>The primary goal of this project was to provide a simple and efficient way to use a smartphone to collect venue loudness data. The key was making sure the venue information was accurate and that venue loudness data could be sampled in a fast and effective manner. There wasn&#8217;t time to perform error correction and analysis on the device and instead the scope was changed to perform that analysis on the server. This vastly shifted the scale of the project but also increased the complexity on the server side. Instead of trying to approximate a decibel reading from a voltage signal on the device, using it to provide a relative understanding of the loudness of the venue based on statistical analysis of submitted data seemed to be more effective. The benefits were twofold, by making the iOS client simply a client that logged unaltered data and submitted it, the more data that was collected the more accurate the venue analysis would be. Using basic statistical tools outliers could be removed from the sampled collection[cite]. The more data that was collected by users at different time intervals the more accurate a weighting could be applied to that data and the more accurate the venue loudness data became. This also meant modifications to the statistical model to provide better information to the client could be performed on the server and presented to the client without requiring the client software to be updated. The more clients that submitted data and the more that the statistical model was tweaked the better the data presented to clients would become.</p>
+<p>The primary goal of this project was to provide a simple and efficient way to use a smartphone to collect venue loudness data. The key was making sure the venue information was accurate and that venue loudness data could be sampled in a fast and effective manner. There wasn&#8217;t time to perform error correction and analysis on the device and instead the scope was changed to perform that analysis on the server. This vastly shifted the scale of the project but also increased the complexity on the server side. Instead of trying to approximate a decibel reading from a voltage signal on the device, using it to provide a relative understanding of the loudness of the venue based on statistical analysis of submitted data seemed to be more effective. The benefits were twofold, by making the iOS client simply a client that logged unaltered data and submitted it, the more data that was collected the more accurate the venue analysis would be. Using basic statistical tools outliers could be removed from the sampled collection<span class="externalcitation">[#prob-stat]</span>. The more data that was collected by users at different time intervals the more accurate a weighting could be applied to that data and the more accurate the venue loudness data became. This also meant modifications to the statistical model to provide better information to the client could be performed on the server and presented to the client without requiring the client software to be updated. The more clients that submitted data and the more that the statistical model was tweaked the better the data presented to clients would become. </p>
+
+<h3 id="loudnessnotdecibels">Loudness not Decibels</h3>
+
+<p>Sound pressure levels are traditionally measured in decibels to provide an easily quantifiable way for comparing sound loudness. However most people don’t really have much of an understanding of what decibel levels correspond to what loudness levels. To simply provide information about the average decibel level at a venue isn’t helpful. Would a user think 85dB is too loud or too soft? Given that silence is around 40dB, what can they take from a venue that is 60dB? As sound loudness is a logarithmic scale, 85dB is orders of magnitude louder than 60dB. Sound loudness values themself are relative, I can tell that a higher value is louder, but cannot instinctively divine how much louder it is than the lower value. The goal of the project is to collect this data and present it in a fashion that is usable and that makes sense. Simply recording decibel levels doesn’t really add to the utility of the user and doesn’t really provide a valuable use of the collected data. Most people can agree on what they consider loud, and it’s an element of human physiology that we all agree on loudness levels that cause us pain. The decisions that needed to be made though are how this information could be made fit for purpose. Were many users going to go out onto the tarmac at Mascot and tell us that yes, a Boeing 747 taking off makes a lot of very, very loud noise. There is some utility in showing the average loudness of venues that sometimes hold concerts, but does this skew the data? The main use case I can see is someone checking a restaurant they wish to go to to see how loud that restaurant is during its dinner hours. Underestimating the loudness of a venue completely removes the utility provided by the collected data. Instead of collecting the data, comparing it to decibels and then displaying decibels, why not do it the other way around. Make the venue data human readable. Make the venue information easily able to be accessed and understood. The ratings are relative but the meaning is still the same, if a venue would make a conversation difficult to be heard by someone without hearing difficulties let alone someone with those difficulties then that venue is by definition quite loud. </p>
+
+<h3 id="astorywithtwoparts">A story with two parts</h3>
+
+<p>There is much more information on how these loudness calculations are performed in the analysis section but it’s fairly crude at the moment as a matter of necessity. By requiring the backend to do the calculations and manage data almost completely unfiltered the amount of time that could be spent on analysis after the system was built was substantially reduced. That the analysis is fairly crude is not a sign though that the data is not valuable. If the information in this system helps people make more informed decisions about where they choose to spend that time all of the hacks in the world don’t invalidate that gain. The overriding goal is to provide useful information, not in depth or overly complex analysis of this data. The changes to this project were made in full awareness that the delivery date was rapidly approaching. It took nearly a month into this project to realise that the methods of device side weighting were simply not feasible given the time until this project needed to be handed over. While some of the changes are inelegant, particularly compared to the elegant nature of the original proposal, the changes made were decided on because they would work. Pragmatism had to win over scope creep every single time. This has added to the potential future work that could be done on this project but also solidified the feature set of this project. Every change that was made and every extra hour spend developing also took away from the creation of this document. As this document should hopefully show, decisions to alleviate some of the constraints by reducing the feature set of the project have had positive benefits on the quality of the work produced. This isn’t simply an iPhone app to record loudness and display it to the user, it’s a complex system with multiple moving and interacting parts and the information produced demonstrates that the overall outcome is greater than the sum of its parts.</p>
 
 <h2 id="iosandiosdevices">iOS and iOS Devices</h2>
 
@@ -44,79 +406,168 @@
 
 <p>iOS is the name Apple has coined for the fork of its desktop operating system &#8220;OS X&#8221; that runs on its smartphone platform. The smartphone platform consists of many devices including the iPhone, iPod touch, iPad and even the Apple TV. It&#8217;s a UNIX operating system and it shares the common Darwin foundation with OS X. </p>
 
-<p><em>Devices that run iOS here</em></p>
+<table>
+<caption id="devicesthatrunios">Devices that run iOS</caption>
+<colgroup>
+<col style="text-align:left;"/>
+</colgroup>
 
-<p>iOS was originally called iPhone OS and was released to the public when the original iPhone was released on June 29, 2007 [cite]. Apple has since aggressively iterated the operating system yearly, rebranding the operating system as iOS with the release of the iPad. When the operating system was initially released there was no native support for third party applications on the platform, Apple did however provide web APIs to developers to allow them to optimise their sites for the version of mobile safari used on the original release of the operating system. There were third-party toolchains available and jailbreaking the phone (removing the user chroot jail EXPAND_INFO [cite]) and getting around the memory protection and code signing on the device allowed many people to sideload applications from the popular Cydia program [cite] before Apple released the tools for developers to build native apps for the platform with the release of iOS (neé iPhone OS) 2.0. Apple has rapidly expanded the APIs provided to developers and the quality of the tools given to developers to build for iOS devices. </p>
+<thead>
+<tr>
+	<th style="text-align:left;">Device</th>
+</tr>
+</thead>
 
-<p><em>EXAMPLE OF CYDIA ON IPHONE SCREEN HERE</em></p>
+<tbody>
+<tr>
+	<td style="text-align:left;">iPhone</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 3G</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 3GS</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 4</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 4S</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 5</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPad</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPad 2</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPad 3</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPod Touch</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPod Touch 2nd Generation</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPod Touch 3rd Generation</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPod Touch 4th Generation</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPod Touch 5th Generation</td>
+</tr>
+</tbody>
+</table>
+<p>iOS was originally called iPhone OS and was released to the public when the original iPhone was released on June 29, 2007. Apple has since aggressively iterated the operating system yearly, rebranding the operating system as iOS with the release of the iPad. When the operating system was initially released there was no native support for third party applications on the platform, Apple did however provide web APIs to developers to allow them to optimise their sites for the version of mobile safari used on the original release of the operating system. There were third-party toolchains available and jailbreaking the phone and getting around the memory protection and code signing on the device allowed many people to sideload applications from the popular Cydia program <span class="externalcitation">[#cydia]</span> before Apple released the tools for developers to build native apps for the platform with the release of iOS (neé iPhone OS) 2.0. Apple has rapidly expanded the APIs provided to developers and the quality of the tools given to developers to build for iOS devices. </p>
 
-<p>From the first release though it was clear that iOS was all about graphical performance and user experience. Table views [provide example] in the original iPhone scrolled incredibly smoothly, something that Android (a competing smartphone operating system from Google [cite]) is still struggling to provide four years later with their &#8216;project butter&#8217; [cite]. The difference between the performance of the two approaches is substantial, Apple performs all touch interaction and UI updating in a highly prioritised main thread [cite]. This enables the UI to be incredibly responsive and update without latency. On Android the user interface is given a standard priority thread [cite] and as such it is competing for resources with other threads. This means that network operations and other time-intensive queries can impact UI responsiveness which can degrade the overall user experience [cite]. </p>
+<figure>
+<img src="images/cydiaiphone.jpeg" alt="Cydia for iPhone" id="cydiaiphone" />
+<figcaption>Cydia for iPhone</figcaption></figure>
 
-<p><em>Image of a shitty pre-iPhone android phone because I am a cunt</em></p>
 
-<p>The reason for these differences in architecture is simple, Apple had more experience building operating systems than Google did. The core team working on OS X had members who had been building the original Darwin foundation on top of code that Apple had acquired when they bought NeXT in (DATE) [cite]. Apple had experience with GPU acceleration that Google did not, particularly when it came to building the CORE_ANIMATION QUARTZ_2D etc APIs on OS X [cite]. They had a wealth of experience and a team who could build an fork of OS X from the ground up to be highly reliant on the GPU for almost all display processing. Their team had knowledge of the intricacies and difficulties of utilising a GPU for UI composition [cite]. As such the quality and speed of the GPU-acceleration in iOS is instrumental to its performance dividends and superior user experience in almost every regard when compared to the Android platform.</p>
+
+<p>From the first release though it was clear that iOS was all about graphical performance and user experience. Table views in the original iPhone scrolled incredibly smoothly, something that Android (a competing smartphone operating system from Google) is still struggling to provide four years later with their &#8216;project butter&#8217; <span class="externalcitation">[#google-sucks]</span>. The difference between the performance of the two approaches is substantial, Apple performs all touch interaction and UI updating in a highly prioritised main thread <span class="externalcitation">[#google-sucks]</span>. This enables the UI to be incredibly responsive and update without latency. On Android the user interface is given a standard priority thread <span class="externalcitation">[#google-sucks]</span> and as such it is competing for resources with other threads. This means that network operations and other time-intensive queries can impact UI responsiveness which can degrade the overall user experience. </p>
+
+<figure>
+<img src="images/android.jpeg" alt="Android Phone" id="android" />
+<figcaption>Android Phone</figcaption></figure>
+
+
+
+<p>The reason for these differences in architecture is simple, Apple had more experience building operating systems than Google did. The core team working on OS X had members who had been building the original Darwin foundation on top of code that Apple had acquired when they bought NeXT <span class="externalcitation">[#quartz]</span>. Apple had experience with GPU acceleration that Google did not, particularly when it came to building the Core Animation and Quartz2D APIs on OS X <span class="externalcitation">[#quartzaqua]</span>. They had a wealth of experience and a team who could build an fork of OS X from the ground up to be highly reliant on the GPU for almost all display processing. Their team had knowledge of the intricacies and difficulties of utilising a GPU for UI composition <span class="externalcitation">[#quartzaqua]</span>. As such the quality and speed of the GPU-acceleration in iOS is instrumental to its performance dividends and superior user experience in almost every regard when compared to the Android platform.</p>
 
 <h3 id="theframeworksonios">The Frameworks on iOS</h3>
 
-<p>The key reason for the explosion of interest in iOS and developing for iOS is not just the proliferation of the devices (though at the writing of this Thesis there are currently more than 450m activated iOS devices out there capable of running apps written by developers [cite]). The APIs and the documentation and tools provided by Apple are incredibly powerful, comprehensive and highly polished. Apple has taken the issue of mobile performance incredibly seriously and as such has invested heavily into the LLVM and LLDB projects [cite] to provide first-class development tools for their platform, instead of relying on community additions to GCC [cite]. </p>
+<p>The key reason for the explosion of interest in iOS and developing for iOS is not just the proliferation of the devices (though at the writing of this Thesis there are currently more than 450m activated iOS devices out there capable of running apps written by developers <span class="externalcitation">[#dedieu]</span>). The APIs and the documentation and tools provided by Apple are incredibly powerful, comprehensive and highly polished. Apple has taken the issue of mobile performance incredibly seriously and as such has invested heavily into the LLVM and LLDB projects <span class="externalcitation">[#llvm-apple]</span> to provide first-class development tools for their platform, instead of relying on community additions to GCC. </p>
 
 <h4 id="aquickoverviewofobjective-c">A quick overview of Objective-C</h4>
 
 <p>Objective-C is a high level object oriented programming language that is a superset of C. It provides object oriented conventions and uses a smalltalk-esque message passing system for managing communication between objects. It&#8217;s the de-facto language for developing for Mac OS X and iOS. </p>
 
-<p>To send a message to an object you do the following:</p>
+<p>This is a hello world in Objective-C:</p>
 
-<p><em>OBJC_CODE_EXAMPLE</em></p>
+<figure>
+<img src="images/objchelloworld.png" alt="Objective C Hello World" id="objchelloworld" />
+<figcaption>Objective C Hello World</figcaption></figure>
 
-<p>The targets of messages are resolved at runtime instead of compile time. </p>
 
-<p><em>HELLO_WORLD_EXAMPLE</em></p>
 
-<p>There&#8217;s a fully featured guide to Objective-C at[cite] that goes into much more detail. A full analysis of the language is out of scope for the purposes of this document.</p>
+<p>There&#8217;s a fully featured guide to Objective-C at<span class="externalcitation">[#objc-hipster]</span> that goes into much more detail. A full analysis of the language is out of scope for the purposes of this document.</p>
 
 <h4 id="llvmimprovements">LLVM Improvements</h4>
 
 <p>LLVM (coupled with Clang) becoming the de-facto toolchain for iOS development saw the following binary size and code speed benefits over GCC for the same binaries:</p>
 
-<p><em>GRAPH_FROM_SOME_SITE_ABOUT_THIS_SHIT</em></p>
+<figure>
+<img src="images/gccvsllvm.png" alt="GCC versus LLVM" id="gccvsllvm" />
+<figcaption>GCC versus LLVM</figcaption></figure>
 
-<p>Not only did Apple investing in LLVM (and Clang) allow them to take greater control over the tools that were instrumental to the performance of their platform, they also were able to walk away from the legacy constraints of GCC [cite]. While GCC is an incredibly performant piece of software with a fantastic history, the direction that Apple wished to go in was not concomitant with the direction the GCC team were moving [cite]. Whilst Apple maintained their own internal fork of GCC [cite], investing in the LLVM development community and bringing a lot of that development in-house (whilst still maintaining the open-source status of the project) allowed for a re-imagining of what tools could be added via LLVM. One of those major tools that was added was the LLVM Static Analyzer, a tool that has proven invaluable during code development, review and testing. </p>
 
-<p><em>IMAGE_OF_THE_STATIC_ANALYZER_HERE</em></p>
+
+<p>Not only did Apple investing in LLVM (and Clang) allow them to take greater control over the tools that were instrumental to the performance of their platform, they also were able to walk away from the legacy constraints of GCC. While GCC is an incredibly performant piece of software with a fantastic history, the direction that Apple wished to go in was not concomitant with the direction the GCC team were moving. Whilst Apple maintained their own internal fork of GCC, investing in the LLVM development community and bringing a lot of that development in-house (whilst still maintaining the open-source status of the project) allowed for a re-imagining of what tools could be added via LLVM. One of those major tools that was added was the LLVM Static Analyzer, a tool that has proven invaluable during code development, review and testing. </p>
+
+<figure>
+<img src="images/staticanalyser.png" alt="Xcode Static Analyzer" id="staticanalyser" />
+<figcaption>Xcode Static Analyzer</figcaption></figure>
+
+
 
 <h5 id="blocks">Blocks</h5>
 
-<p>Introduced alongside Apple&#8217;s desktop operating system Mac OS 10.6 Snow Leopard was the concept of blocks and a new system of managing concurrent and asynchronous programming known as Grand Central Dispatch [cite]. GCD was built to provide an intelligent way for developers to support multi-core processors by providing an abstraction to enhance task parellization. The system is effectively a highly optimized operating system managed collection of thread pools. Tasks are dispatched onto particular queues and the operating system takes care of spinning up or down the particular threads these tasks are performed on [cite]. Blocks are effectively Apple&#8217;s take on closures or lambdas, an encapsulated block of code that can be performed as needed. </p>
+<p>Introduced alongside Apple&#8217;s desktop operating system Mac OS 10.6 Snow Leopard was the concept of blocks and a new system of managing concurrent and asynchronous programming known as Grand Central Dispatch <span class="externalcitation">[#blocks-gcd]</span>. GCD was built to provide an intelligent way for developers to support multi-core processors by providing an abstraction to enhance task parellization. The system is effectively a highly optimized operating system managed collection of thread pools. Tasks are dispatched onto particular queues and the operating system takes care of spinning up or down the particular threads these tasks are performed on <span class="externalcitation">[#gcd-queue]</span>. Blocks are effectively Apple&#8217;s take on closures or lambdas, an encapsulated block of code that can be performed as needed. </p>
 
-<p><em>BLOCK_EXAMPLE_IMAGE</em></p>
+<figure>
+<img src="images/blocksexample.png" alt="Blocks Example" id="blocksexample" />
+<figcaption>Blocks Example</figcaption></figure>
 
-<p>With the introduction of iOS 4 and the introduction of the iPhone 4, Apple brought GCD and blocks to iOS. Now many of Apple&#8217;s APIs (particularly animation APIs [cite]) required blocks as completion handlers so performing activity after animation would not block or impact performance of the main UI thread</p>
 
-<p><em>Image of dismiss with completion</em></p>
+
+<p>With the introduction of iOS 4 and the introduction of the iPhone 4, Apple brought GCD and blocks to iOS. Now many of Apple&#8217;s APIs (particularly animation APIs) required blocks as completion handlers so performing activity after animation would not block or impact performance of the main UI thread.</p>
 
 <p>Instead of manually managing NSThread instances developers could now easily build their own APIs using blocks as callbacks on functions and take advantage of the inherent multi-threading performance benefits that Apple&#8217;s GCD and other APIs provided. A full detailed description of how GCD and blocks work on mobile devices is out of scope for this document, but there is an excellent outline of all of this information in Apple&#8217;s developer documentation here, I highly recommend reading it if this is an area of interest: http://developer.apple.com/library/mac/#featuredarticles/BlocksGCD/</p>
 
 <h3 id="appdeploymentandcodesigning">App Deployment and Code Signing</h3>
 
-<p>One of the main barriers to entry for developing on iOS is the requirement of a developer account ($99 per year) to run code on any actual hardware device. Apple provides an x86 implementation of many of the iOS frameworks [cite] with Xcode, their developer tools that allow you to run code you&#8217;ve written in an iOS simulator.</p>
+<p>One of the main barriers to entry for developing on iOS is the requirement of a developer account ($99 per year) to run code on any actual hardware device. Apple provides an x86 implementation of many of the iOS frameworks with Xcode, their developer tools that allow you to run code you&#8217;ve written in an iOS simulator.</p>
 
-<p><em>PICTURE_OF_SIMULATOR</em></p>
+<figure>
+<img src="images/hearclearsimulator.png" alt="iPhone Simulator" id="simulator" />
+<figcaption>iPhone Simulator</figcaption></figure>
 
-<p>However the simulator has a subset of the actual iOS frameworks and many things like accessing a camera or using backgrounding APIs simply are not available in the iOS simulator [cite]. The performance in the simulator is not an indication of the performance on a device. </p>
 
-<p>All apps that run on iOS devices are required to be code signed before they will even execute. Generally speaking if you aren&#8217;t a developer the only apps you can get access to are ones that have been pre-vetted and code signed by Apple and are available through the App Store [cite]. The device when launching an app will check to see that the app is code signed and if not it will refuse to run the application [cite]. During the development process you can build a wildcard profile you can install on a device that will let it run applications sideloaded through Xcode. However this is not an efficient or effective way to distribute apps as it requires every individual you wish to have use your app also have an Apple developer account. The code signing on iOS effectively acts as a layer of Digital Rights Management (DRM) to give Apple the ability to choose what software does and does not run on their devices [cite]. During development you can build &#8216;ad-hoc&#8217; distribution profiles that allow you to sign the binary you create and distribute it onto a list of devices that have been pre-authorised. To pre-authorise a device to run the application you are building you have to collect the Unique Device Identifier (UDID) and enrol it in the portal</p>
 
-<p><em>IMAGE OF ENROL UDID IN PORTAL</em></p>
+<p>However the simulator has a subset of the actual iOS frameworks and many things like accessing a camera or using backgrounding APIs simply are not available in the iOS simulator. The performance in the simulator is not an indication of the performance on a device. </p>
+
+<p>All apps that run on iOS devices are required to be code signed before they will even execute. Generally speaking if you aren&#8217;t a developer the only apps you can get access to are ones that have been pre-vetted and code signed by Apple and are available through the App Store <span class="externalcitation">[#code-sign-hood]</span>. The device when launching an app will check to see that the app is code signed and if not it will refuse to run the application <span class="externalcitation">[#code-sign]</span>. During the development process you can build a wildcard profile you can install on a device that will let it run applications sideloaded through Xcode. However this is not an efficient or effective way to distribute apps as it requires every individual you wish to have use your app also have an Apple developer account. The code signing on iOS effectively acts as a layer of Digital Rights Management (DRM) to give Apple the ability to choose what software does and does not run on their devices <span class="externalcitation">[#code-sign-hood]</span>. During development you can build &#8216;ad-hoc&#8217; distribution profiles that allow you to sign the binary you create and distribute it onto a list of devices that have been pre-authorised. To pre-authorise a device to run the application you are building you have to collect the Unique Device Identifier (UDID) and enrol it in the portal</p>
+
+<figure>
+<img src="images/udidenrolment.png" alt="Adding a UDID" id="udid" />
+<figcaption>Adding a UDID</figcaption></figure>
+
+
 
 <p>In order to prevent people just enrolling hundreds or thousands of devices and setting up a competing App Store, Apple limits the amount of devices you can enrol to 100. The process of building ad-hoc profiles is integral to testing and QA throughout development. Luckily there is a free service called TestFlight that makes this process a lot simpler. TestFlight allows you to recruit users and have them sign up to join your beta or testing program. When the user signs up for a TestFlight account they are prompted to install a TestFlight profile that retrieves their device&#8217;s UDID and transmits it to the developer. The developer can then enrol that UDID and build a binary of their App that will run on that device. TestFlight will then inform the user and allow them to install that build on their device. What must be mentioned though is the provisioning profiles that Apple allows you to sign binaries with have a built in expiry date. From first generation of that profile you have on average 120 days until the binary will expire and no longer work on any devices. </p>
 
-<p><em>PICTURE_OF_CERT_EXPIRY</em> </p>
+<figure>
+<img src="images/certexpiry.png" alt="Certificate Expiry" id="certexpiry" />
+<figcaption>Certificate Expiry</figcaption></figure>
+
+
 
 <h3 id="sandboxing">Sandboxing</h3>
 
-<p>Unlike a traditional operating system, all apps deployed onto an iOS device are limited to accessing their own data. Apps are deployed into their own &#8216;home&#8217; directory, effectively a chrooted jail [cite] and the system will not allow them to access any content on disk outside of that home directory. Sandboxing is a simple way for Apple to control flaws in one app impacting and providing a vulnerability in other apps or even in the operating system. Sandboxing does not in and of itself prevent flaws in the app from being exploitable. As the App is sandboxed it makes inter-app communication much more difficult than on Android, which has a very powerful inter-app communication system known as &#8216;intents&#8217; [cite]. </p>
+<p>Unlike a traditional operating system, all apps deployed onto an iOS device are limited to accessing their own data. Apps are deployed into their own &#8216;home&#8217; directory, effectively a chrooted jail <span class="externalcitation">[#ios-prog]</span> and the system will not allow them to access any content on disk outside of that home directory. Sandboxing is a simple way for Apple to control flaws in one app impacting and providing a vulnerability in other apps or even in the operating system. Sandboxing does not in and of itself prevent flaws in the app from being exploitable. As the App is sandboxed it makes inter-app communication much more difficult than on Android, which has a very powerful inter-app communication system known as &#8216;intents&#8217; <span class="externalcitation">[#intents]</span>. </p>
 
-<p><em>SANDBOX_FOLDER_INFO</em></p>
+<figure>
+<img src="images/sandbox.png" alt="App Sandbox" id="sandbox" />
+<figcaption>App Sandbox</figcaption></figure>
+
+
 
 <h3 id="thechallengesofmobiledevelopment">The challenges of mobile development</h3>
 
@@ -126,39 +577,70 @@
 
 <p>The machine I&#8217;m writing this document on has 16GB of memory, 2TB of storage space and a quad core intel i7 processor. This is an order of magnitude more processing power, memory and storage than even the most advanced smartphone available on the market, the iPhone 5.</p>
 
-<p><em>iPhone 5 Geekbench score table</em></p>
+<table>
+<caption id="geekbenchscores">Geekbench Scores</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:right;"/>
+</colgroup>
 
-<p><em>iMac Geekbench score table</em></p>
+<thead>
+<tr>
+	<th style="text-align:left;">Device</th>
+	<th style="text-align:right;">Geekbench Score</th>
+</tr>
+</thead>
 
-<p>As the Geekbench scores show, the performance of this desktop machine is an order of magnitude more than the iPhone 5. For mobile you need to optimize to support the least powerful phone that can run your applications. The least powerful device that can run iOS 6 (The latest version of iOS) is the iPhone 3GS [RELEASED IN ETC], with a geekbench score of 263. The iPhone 3GS doesn&#8217;t have the dual core high-speed CPU of the iPhone 5, it has a single core Cortex-A8. It doesn&#8217;t have the 1GB of memory of the iPhone 5 it has only 256MB of memory to run not just your app but the entire operating system.</p>
+<tbody>
+<tr>
+	<td style="text-align:left;">iPhone 3GS</td>
+	<td style="text-align:right;">263</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 5</td>
+	<td style="text-align:right;">1139</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iMac</td>
+	<td style="text-align:right;">10079</td>
+</tr>
+</tbody>
+</table>
+<p>As the Geekbench scores show, the performance of this desktop machine is an order of magnitude more than the iPhone 5. For mobile you need to optimize to support the least powerful phone that can run your applications. The least powerful device that can run iOS 6 (The latest version of iOS) is the iPhone 3GS, with a geekbench score of 263. The iPhone 3GS doesn&#8217;t have the dual core high-speed CPU of the iPhone 5, it has a single core Cortex-A8. It doesn&#8217;t have the 1GB of memory of the iPhone 5 it has only 256MB of memory to run not just your app but the entire operating system.</p>
 
-<p>One of the major limitations of mobile in comparison with a desktop is that on mobile there is no paging of VM to disk. If you run out of available memory your app could simply just crash. Apple provides APIs that allow your app to detect when it is working in low memory conditions and respond accordingly. &#8220;The best way to do this is to remove strong references to caches, image objects, and other data objects that can be recreated later.&#8221; [cite APPLE]. Reducing memory usage will help with overall application performance as the system isn&#8217;t dynamically terminating other applications to provide the foreground app with more memory. </p>
+<p>One of the major limitations of mobile in comparison with a desktop is that on mobile there is no paging of VM to disk. If you run out of available memory your app could simply just crash. Apple provides APIs that allow your app to detect when it is working in low memory conditions and respond accordingly. &#8220;The best way to do this is to remove strong references to caches, image objects, and other data objects that can be recreated later.&#8221; <span class="externalcitation">[#mem-apple]</span>. Reducing memory usage will help with overall application performance as the system isn&#8217;t dynamically terminating other applications to provide the foreground app with more memory. </p>
 
 <p>Unlike in a desktop environment on iOS when an application is not in the foreground it is effectively suspended. There are several backgrounding APIs provided to allow for applications to continue running (albeit in a reduced priority state) but unlike on desktop the applications running in the background can be terminated at any time if the operating system wants to reclaim their resources.</p>
 
-<p><em>IMAGE_OF_BAR_OF_APPS_TASK_SWITCHER</em></p>
+<figure>
+<img src="images/fastappswitching.png" alt="App Task Switcher" id="taskswitcher" />
+<figcaption>App Task Switcher</figcaption></figure>
 
-<p>There are some upsides though, most algorithms for desktop are entirely CPU bound and very rarely use any form of hardware optimization. On the desktop performing a function like adding a blur filter to an image can be entirely performed on the CPU because of how high performance current generation CPUs are. On an iOS device performing that kind of calculation on the CPU would slow the device to a crawl and take seconds if not minutes. Apple provides the accelerate API [cite] that allows developers to build custom code that will be hardware accelerated and run on the device&#8217;s digital signal processor. The Core Graphics and the Accelerate framework allow developers to use the GPU to perform image manipulation instead of the CPU massively increasing the performance of actions that GPUs would be better tasked for [cite]. In many instances the ARM platform that iOS devices run on [cite] offer ways to optimize algorithms and use hardware acceleration to provide performance [cite] that is comparable to functions performed entirely on the CPU on much faster computers. Developers have to dedicate time and effort to understanding the differences between the performance constraints on desktop and on mobile and use that knowledge to optimize algorithms or re-architect solutions to provide better performance on mobile that takes advantage of the strengths of the platform.</p>
+
+
+<p>There are some upsides though, most algorithms for desktop are entirely CPU bound and very rarely use any form of hardware optimization. On the desktop performing a function like adding a blur filter to an image can be entirely performed on the CPU because of how high performance current generation CPUs are. On an iOS device performing that kind of calculation on the CPU would slow the device to a crawl and take seconds if not minutes. Apple provides the accelerate API <span class="externalcitation">[#ios-prog]</span> that allows developers to build custom code that will be hardware accelerated and run on the device&#8217;s digital signal processor. The Core Graphics and the Accelerate framework allow developers to use the GPU to perform image manipulation instead of the CPU massively increasing the performance of actions that GPUs would be better tasked for<span class="externalcitation">[#acc-img]</span>. In many instances the ARM platform that iOS devices run on offer ways to optimize algorithms and use hardware acceleration to provide performancethat is comparable to functions performed entirely on the CPU on much faster computers. Developers have to dedicate time and effort to understanding the differences between the performance constraints on desktop and on mobile and use that knowledge to optimize algorithms or re-architect solutions to provide better performance on mobile that takes advantage of the strengths of the platform.</p>
 
 <h4 id="appperformance">App Performance</h4>
 
-<p>The easiest way to provide a highly performant user experience is to make sure to never perform long-running operations on the main thread and block the UI. GCD and blocks provide an easy method for performing tasks asynchronously. If you need to perform a task on the main thread but do not want to block the run loop and thus UI and touch events there is an ability to access the main thread&#8217;s current operation queue and add a block to be performed on it without blocking the main thread. For example using the main thread to perform a non-blocking network request rather than a background thread on GCD can have a substantial impact on the response time of that network request</p>
-
-<p><em>TABLE_FOURSQUARE_API_QUERY_TIME_DIFFERENCE</em></p>
+<p>The easiest way to provide a highly performant user experience is to make sure to never perform long-running operations on the main thread and block the UI. GCD and blocks provide an easy method for performing tasks asynchronously. If you need to perform a task on the main thread but do not want to block the run loop and thus UI and touch events there is an ability to access the main thread&#8217;s current operation queue and add a block to be performed on it without blocking the main thread. For example using the main thread to perform a non-blocking network request rather than a background thread on GCD can have a substantial impact on the response time of that network request. <span class="externalcitation">[#cocoa-des]</span> An example of this performance impact is included in the HearClear section of this document.</p>
 
 <h4 id="networkconstraints">Network Constraints</h4>
 
-<p>The most popular iOS device sold, the iPhone has both WiFi and a 3G radio for data and making calls. Every single iOS device has support for WiFi [cite]. It is incredibly important that developers are mindful of data usage and the ways in which data is transmitted or received on iOS, particularly when it comes to using 3G data. 3G data can come at a substantial cost to the end user and not being mindful of this can end in a poor user experience. 3G and WiFi networking can be intermittent as well, network queries made over a congested 3G network can take quite a great deal of time to complete, if they are able to complete at all. Developers also need to account for circumstances where the network is not available and network requests fail, simply leaving a page loading without demonstrating that the request has failed ends in a poor experience for the user.</p>
+<p>The most popular iOS device sold, the iPhone has both WiFi and a 3G radio for data and making calls. Every single iOS device has support for WiFi. It is incredibly important that developers are mindful of data usage and the ways in which data is transmitted or received on iOS, particularly when it comes to using 3G data. 3G data can come at a substantial cost to the end user and not being mindful of this can end in a poor user experience. 3G and WiFi networking can be intermittent as well, network queries made over a congested 3G network can take quite a great deal of time to complete, if they are able to complete at all. Developers also need to account for circumstances where the network is not available and network requests fail, simply leaving a page loading without demonstrating that the request has failed ends in a poor experience for the user.</p>
 
 <h4 id="batterylife">Battery Life</h4>
 
-<p>One constraint that desktop developers are now only just beginning to take notice of is power usage. Mobile devices are extremely power sensitive, the iPhone absolutely so. The reason that Apple provides limited backgrounding APIs in contrast to Android (where applications can run in the background indefinitely) is to preserve battery life[cite]. Apple themselves make several recommendations on ways to preserve battery life or use less battery on devices[cite] alongside providing a module in the analysis program &#8216;instruments&#8217; to see how much power is consumed by actions performed in the application.</p>
+<p>One constraint that desktop developers are now only just beginning to take notice of is power usage. Mobile devices are extremely power sensitive, the iPhone absolutely so. The reason that Apple provides limited backgrounding APIs in contrast to Android (where applications can run in the background indefinitely) is to preserve battery life<span class="externalcitation">[#ios-prog]</span>. Apple themselves make several recommendations on ways to preserve battery life or use less battery on devices alongside providing a module in the analysis program &#8216;instruments&#8217; to see how much power is consumed by actions performed in the application.</p>
 
-<p><em>INSTRUMENTS_SHOT_HERE</em></p>
+<figure>
+<img src="images/instrumentsenergy.png" alt="Instruments Power Profiling" id="instruments" />
+<figcaption>Instruments Power Profiling</figcaption></figure>
 
-<p>The API that consumes the most power on the device is location services[cite]. Location services provide an API to retrieve the current location of the user (in the form of their current latitude and longitude to a certain accuracy). Location services caches the most recently retrieved location in the system globally and so when using the API developers need to be wary of the fact that the location they are receiving may be substantially out of date or incorrect. The Location Services API allows you to specify a degree of accuracy required when querying the API for the user&#8217;s current location [cite]. Relying on or requiring a very accurate location can use a substantial amount of energy as the GPS on the device searches for a more accurate location.</p>
 
-<p>The architecture of network requests and the manner in which they are made can also have a substantial impact on battery life and power consumption. Apple&#8217;s own documentation makes recommendations that data is submitted in bursts and in small request and queries [cite] rather than keeping a socket open and streaming the content continuously. In developing and designing network queries developers need to think about building the least amount of data required into that request and making the request as simple as possible to use. Requests that are made unless they are incredibly time sensitive should be cached in order to reduce the amount of network operations that are performed and the toll they have on the device as well.</p>
+
+<p>The API that consumes the most power on the device is location services<span class="externalcitation">[#ios-prog]</span>. Location services provide an API to retrieve the current location of the user (in the form of their current latitude and longitude to a certain accuracy). Location services caches the most recently retrieved location in the system globally and so when using the API developers need to be wary of the fact that the location they are receiving may be substantially out of date or incorrect. The Location Services API allows you to specify a degree of accuracy required when querying the API for the user&#8217;s current location <span class="externalcitation">[#cl-location]</span>. Relying on or requiring a very accurate location can use a substantial amount of energy as the GPS on the device searches for a more accurate location.</p>
+
+<p>The architecture of network requests and the manner in which they are made can also have a substantial impact on battery life and power consumption. Apple&#8217;s own documentation makes recommendations that data is submitted in bursts and in small request and queries <span class="externalcitation">[#ios-perf]</span> rather than keeping a socket open and streaming the content continuously. In developing and designing network queries developers need to think about building the least amount of data required into that request and making the request as simple as possible to use. Requests that are made unless they are incredibly time sensitive should be cached in order to reduce the amount of network operations that are performed and the toll they have on the device as well.</p>
 
 <p>In terms of general recommendations for iOS power consumption</p>
 
@@ -174,19 +656,54 @@
 
 <p>The current version of iOS is iOS 6.0 and there are several pieces of hardware that support this version.</p>
 
-<p><em>TABLE_OF_HARDWARE_HERE</em></p>
+<table>
+<caption id="ios6supporteddevices">iOS 6 Supported Devices</caption>
+<colgroup>
+<col style="text-align:left;"/>
+</colgroup>
 
+<thead>
+<tr>
+	<th style="text-align:left;">Device</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">iPhone 3GS</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 4</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 4S</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 5</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPad 2</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPad 3</td>
+</tr>
+</tbody>
+</table>
 <p>As the above table demonstrates many of these different devices have different screen resolutions (accounting for the &#8216;retina&#8217; display which is what apple calls their high-DPI displays on the new iPad and iPhone models iPhone 4 and above), some of them have front-facing cameras, others do not. When building for the platform developers need to intelligently take into account the fact that unless they specify requiring certain hardware, they&#8217;ll need to test for and validate whether hardware they wish to request exists. The other constraint is that different devices have different functionality when it comes to input or output. The iPhone 4S and iPhone 5 both have multiple noise cancelling microphones on the device to remove background noise. In these instances the onboard signal processors will use those microphones to remove any extraneous noise.</p>
 
-<p>The main point to be made about developing for iOS is to test for performance on the smallest target. The iPhone 3GS has the weakest processor and the least amount of memory of all of the current supported iOS devices and as such when developing for iOS, developers should be mindful of the performance on the 3GS [cite]. By working to reduce application complexity, working on intelligent and judicious use of platform-optimized algorithms and being mindful of the performance capability of the 3GS developers can greatly improve the performance of their applications on the 3GS and thus all iOS devices[cite]. The alternative is to only provide CPU-intensive functionality on devices that can support it. Developers can interrogate at runtime what device their application is being run on and choose to enable or disable specific functionality depending on the device[cite]. This is frowned upon though as it does not provide an equal experience to all users of the current iOS version. However it should be noted that Apple has in the past performed this same manoeuvre to get around the limitations of older hardware [cite].</p>
+<p>The main point to be made about developing for iOS is to test for performance on the smallest target. The iPhone 3GS has the weakest processor and the least amount of memory of all of the current supported iOS devices and as such when developing for iOS, developers should be mindful of the performance on the 3GS. By working to reduce application complexity, working on intelligent and judicious use of platform-optimized algorithms and being mindful of the performance capability of the 3GS developers can greatly improve the performance of their applications on the 3GS and thus all iOS devices<span class="externalcitation">[#ios-perf]</span>. The alternative is to only provide CPU-intensive functionality on devices that can support it. Developers can interrogate at runtime what device their application is being run on and choose to enable or disable specific functionality depending on the device<span class="externalcitation">[#apple-device-type]</span>. This is frowned upon though as it does not provide an equal experience to all users of the current iOS version. However it should be noted that Apple has in the past performed this same manoeuvre to get around the limitations of older hardware <span class="externalcitation">[#3gs-features]</span>.</p>
 
 <h3 id="webservices">Web Services</h3>
 
 <p>The most popular mobile applications on iOS are ones that integrate with an existing service or system. Native apps provide an interface to information from a service or system. Native apps like Facebook allow you to log into your facebook account on the go and send messages to your friends or read information they send you</p>
 
-<p><em>FACEBOOK_APP_IMAGE</em></p>
+<figure>
+<img src="images/facebook.jpg" alt="Facebook for iPhone" id="facebook" />
+<figcaption>Facebook for iPhone</figcaption></figure>
 
-<p>The key element of integrating a Mobile App with a web service is the API you provide for it. The app queries the API and uses the API to receive the information it needs to display to the user. With the rise of social media services like Facebook and Twitter, building a functional, intelligent and well documented API that other developers can develop against is becoming de-facto in the startup community. In 2010 Twitter revealed that 75% of their traffic was via their API (over 3 billion calls per day)[cite]. A quick search on the app store will show dozens of twitter clients that provide users with the ability to log in, view and update their tweets. One of the reasons for twitter&#8217;s massive success was their ability to provide a feature-rich API that developers could leverage to build clients for their platform[cite].</p>
+
+
+<p>The key element of integrating a Mobile App with a web service is the API you provide for it. The app queries the API and uses the API to receive the information it needs to display to the user. With the rise of social media services like Facebook and Twitter, building a functional, intelligent and well documented API that other developers can develop against is becoming de-facto in the startup community. In 2010 Twitter revealed that 75% of their traffic was via their API (over 3 billion calls per day)<span class="externalcitation">[#twit-api]</span>. A quick search on the app store will show dozens of twitter clients that provide users with the ability to log in, view and update their tweets. One of the reasons for twitter&#8217;s massive success was their ability to provide a feature-rich API that developers could leverage to build clients for their platform.</p>
 
 <h4 id="buildingfunctionalapis">Building Functional APIs</h4>
 
@@ -194,93 +711,249 @@
 
 <h5 id="restvssoapxmlvsjson">REST vs SOAP; XML vs JSON</h5>
 
-<p>SOAP (Simple Object Access Protocol) was the de-facto standard for Web APIs for a long period of time[cite]. Objects would have defined URLs and actions on those URLs that could be queried. Most of these APIs provided XML representations of objects and relied on the XML schema to allow the client to infer the types and parameters on the object. Over the past three to four years JSON (JavaScript Object Notation) has arisen as an alternative to XML[cite]. Twitter and Foursquare in their newest API versions have both disabled XML and now only offer JSON feeds[cite].</p>
+<p>SOAP (Simple Object Access Protocol) was the de-facto standard for Web APIs for a long period of time<span class="externalcitation">[#soap-rest]</span>. Objects would have defined URLs and actions on those URLs that could be queried. Most of these APIs provided XML representations of objects and relied on the XML schema to allow the client to infer the types and parameters on the object. Over the past three to four years JSON (JavaScript Object Notation) has arisen as an alternative to XML<span class="externalcitation">[#rest-serv]</span>. Twitter and Foursquare in their newest API versions have both disabled XML and now only offer JSON feeds<span class="externalcitation">[#twitter-api-changes]</span>.</p>
 
-<p><em>JSON_VS_XML_INTERPRETATION_OF_OBJECT</em></p>
+<figure>
+<img src="images/xmlexample.png" alt="XML Object" id="xmlobject" />
+<figcaption>XML Object</figcaption></figure>
+
+
+
+<figure>
+<img src="images/jsonexample.png" alt="JSON Object" id="jsonobject" />
+<figcaption>JSON Object</figcaption></figure>
+
+
+
 
 <p>JSON is a &#8216;fat free&#8217; data-interchange format for describing objects. It has several types:</p>
 
-<p><em>JSON_TYPES_TABLE</em></p>
+<table>
+<caption id="tableofjsontypes">Table of JSON Types</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
 
+<thead>
+<tr>
+	<th style="text-align:left;">Type</th>
+	<th style="text-align:left;">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Number</td>
+	<td style="text-align:left;">Double precision floating point number</td>
+</tr>
+<tr>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">Double quoted Unicode with backslash escaping</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Boolean</td>
+	<td style="text-align:left;">True or False value</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Array</td>
+	<td style="text-align:left;">Array of objects or primitives</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Object</td>
+	<td style="text-align:left;">Dictionary of objects, arrays or primitives</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Null</td>
+	<td style="text-align:left;">Empty value</td>
+</tr>
+</tbody>
+</table>
 <p>Almost every language in the world now has a native library for JSON. JSON is self-describing just like XML but with far less verbosity. When transferring data and information across low-bandwidth mobile networks that may have intermittent coverage the fewer bytes sent the better. JSON allows developers to trim the fat from their APIs and just transfer bare bones objects with types that are easily inferred and documented by the standard.</p>
 
 <p>In contrast with SOAP the new convention for building APIs for querying objects is REST (REpresentational State Transfer). In a RESTful design, the resources are identified, they can be objects or entities or collections or even just a simple text string. However instead of providing extended URLs to perform actions on objects RESTFul APIs interpret the standard HTTP verbs (GET, PUT, POST, DELETE) to provide an easier way to interact with a resource. </p>
 
-<p><em>REST_TABLE_GET_PUT_POST_DELETE_HERE</em> </p>
+<table>
+<caption id="restvssoaptable">REST vs SOAP table</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
 
-<p>By using HTTP verbs a RESTFul API requires less complexity (than the comparable SOAP API that requires routes for all of the actions that can be performed on the object) to retrieve, create, modify or destroy resources on an API. All a developer needs to know is the route for the object and the rest of the functionality is inferred.</p>
+<thead>
+<tr>
+	<th style="text-align:left;" colspan="2">Rest Query</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">URL</td>
+	<td style="text-align:left;">/api/v1/cars</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Object</td>
+	<td style="text-align:left;">Car Object</td>
+</tr>
+<tr>
+	<td style="text-align:left;">HTTP GET</td>
+	<td style="text-align:left;">Retrieves the car object/s from the API</td>
+</tr>
+<tr>
+	<td style="text-align:left;">HTTP POST</td>
+	<td style="text-align:left;">Creates a new car object/s on the API</td>
+</tr>
+<tr>
+	<td style="text-align:left;">HTTP PUT</td>
+	<td style="text-align:left;">Updates a car object/s on the API</td>
+</tr>
+<tr>
+	<td style="text-align:left;">HTTP Delete</td>
+	<td style="text-align:left;">Deletes a car object/s on the API</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"></td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2">SOAP Query</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Query Type</td>
+	<td style="text-align:left;">URL</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Get</td>
+	<td style="text-align:left;">/api/v1/cars/get_car</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Create</td>
+	<td style="text-align:left;">/api/v1/cars/new_car</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Update</td>
+	<td style="text-align:left;">/api/v1/cars/update_car</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Delete</td>
+	<td style="text-align:left;">/api/v1/cars/delete_car</td>
+</tr>
+</tbody>
+</table>
+<p>By using HTTP verbs a RESTFul API requires less complexity (than the comparable SOAP API that requires routes for all of the actions that can be performed on the object) to retrieve, create, modify or destroy resources on an API. All a developer needs to know is the route for the object and the rest of the functionality is inferred.<span class="externalcitation">[#rest-serv]</span></p>
 
 <h5 id="versioninganddeprecation">Versioning and Deprecation</h5>
 
-<p>A good API is one that is being consistently refined. The problem with consistently refining an API is that you may break compatibility with clients that are used to using an existing format on your API. </p>
+<p>A good API is one that is being consistently refined. The problem with consistently refining an API is that you may break compatibility with clients that are used to using an existing format on your API. If, say, you decide to rename a resource in your API, users who don&#8217;t know you&#8217;ve made that API change will get an error when querying against the API they think you are currently providing for consumption. The easiest way to allow flexibility to refine and iterate an API is to version it.</p>
 
-<p><em>TABLE_COMPARING_API_CHANGES_TWITTER1.0_TWITTER1.1</em></p>
-
-<p>If, say, you decide to rename a resource in your API, users who don&#8217;t know you&#8217;ve made that API change will get an error when querying against the API they think you are currently providing for consumption. The easiest way to allow flexibility to refine and iterate an API is to version it.</p>
-
-<p>Let&#8217;s say you&#8217;ve built API that allows people to submit and view pictures of cats but later decide to rename the model to a feline as people were submitting photos of lions. Instead of changing the query for the cat resource from &#8220;http://foo.bar/cat/1&#8221; to &#8220;http://foo.bar/feline/1&#8221;, you can provide an API with a version element. The URL for your first version would be, &#8220;http://foo.bar/api/v1.0/cat/1&#8221; which will always return a consistent result (until that API is deprecated). The URL for your updated feline version could be &#8220;http://fo.bar/api/v1.1/feline/1&#8221;. Versioning an api allows an easy way to test new ways of providing a method for an API to be consumed without breaking existing clients. Though a similar method has been used by twitter to remove features from clients as it is impeding their ability to monetise the service[cite], but best practice can sometimes be used for nefarious ends.</p>
+<p>Let&#8217;s say you&#8217;ve built API that allows people to submit and view pictures of cats but later decide to rename the model to a feline as people were submitting photos of lions. Instead of changing the query for the cat resource from &#8220;http://foo.bar/cat/1&#8221; to &#8220;http://foo.bar/feline/1&#8221;, you can provide an API with a version element. The URL for your first version would be, &#8220;http://foo.bar/api/v1.0/cat/1&#8221; which will always return a consistent result (until that API is deprecated). The URL for your updated feline version could be &#8220;http://fo.bar/api/v1.1/feline/1&#8221;. Versioning an api allows an easy way to test new ways of providing a method for an API to be consumed without breaking existing clients. Though a similar method has been used by twitter to remove features from clients as it is impeding their ability to monetise the service<span class="externalcitation">[#twitter-api-changes]</span>, but best practice can sometimes be used for nefarious ends.</p>
 
 <h5 id="apiresponses">API Responses</h5>
 
 <p>The response an API provides is generally to be defined by the circumstances in which a client is querying it. Normally you will provide a JSON representation of an object (or objects) that have been queried on an interface. One important factor though is to take into account the context of the query when it comes to returning the object.</p>
 
-<p>HTTP status codes can be used as shorthand when responding to a query from a client. In this example say there is a client that is querying a list of paintings. Some paintings can be marked private and can only be accessed by valid clients. In the first instance the client queries a painting object and as it can access it, a JSON version of the object is returned. In the second instance the client queries an object that no longer exists. As you know the client is a mobile application, instead of providing a long and verbose response such as a &#8220;object not found&#8221; page, you can simply return in the header a HTTP Status 404 (Not Found) error. The HTTP response then doesn&#8217;t require a long body [cite] with information on the error, the client knows that a 404 means the object does not exist and can parse it appropriately. The less data transmitted to this mobile client, the better. The client then tries to query a painting that does exist but it is not authorised to view, instead of returning an error that the client is not authorised, the server can return a 403 &#8220;Forbidden&#8221; HTTP Status code. By honouring the HTTP status code specification [cite] clients can easily infer more information about the state of a RESTFul interface query than relying on further information from the API.</p>
+<p>HTTP status codes can be used as shorthand when responding to a query from a client. In this example say there is a client that is querying a list of paintings. Some paintings can be marked private and can only be accessed by valid clients. In the first instance the client queries a painting object and as it can access it, a JSON version of the object is returned. In the second instance the client queries an object that no longer exists. As you know the client is a mobile application, instead of providing a long and verbose response such as a &#8220;object not found&#8221; page, you can simply return in the header a HTTP Status 404 (Not Found) error. The HTTP response then doesn&#8217;t require a long body <span class="externalcitation">[#rest-book]</span> with information on the error, the client knows that a 404 means the object does not exist and can parse it appropriately. The less data transmitted to this mobile client, the better. The client then tries to query a painting that does exist but it is not authorised to view, instead of returning an error that the client is not authorised, the server can return a 403 &#8220;Forbidden&#8221; HTTP Status code. By honouring the HTTP status code specification <span class="externalcitation">[#rest-book]</span> clients can easily infer more information about the state of a RESTFul interface query than relying on further information from the API.</p>
 
-<p>An alternative to the above approach is to be slightly more verbose in responses by attaching a &#8216;meta&#8217; object to the return on every request. An example of this &#8216;meta&#8217; object on an API query exists in the Foursquare API [cite]. Each query to the Foursquare venues API will return a meta object with a HTTP status code and a message with more information in the event of an error. A more powerful and more functional API like foursquare may require this but in the scenarios where an API doesn&#8217;t involve many objects or many endpoints, keeping verbosity to a minimum is a valid recommendation.</p>
-
-<p><em>GZIP_MAYBE</em></p>
+<p>An alternative to the above approach is to be slightly more verbose in responses by attaching a &#8216;meta&#8217; object to the return on every request. An example of this &#8216;meta&#8217; object on an API query exists in the Foursquare API <span class="externalcitation">[#fsq-api]</span>. Each query to the Foursquare venues API will return a meta object with a HTTP status code and a message with more information in the event of an error. A more powerful and more functional API like foursquare may require this but in the scenarios where an API doesn&#8217;t involve many objects or many endpoints, keeping verbosity to a minimum is a valid recommendation.</p>
 
 <h4 id="sinatrawebapplicationframework">Sinatra Web Application Framework</h4>
 
-<p>Sinatra is a web application development framework written in ruby and inspired by the web application framework Ruby on Rails [cite]. Unlike Ruby on Rails, Sinatra does not include all of the boilerplate, templates and other such elements that come bundled with rails:</p>
+<p>Sinatra is a web application development framework written in ruby and inspired by the web application framework Ruby on Rails <span class="externalcitation">[#sinatra-up]</span>. Unlike Ruby on Rails, Sinatra does not include all of the boilerplate, templates and other such elements that come bundled with rails:</p>
 
 <p>&#8220;While Rails is a framework focused on writing model driven web applications, Sinatra is a library for dealing with HTTP from the server side. If you think in terms of HTTP requests/responses, Sinatra is the ideal tool.&#8221; - Konstantin Haase, maintainer of Sinatra</p>
 
-<p>Sinatra is an excellent tool for rapidly prototyping and building a web application that does not have too much extended functionality. Sinatra effectively acts as a domain specific language for HTTP requests. A simple Sinatra app that responds with &#8220;Hello world&#8221; from a query to it is only four lines:</p>
+<p>Sinatra is an excellent tool for rapidly prototyping and building a web application that does not have too much extended functionality. Sinatra effectively acts as a domain specific language for HTTP requests. A simple Sinatra app that responds with &#8220;Hello world&#8221; from a query to it is only FIX lines:</p>
 
-<p><em>SINATRA_HELLO_WORLD_EXAMPLE</em></p>
+<figure>
+<img src="images/sinatrahelloworld.png" alt="Sinatra Hello World" id="sinatrahelloworld" />
+<figcaption>Sinatra Hello World</figcaption></figure>
 
-<p>Where Sinatra really shines though is viewing it as a library for dealing with &#8220;HTTP requests/responses&#8221;. This functionality makes Sinatra a natural choice for building clean and easy to define and iterate web APIs for mobile applications. Sinatra is also modular, you can mount multiple Sinatra apps in one deployment, configuring them to exist on different endpoints. This functionality alone makes versioning an API quite easy, if you want to iterate your API&#8217;s versioning without impacting the existing clients using the API simply build a newer version and mount it on /api/v1.1 instead of /api/v1.0. Sinatra is used by some major companies to run APIs and sites. Github uses Sinatra to run their entire GitHub API [cite].</p>
 
-<p><em>IMAGE_OF_MOUNTING_IN_CONFIG_RU</em></p>
 
-<p>Iteration and rapid development of a web application is easy when using Sinatra combined with HAML (HTML Abstraction Markup Language)[cite]. HAML is a language that is far less verbose than HTML which is compiled to HTML by the web application. HAML has become the de-facto standard for view templates in the rails and Sinatra communities because of its integration with the assets pipeline and the speed at which HAML documents can be created [cite].</p>
+<p>Where Sinatra really shines though is viewing it as a library for dealing with &#8220;HTTP requests/responses&#8221;. This functionality makes Sinatra a natural choice for building clean and easy to define and iterate web APIs for mobile applications. Sinatra is also modular, you can mount multiple Sinatra apps in one deployment, configuring them to exist on different endpoints. This functionality alone makes versioning an API quite easy, if you want to iterate your API&#8217;s versioning without impacting the existing clients using the API simply build a newer version and mount it on /api/v1.1 instead of /api/v1.0. Sinatra is used by some major companies to run APIs and sites. Github uses Sinatra to run their entire GitHub API <span class="externalcitation">[#sinatra-up]</span>.</p>
 
-<p><em>HAML_VS_HTML_EXAMPLE</em></p>
+<figure>
+<img src="images/sinatramount.png" alt="Mounting Multiple Apps" id="mountapps" />
+<figcaption>Mounting Multiple Apps</figcaption></figure>
+
+
+
+<p>Iteration and rapid development of a web application is easy when using Sinatra combined with HAML (HTML Abstraction Markup Language)<span class="externalcitation">[#sinatra-up]</span>. HAML is a language that is far less verbose than HTML which is compiled to HTML by the web application. HAML has become the de-facto standard for view templates in the rails and Sinatra communities because of its integration with the assets pipeline and the speed at which HAML documents can be created.</p>
+
+<figure>
+<img src="images/hamlexample.png" alt="HAML example" id="haml" />
+<figcaption>HAML example</figcaption></figure>
+
+
+
+<figure>
+<img src="images/htmlexample.png" alt="HTML equivalent" id="html" />
+<figcaption>HTML equivalent</figcaption></figure>
+
+
+
 
 <h4 id="datamapper">DataMapper</h4>
 
-<p>DataMapper is an object relational mapper written entirely in ruby [cite]. DataMapper is a database agnostic layer that allows models to be defined with properties (and relationships) that can be used on top of any number of databases. There are currently bindings for MySQL, Sqlite3, PostgreSQL and Oracle[cite]. DataMapper provides a domain specific language for defining model objects and the properties on those models. It provides a concise and easy API to use for querying the models as well, instead of writing a long and complicated SQL statement. If you&#8217;ve defined an object &#8216;cat&#8217; and want to retrieve all of them, you simply go Cat.all and DataMapper executes the required &#8216;select * from &#8216;cat&#8217;&#8217; query[cite].</p>
+<p>DataMapper is an object relational mapper written entirely in ruby <span class="externalcitation">[#dm-api]</span>. DataMapper is a database agnostic layer that allows models to be defined with properties (and relationships) that can be used on top of any number of databases. There are currently bindings for MySQL, Sqlite3, PostgreSQL and Oracle<span class="externalcitation">[#dm-api]</span>. DataMapper provides a domain specific language for defining model objects and the properties on those models. It provides a concise and easy API to use for querying the models as well, instead of writing a long and complicated SQL statement. If you&#8217;ve defined an object &#8216;cat&#8217; and want to retrieve all of them, you simply go Cat.all and DataMapper executes the required &#8216;select * from &#8216;cat&#8217;&#8217; query.</p>
 
-<p>DataMapper&#8217;s flexibility and power allow for rapid prototyping and development by making it trivial to add attributes to models and define models and relationships even if the database has already been created. If newer models and attributes are added the handler will migrate that data over to a new version of the database that reflects the attribute and model changes [cite].</p>
+<p>DataMapper&#8217;s flexibility and power allow for rapid prototyping and development by making it trivial to add attributes to models and define models and relationships even if the database has already been created. If newer models and attributes are added the handler will migrate that data over to a new version of the database that reflects the attribute and model changes <span class="externalcitation">[#dm-api]</span>.</p>
 
 <p>DataMapper also has extensions, in particular the dm-aggregate extension allows for performing mathematical functions across the database. Functions like max, min, sum and average make calculations for statistical purposes substantially faster than querying the models and performing those calculations on the returned set of model objects in memory in the Sinatra application.</p>
 
 <h4 id="foursquarethefoursquareapi">FourSquare &amp; the FourSquare API</h4>
 
-<p>Foursquare is a social networking service that allows users to &#8216;check in&#8217; to venues to receive points and compete with their friends to accrue the most points. Foursquare is of great interest because of their consistent effort to build valid and verified venue data. FourSquare provides the ability to search for venues around a latitude and longitude location and will return a list of venues and the distance away those venues are from that location. Foursquare has made some API changes recently that allow applications to register for an auth token and make venue searches with an application auth token rather than requiring a user with an existing foursquare user account to log in. This means that foursquare&#8217;s venue information can be used to provide information to users that do not have foursquare accounts. </p>
+<p>Foursquare is a social networking service that allows users to &#8216;check in&#8217; to venues to receive points and compete with their friends to accrue the most points. Foursquare is of great interest because of their consistent effort to build valid and verified venue data. FourSquare provides the ability to search for venues around a latitude and longitude location and will return a list of venues and the distance away those venues are from that location. Foursquare has made some API changes recently that allow applications to register for an auth token and make venue searches with an application auth token rather than requiring a user with an existing foursquare user account to log in. This means that foursquare&#8217;s venue information can be used to provide information to users that do not have foursquare accounts.<span class="externalcitation">[#fsq-api]</span></p>
 
 <h2 id="hearclear-theproject">HearClear - The Project</h2>
 
-<p>The system that constitutes HearClear is two equal but wildly different parts. The first of those parts is the iOS client application, an application designed to provide a simple and easy to use method for sampling the average loudness at a venue. The second part of HearClear (Which itself constitutes two different parts) is the web service that the iOS client communicates with. Both were developed in tandem but the majority of initial work was spent on researching and building the iOS client so sample data could be submitted to the constantly changing web service backend. The version that this document outlines is the product of months of work and constant testing, redeploying and tweaking. There are changes and modifications that could be made and the <em>FURTHER_WORK</em> section outlines just a few of those ideas, but at this stage the web service and the client app function as expected. Users can check in and sample loudness information at venues, upon finishing the check-in the client will submit that information to the server. The server will then scan that information for outliers or statistical anomalies and update the venue&#8217;s average volume rating for that time period. The more samples of average volume made at different venues the more accurate the analysis becomes and the more accurate the information that is presented becomes. This project was initially started as a purely iOS project, but like so many things the scope changed as time moved on. Separating the functionality into two separate apps and shifting a lot of the burden over to the server made sense when the decision was made to shift it over then and makes sense now. </p>
+<p>The system that constitutes HearClear is two equal but wildly different parts. The first of those parts is the iOS client application, an application designed to provide a simple and easy to use method for sampling the average loudness at a venue. The second part of HearClear (Which itself constitutes two different parts) is the web service that the iOS client communicates with. Both were developed in tandem but the majority of initial work was spent on researching and building the iOS client so sample data could be submitted to the constantly changing web service backend. The version that this document outlines is the product of months of work and constant testing, redeploying and tweaking. There are changes and modifications that could be made and the Future Work section outlines just a few of those ideas, but at this stage the web service and the client app function as expected. Users can check in and sample loudness information at venues, upon finishing the check-in the client will submit that information to the server. The server will then scan that information for outliers or statistical anomalies and update the venue&#8217;s average volume rating for that time period. The more samples of average volume made at different venues the more accurate the analysis becomes and the more accurate the information that is presented becomes. This project was initially started as a purely iOS project, but like so many things the scope changed as time moved on. Separating the functionality into two separate apps and shifting a lot of the burden over to the server made sense when the decision was made to shift it over then and makes sense now. </p>
 
 <h3 id="hearclearforios">HearClear for iOS</h3>
 
 <h4 id="overview">Overview</h4>
 
-<p><em>HEARCLEAR_WELCOME_SCREEN</em></p>
+<figure>
+<img src="images/hearclearhome.png" alt="HearClear Home Screen" id="hearclearhome" />
+<figcaption>HearClear Home Screen</figcaption></figure>
 
-<p>HearClear for iOS is an application developed and targeted for iOS devices capable of running iOS 5 and up. Halfway through the development timeline Apple released iOS 6 and the iPhone 5[cite]. At this point a decision was made to only support iOS 6 and thus the devices (non-iPad) that support iOS 6. </p>
 
-<p><em>DEVICES_SUPPORTED_TABLE</em></p>
 
+<p>HearClear for iOS is an application developed and targeted for iOS devices capable of running iOS 5 and up. Halfway through the development timeline Apple released iOS 6 and the iPhone 5. At this point a decision was made to only support iOS 6 and thus the devices (non-iPad) that support iOS 6. </p>
+
+<table>
+<caption id="hearclearsupporteddevices">HearClear Supported Devices</caption>
+<colgroup>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Supported Devices</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">iPhone 3GS</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 4</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 4S</td>
+</tr>
+<tr>
+	<td style="text-align:left;">iPhone 5</td>
+</tr>
+</tbody>
+</table>
 <p>The iOS application is deceptive in its simplicity. The application itself only has five different screens. This was a deliberate decision. The original goal of this app was to make it as easy as possible for someone to pull out their phone at a venue and start sampling the venue loudness without too much messing around. The end desire of the application is to pair valid location information with valid loudness information. There are obvious potential pitfalls in trying to collect this data and a great deal of the time spent on designing and engineering was dedicated to reducing the possibility of invalid location information and invalid loudness information.</p>
 
 <h4 id="applicationdesign">Application Design</h4>
 
 <p>The primary goal from the first iteration of this application was to make the process of opening the application to checking in at a venue take less than 20 seconds. Every single element of the process was tuned to reduce the latency between opening the app, viewing the list of venues and then checking into one and beginning the sampling process. HearClear was designed to be self-explanatory, they would need no user manual to start using the app and start sampling the loudness of their environment.</p>
 
-<p>There are no excess screens and no excess waste of screen real estate. Instead of building a highly customised user interface, the app was developed keeping in mind the standard UI grammars for iOS [cite]. </p>
+<p>There are no excess screens and no excess waste of screen real estate. Instead of building a highly customised user interface, the app was developed keeping in mind the standard UI grammars for iOS <span class="externalcitation">[#apple-device-type]</span>. </p>
 
 <p>The end goal of this vision was to have a user check in and then leave their phone on the table sampling the venue loudness in the background, hopefully forgetting that it&#8217;s even sampling. </p>
 
@@ -301,7 +974,11 @@
 
 <h5 id="venuelist">Venue List</h5>
 
-<p><em>VENUE_LIST_INFO</em></p>
+<figure>
+<img src="images/venuelist.png" alt="HearClear Venue List" id="venuelist" />
+<figcaption>HearClear Venue List</figcaption></figure>
+
+
 
 <p>The venue list view allows users to see the venues for their location that the FourSquare service has returned on the query. The application is designed with the standard UI Paradigm of a &#8220;Pull to refresh&#8221;. This venue list is designed to only initiate the query when the user&#8217;s location has become fixed to a certain accuracy (a horizontal accuracy of under +- 60 metres). To view a venue&#8217;s information, the user simply taps the table view cell row of the appropriate venue.</p>
 
@@ -309,21 +986,31 @@
 
 <h5 id="venueinfo">Venue Info</h5>
 
-<p><em>VENUE_INFO</em></p>
+<figure>
+<img src="images/venueinfo.png" alt="HearClear Venue Info" id="venueinfo" />
+<figcaption>HearClear Venue Info</figcaption></figure>
+
+
 
 <p>When a user has tapped on the venue they wish to find out more about or check in at, the venue info page is displayed. The venue info page shows the location of the venue that was provided by FourSquare on a map. They can also see how far away the venue is from them. If there has been information collected on the venue a &#8216;venue info&#8217; button will appear allowing the user to view the estimated venue loudness at existing times that have been sampled. If there are no samples for that venue the venue extended information button will not be displayed.</p>
 
-<p><em>VENUE_INFO_BUTTON</em></p>
-
 <h5 id="venueloudnessinformation">Venue Loudness Information</h5>
 
-<p><em>VENUE_LOUDNESS_INFO</em></p>
+<figure>
+<img src="images/venueloudness.png" alt="Venue Loudness Information" id="venueloudness" />
+<figcaption>Venue Loudness Information</figcaption></figure>
+
+
 
 <p>If the venue does have extended info, the venue loudness page displays the loudness values determined by the backend and provides a quantified value for it (soft, average, loud etc) in the interface. The quantified values are determined by the server and the process for defining them is outlined in the server section of this document. The venue loudness element displays the loudness values broken up into hourly values and days of the week. The manner in which this information is displayed is based on the information provided by the server, so the display could change to say four hour blocks if it is determined by the server that this is a more accurate way of displaying loudness data for venues.</p>
 
 <h5 id="sampling">Sampling</h5>
 
-<p><em>SAMPLING_VIEW_INFO</em></p>
+<figure>
+<img src="images/venuesampling.png" alt="HearClear Venue Sampling" id="venuesampling" />
+<figcaption>HearClear Venue Sampling</figcaption></figure>
+
+
 
 <p>The sampling view begins sampling the moment it is displayed. There is a live status of how far away you are from the venue and an animated speaker icon to display that sampling is currently ongoing. The user can choose to end the sampling at any time. The user at this point can lock the device and the sampling will continue in the background until the user leaves the location or five minutes has passed. In earlier prototypes the sampling screen was displayed but the user could choose to start sampling before the sampling began. After prototypes this was decided against because the choice to start sampling from the venue info view implicitly implied that the user wished to begin sampling. By requiring the user to touch &#8216;begin sampling&#8217; again from the venue view was effectively &#8216;double handling&#8217; and increased the complexity of the application. The fewer points of interaction with the app and the less the user had to think about their decisions in the app the better.</p>
 
@@ -337,57 +1024,192 @@
 
 <h6 id="venue">Venue</h6>
 
-<ul>
-<li>id</li>
-<li>name</li>
-<li>lat</li>
-<li>lng</li>
-<li>distance</li>
-</ul>
+<table>
+<caption id="venueentity"> Venue Entity</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
 
-<p>Venues are retrieved from the FourSquare API. The venue model used inside the application is a pared down version of the information provided by FourSquare. The full FourSquare venue model is available at [CITE]</p>
+<thead>
+<tr>
+	<th style="text-align:left;">Field</th>
+	<th style="text-align:left;">Type</th>
+	<th style="text-align:left;">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">id</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The FourSquare venue ID</td>
+</tr>
+<tr>
+	<td style="text-align:left;">name</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The name of the venue</td>
+</tr>
+<tr>
+	<td style="text-align:left;">lat</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The Latitude of the venue, stored in a string for the sake of accuracy</td>
+</tr>
+<tr>
+	<td style="text-align:left;">lng</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The Longitude of the venue, stored in a string for the sake of accuracy</td>
+</tr>
+<tr>
+	<td style="text-align:left;">distance</td>
+	<td style="text-align:left;">Integer</td>
+	<td style="text-align:left;">Distance in meters from the user’s current location to the venue</td>
+</tr>
+</tbody>
+</table>
+<p>Venues are retrieved from the FourSquare API. The venue model used inside the application is a pared down version of the information provided by FourSquare. The full FourSquare venue model is available. <span class="externalcitation">[#fsq-api]</span> Venue models are displayed in the venues list and the venue info section.</p>
 
 <h6 id="venuecheckin">Venue Checkin</h6>
 
-<ul>
-<li>id</li>
-<li>name</li>
-<li>lat</li>
-<li>lng</li>
-<li>samples [array]</li>
-</ul>
+<table>
+<caption id="venuecheckinentity">Venue Checkin Entity</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
 
-<p>A venue checkin is instantiated when the venue sample view is presented. The venue checkin consists of the metadata required to have the checkin associated with the correct venue object on the server. At the end of each defined sample time period, a time sample is instantiated and added to the samples array. This design allows for modifications to the time sample period, something that was consistently changed for the purposes of attempting to gain better accuracy out of the APIs provided.</p>
+<thead>
+<tr>
+	<th style="text-align:left;">Field</th>
+	<th style="text-align:left;">Type</th>
+	<th style="text-align:left;">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">id</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The FourSquare venue ID</td>
+</tr>
+<tr>
+	<td style="text-align:left;">name</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The venue name</td>
+</tr>
+<tr>
+	<td style="text-align:left;">lat</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The latitude of the venue</td>
+</tr>
+<tr>
+	<td style="text-align:left;">lng</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The longitude of the venue</td>
+</tr>
+<tr>
+	<td style="text-align:left;">samples</td>
+	<td style="text-align:left;">Array</td>
+	<td style="text-align:left;">An array of sample objects that were created when sampling at this venue</td>
+</tr>
+</tbody>
+</table>
+<p>A venue checkin is instantiated when the venue sample view is presented. The venue checkin consists of the metadata required to have the checkin associated with the correct venue object on the server. At the end of each defined sample time period, a time sample is instantiated and added to the samples array. This design allows for modifications to the time sample period, something that was consistently changed for the purposes of attempting to gain better accuracy out of the APIs provided. The FourSquare ID of the venue is retained as all server-side operations on venues require the FourSquare ID rather than the ID generated for the venue on the server side in order to reduce the duplication of venues on the HearClear server and to guarantee consistency between FourSquare and HearClear.</p>
 
 <h6 id="venuesample">Venue Sample</h6>
 
-<ul>
-<li>maxPower</li>
-<li>averagePower</li>
-<li>date [timestamp]</li>
-</ul>
+<table>
+<caption id="venuesampleentity">Venue Sample Entity</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
 
-<p>A venue sample contains two floats that both contain a 0 - 1 value of the voltages returned by the API over the period of time they were queried. The maxPower contains a normalised value of the max power for channel API. The averagePower contains a normalised value of the average power for API channel. The date contains a localised date value created with the time at which the sample period for that sample began.</p>
+<thead>
+<tr>
+	<th style="text-align:left;">Field</th>
+	<th style="text-align:left;">Type</th>
+	<th style="text-align:left;">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">max Power</td>
+	<td style="text-align:left;">float</td>
+	<td style="text-align:left;">A float from 0 to 1 outlining the max voltage of the channel for the time period of the sample</td>
+</tr>
+<tr>
+	<td style="text-align:left;">averagePower</td>
+	<td style="text-align:left;">float</td>
+	<td style="text-align:left;">A float from 0 to 1 outlining the average voltage of the channel for the time period of the sample</td>
+</tr>
+<tr>
+	<td style="text-align:left;">date</td>
+	<td style="text-align:left;">DateTime</td>
+	<td style="text-align:left;">The time at which this particular sample started</td>
+</tr>
+</tbody>
+</table>
+<p>A venue sample contains two floats that both contain a 0 - 1 value of the voltages returned by the API over the period of time they were queried. The maxPower contains a normalised value of the max power for channel API. The averagePower contains a normalised value of the average power for API channel. The date contains a localised date value created with the time at which the sample period for that sample began. The analysis section provides further insight into how these sample elements were used for divining the venue loudness. Both max power and average power were sampled in order to provide further information for statistical analysis.</p>
 
 <h5 id="networking">Networking</h5>
 
 <p>As the application interacted with two network services, two separate network services APIs needed to be built for internal use. The first was a library and a utility for integrating with FourSquare and querying their venue information. The second was for querying and submitting venue data to the server component of this application. As the requirement for these networking queries was to maintain high performance and speed, there were several design decisions put in place in order to reduce the time users spent waiting for results or information. </p>
 
-<p>Multiple networking APIs have been built on top of Apple&#8217;s networking APIs and many third party libraries exist to make networking easier on iOS. However Apple&#8217;s standard NSURLConnection library provides fantastic performance if used according to their guidelines [cite]. In order to not block the main thread and break the user experience and UI, all of the networking queries needed to be asynchronous. NSURLConnection provides a method for sending a network connection asynchronously on an NSOperationQueue (An NSOperationQueue is what it sounds, a series of operations that are performed in order) with a block for a callback.</p>
+<p>Multiple networking APIs have been built on top of Apple&#8217;s networking APIs and many third party libraries exist to make networking easier on iOS. However Apple&#8217;s standard NSURLConnection library provides fantastic performance if used according to their guidelines. In order to not block the main thread and break the user experience and UI, all of the networking queries needed to be asynchronous. NSURLConnection provides a method for sending a network connection asynchronously on an NSOperationQueue (An NSOperationQueue is what it sounds, a series of operations that are performed in order) with a block for a callback.<span class="externalcitation">[#cocoa-des]</span></p>
 
-<p><em>EXAMPLE_IMAGE_HERE</em></p>
+<figure>
+<img src="images/nsurlconnection.png" alt="NSURLConnection Callback" id="nsurlconnection" />
+<figcaption>NSURLConnection Callback</figcaption></figure>
 
-<p>A standard way that objective-C classes interact is through the use of delegates and callbacks on delegates. It&#8217;s kind of like an observer pattern on steroids. An object implements a protocol defined by the delegate (think like an interface in java). The delegate can then create an instance of the networking object and call the requisite methods on that networking object. Now instead of waiting for that networking object to return synchronously, by defining the class that instantiated the networking object as the delegate of that networking object, the main class can continue to execute as normal. When the networking object has finished its network routines, it calls a method defined by the protocol on its delegate (the initial class). That way the class is informed when the network query has finished and is returned the information from the network query asynchronously rather than blocking the run loop while waiting for it to return. This is the first way to provide a positive experience with networking, but these networking requests if you are instantiating a new NSOperationQueue are performed on a secondary thread and can take quite a lot longer to resolve. Using new NSOperationQueue in the query to foursquare results sometimes took as long as 10 seconds to return even on the incredibly fast uniwide connection. Given the main goal of the application is to provide a speedy way to let users check into venues as quickly as possible, this was not an acceptable turnaround when a standard CURL to the API returned in under half a second. Thankfully the NSOperationQueue class provides an ability to obtain the current OperationQueue for the main thread. Now this is automatically prioritised to favour UI and touch events but you can insert operations into it. By inserting the network operations into the main thread&#8217;s main queue the performance of all network queries improved substantially.</p>
 
-<p><em>TABLE_FSQ_HC_API_MAIN_VS_OTHER_THREAD_TABLE</em></p>
 
-<p>The network elements of the client application were always going to be the most important elements. If users are unable to get venue data or submit sampling data then the client application is effectively useless. As there were multiple screens querying the same networking elements, overloading and building multiple protocols for the implementation of network callbacks on those screens was simply untenable and not a clean way of implementing a decoupled network delegate protocol. As such a standard networking response was defined for both the FourSquare API and the HearClear server API that returned in the response an enum value for the query type and the result type along with a dictionary item for the response. Instead of then implementing methods like responseForVenueInfo and responseForVenueFurtherInfo, the delegate could check to see what the responseType was and then act accordingly. Delegates that did not need to query venue information and the like but only check to see if a venue existed in the backend would then only need to respond when the responseType was of one that they implemented. Instead of needing 30 different network delegate protocols, only one was needed.</p>
+<p>A standard way that objective-C classes interact is through the use of delegates and callbacks on delegates. It&#8217;s kind of like an observer pattern on steroids. An object implements a protocol defined by the delegate (think like an interface in java). The delegate can then create an instance of the networking object and call the requisite methods on that networking object. Now instead of waiting for that networking object to return synchronously, by defining the class that instantiated the networking object as the delegate of that networking object, the main class can continue to execute as normal. When the networking object has finished its network routines, it calls a method defined by the protocol on its delegate (the initial class).<span class="externalcitation">[#ios-sdk]</span> That way the class is informed when the network query has finished and is returned the information from the network query asynchronously rather than blocking the run loop while waiting for it to return. This is the first way to provide a positive experience with networking, but these networking requests if you are instantiating a new NSOperationQueue are performed on a secondary thread and can take quite a lot longer to resolve. Using new NSOperationQueue in the query to foursquare results sometimes took as long as 10 seconds to return even on the incredibly fast uniwide connection. Given the main goal of the application is to provide a speedy way to let users check into venues as quickly as possible, this was not an acceptable turnaround when a standard CURL to the API returned in under half a second. Thankfully the NSOperationQueue class provides an ability to obtain the current OperationQueue for the main thread.<span class="externalcitation">[#ios-sdk]</span> Now this is automatically prioritised to favour UI and touch events but you can insert operations into it. By inserting the network operations into the main thread&#8217;s main queue the performance of all network queries improved substantially.</p>
+
+<table>
+<caption id="mainthreadvsbackgroundthreadnetworkqueryaveragetime">Main Thread vs Background Thread Network Query Average Time</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:right;"/>
+<col style="text-align:right;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">API</th>
+	<th style="text-align:right;">Background Thread Time</th>
+	<th style="text-align:right;">Foreground Thread Time</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">FourSquare</td>
+	<td style="text-align:right;">6.78 Seconds</td>
+	<td style="text-align:right;">4.23 Seconds</td>
+</tr>
+<tr>
+	<td style="text-align:left;">HearClear</td>
+	<td style="text-align:right;">9.43 Seconds</td>
+	<td style="text-align:right;">3.58 Seconds</td>
+</tr>
+</tbody>
+</table>
+<p>The network elements of the client application were always going to be the most important elements. If users are unable to get venue data or submit sampling data then the client application is effectively useless. As there were multiple screens querying the same networking elements, overloading and building multiple protocols for the implementation of network callbacks on those screens was simply untenable and not a clean way of implementing a decoupled network delegate protocol. As such a standard networking response was defined for both the FourSquare API and the HearClear server API that returned in the response an enum value for the query type and the result type along with a dictionary item for the response. Instead of then implementing methods like responseForVenueInfo and responseForVenueFurtherInfo, the delegate could check to see what the responseType was and then act accordingly. Delegates that did not need to query venue information and the like but only check to see if a venue existed in the backend would then only need to respond when the responseType was of one that they implemented. Instead of needing 30 different network delegate protocols, only one was needed.<span class="externalcitation">[#cocoa-des]</span></p>
 
 <h5 id="backgrounding">Backgrounding</h5>
 
-<p>One of the major benefits of using the standard Apple APIs for querying the venue loudness as voltage on the AVAudioRecorder API was the ability to easily enable backgrounding in the application. Each app bundle (which is just a renamed zip file) contains an Info.plist file. A Plist is simply an XML property list, it&#8217;s Apple&#8217;s standard way of denoting things. In this plist file you can request backgrounding &#8216;privileges&#8217;. In order to enable the ability to record in the background, you only need to add one line to that plist. Now any time an AVAudioRecorder is being used and the user closes the application, the user will be notified that the application&#8217;s recorder is still running in the multitasking bar.</p>
+<p>One of the major benefits of using the standard Apple APIs for querying the venue loudness as voltage on the AVAudioRecorder API was the ability to easily enable backgrounding in the application. Each app bundle (which is just a renamed zip file) contains an Info.plist file. A Plist is simply an XML property list, it&#8217;s Apple&#8217;s standard way of denoting things. In this plist file you can request backgrounding &#8216;privileges&#8217;. In order to enable the ability to record in the background, you only need to add one line to that plist. Now any time an AVAudioRecorder is being used and the user closes the application, the user will be notified that the application&#8217;s recorder is still running in the multitasking bar.<span class="externalcitation">[#av-api]</span></p>
 
-<p><em>EXAMPLE_HEARCLEAR_BAR</em></p>
+<figure>
+<img src="images/hearclearstatusbar.png" alt="HearClear Background Status Bar" id="statusbar" />
+<figcaption>HearClear Background Status Bar</figcaption></figure>
+
+
 
 <p>This also means that the application will continue to record when the device is locked. Instead of writing my own core foundation (a C API onto the hardware microphone exposed) I could concentrate on getting the sample frequency and the recording frequency correct.</p>
 
@@ -395,25 +1217,186 @@
 
 <h5 id="sampling">Sampling</h5>
 
-<p>The sampling in the application is made possible by the API provided by AVAudioRecorder, the standard audio recording framework provided by Apple. </p>
+<p>The sampling in the application is made possible by the API provided by AVAudioRecorder, the standard audio recording framework provided by Apple.<span class="externalcitation">[#av-api]</span></p>
 
 <p>The AVAudioRecorder can record average and peak voltage levels for the channel of the microphone by setting a flag on the instance of the recorder (meteringEnabled) to true. Using this API a timer can be fired at a certain interval to obtain the levels for average and peak over the course of that time interval. This allows for either granular or wide sampling periods. The more samples taken the more information that has to be transmitted back to the backend. A balance had to be chosen between obtaining valid samples and minimising the amount of data collected and data transmitted to the backend.</p>
 
-<p>Using a standard sound source (a computer playing a 2600hz wav file) and a standard distance (10cm from the computer). A decibel meter was used to compare with the outcomes of the peak voltage for channel and the average voltage for channel over several sample intervals. They were sampled at intervals that would estimate Each one was sampled at least 10 times.</p>
+<p>Using a standard sound source (a computer playing a 2600hz wav file) and a standard distance (10cm from the computer). A decibel meter was used to compare with the outcomes of the peak voltage for channel and the average voltage for channel over several sample intervals. They were sampled at least 10 times at intervals that would estimate the variance in the difference between recorded peak and recorded average voltage on the channel.</p>
 
-<ul>
-<li>0.5</li>
-<li>1.0</li>
-<li>2</li>
-</ul>
+<table>
+<caption id="frequencyofsamplingvaluevsafixedvolumesource">Frequency of Sampling Value vs a Fixed Volume Source</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
 
-<p>Based on the analysis across several sample decibel levels (65dB, 70dB, 75dB, 80dB and 85dB) using the average values at a one second sample rate seemed to provide the best tradeoff between sample rate and sample accuracy. The way the levels are calculated inside Apple&#8217;s API are entirely inscrutable and unavailable for public consumption. However the averages would skew towards zero the lower the sample frequency became. Given that a lot of the sounds that will be sampled by the system are background noise and conversation, it made sense to skew to a higher sample rate and then use that data for further analysis on the server. There were some mildly problematic issues with this analysis and those are covered in the analysis section of this document. There is a link to the dataset for these calculations in Appendix A to this document.</p>
+<thead>
+<tr>
+	<th style="text-align:left;">Sample Frequency</th>
+	<th style="text-align:left;">dB Estimate</th>
+	<th style="text-align:left;">Max Std Dev</th>
+	<th style="text-align:left;">Max Mean</th>
+	<th style="text-align:left;">Avg Std Dev</th>
+	<th style="text-align:left;">Avg Mean</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">65dB</td>
+	<td style="text-align:left;">0.001731</td>
+	<td style="text-align:left;">0.028923</td>
+	<td style="text-align:left;">0.000711</td>
+	<td style="text-align:left;">0.020513</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">65dB</td>
+	<td style="text-align:left;">0.012848</td>
+	<td style="text-align:left;">0.032639</td>
+	<td style="text-align:left;">0.005742</td>
+	<td style="text-align:left;">0.019519</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">65dB</td>
+	<td style="text-align:left;">0.010020</td>
+	<td style="text-align:left;">0.039715</td>
+	<td style="text-align:left;">0.003698</td>
+	<td style="text-align:left;">0.025337</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">70dB</td>
+	<td style="text-align:left;">0.003590</td>
+	<td style="text-align:left;">0.060280</td>
+	<td style="text-align:left;">0.001618</td>
+	<td style="text-align:left;">0.048860</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">70dB</td>
+	<td style="text-align:left;">0.032366</td>
+	<td style="text-align:left;">0.066722</td>
+	<td style="text-align:left;">0.003756</td>
+	<td style="text-align:left;">0.046909</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">70dB</td>
+	<td style="text-align:left;">0.008110</td>
+	<td style="text-align:left;">0.060954</td>
+	<td style="text-align:left;">0.003436</td>
+	<td style="text-align:left;">0.046008</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">75dB</td>
+	<td style="text-align:left;">0.006065</td>
+	<td style="text-align:left;">0.077581</td>
+	<td style="text-align:left;">0.005837</td>
+	<td style="text-align:left;">0.071514</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">75dB</td>
+	<td style="text-align:left;">0.017538</td>
+	<td style="text-align:left;">0.103111</td>
+	<td style="text-align:left;">0.009884</td>
+	<td style="text-align:left;">0.077150</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">75dB</td>
+	<td style="text-align:left;">0.017166</td>
+	<td style="text-align:left;">0.113429</td>
+	<td style="text-align:left;">0.007173</td>
+	<td style="text-align:left;">0.091753</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">80dB</td>
+	<td style="text-align:left;">0.015233</td>
+	<td style="text-align:left;">0.093516</td>
+	<td style="text-align:left;">0.011219</td>
+	<td style="text-align:left;">0.079994</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">80dB</td>
+	<td style="text-align:left;">0.043619</td>
+	<td style="text-align:left;">0.210548</td>
+	<td style="text-align:left;">0.017348</td>
+	<td style="text-align:left;">0.169386</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">80dB</td>
+	<td style="text-align:left;">0.038348</td>
+	<td style="text-align:left;">0.188199</td>
+	<td style="text-align:left;">0.020047</td>
+	<td style="text-align:left;">0.153755</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">85dB</td>
+	<td style="text-align:left;">0.016745</td>
+	<td style="text-align:left;">0.210023</td>
+	<td style="text-align:left;">0.004329</td>
+	<td style="text-align:left;">0.153154</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">85dB</td>
+	<td style="text-align:left;">0.052180</td>
+	<td style="text-align:left;">0.318555</td>
+	<td style="text-align:left;">0.028220</td>
+	<td style="text-align:left;">0.284015</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">85dB</td>
+	<td style="text-align:left;">0.052563</td>
+	<td style="text-align:left;">0.318888</td>
+	<td style="text-align:left;">0.026353</td>
+	<td style="text-align:left;">0.268205</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">95dB</td>
+	<td style="text-align:left;">0.029287</td>
+	<td style="text-align:left;">0.288411</td>
+	<td style="text-align:left;">0.025135</td>
+	<td style="text-align:left;">0.282109</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">95dB</td>
+	<td style="text-align:left;">0.066798</td>
+	<td style="text-align:left;">0.567119</td>
+	<td style="text-align:left;">0.041669</td>
+	<td style="text-align:left;">0.491610</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">95dB</td>
+	<td style="text-align:left;">0.068015</td>
+	<td style="text-align:left;">0.593681</td>
+	<td style="text-align:left;">0.059281</td>
+	<td style="text-align:left;">0.517906</td>
+</tr>
+</tbody>
+</table>
+<p>Based on the analysis across several sample decibel levels using the average values at a one second sample rate seemed to provide the best tradeoff between sample rate and sample accuracy. The way the levels are calculated inside Apple&#8217;s API are entirely inscrutable, Apple does not make this information available. However it appears the averages trend downward the greater the timespan of the average. Given that a lot of the sounds that will be sampled by the system are background noise and conversation, it made sense to skew to a higher sample rate and then use that data for further analysis on the server. There were some mildly problematic issues with this analysis and those are covered in the analysis section of this document. There is a link to the dataset for these calculations in Appendix A to this document. I had wished to do more analysis at a lower frequency such as sampling every five seconds but the extending the amount of time listening to a progressively louder 2600Hz sound seemed as if it would be injurious to my mental health.</p>
 
 <p>User weighting was initially suggested as an idea by Wayne Wobcke, my thesis supervisor. However a way of applying these estimates across different venues was simply too difficult given the time at which the suggestion was made. There was simply not enough time available to take into account the user estimate along with the device information to skew or modify the data to take into account their estimation of venue loudness. It seemed more intelligent to rely on the impartiality of the device&#8217;s voltage levels itself and then perform further analysis on the backend as needed.</p>
 
 <h5 id="displayingvenueloudnessinformation">Displaying Venue Loudness &amp; Information</h5>
-
-
 
 <p>If there is further venue loudness information available on the server then the application will display a &#8216;more info&#8217; button allowing users to view that information. There are two parts to this, the first is the query from the server that returns the groupings of venue loudness organised by day and time of day. The second is the weightings by which the device determines how to turn the average loudness float value into a human readable string. In the first versions of the application this information was hardcoded, however as more data was collected and after further analysis of the logarithmic manner in which the different device microphones defined average and peak values, a decision was made to allow the server to dictate loudness. An architecture change had to be made on the client app to no longer define the terms of loudness, the server will substitute in the loudness value for the given float on the fly and return simply an array of days and hours with an human readable loudness value (silent, soft, loud etc). As such as more analysis goes on, changes can be made to how the loudness values are displayed on the device by making changes on the server.</p>
 
@@ -433,12 +1416,198 @@
 
 <h4 id="entities">Entities</h4>
 
-<ul>
-<li>Document and outline the different entities used and the reasons for them</li>
-<li>Venues</li>
-<li>Checkins</li>
-<li>Sessions</li>
-</ul>
+<p>The following entities are all expressed as tables in the SQLite database. The model files are defined using DataMapper’s syntax. </p>
+
+<h5 id="venues">Venues</h5>
+
+<table>
+<caption id="venueobjectdatamodel">Venue Object Data Model</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Name</th>
+	<th style="text-align:left;">Type</th>
+	<th style="text-align:left;">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">id</td>
+	<td style="text-align:left;">Integer</td>
+	<td style="text-align:left;">The ID for this venue in the HearClear Database</td>
+</tr>
+<tr>
+	<td style="text-align:left;">name</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The name for this venue</td>
+</tr>
+<tr>
+	<td style="text-align:left;">foursquareID</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The ID that FourSquare has assigned this venue.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">latitude</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The Latitude for this venue</td>
+</tr>
+<tr>
+	<td style="text-align:left;">longitude</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The Longitude for this venue</td>
+</tr>
+<tr>
+	<td style="text-align:left;">checkins</td>
+	<td style="text-align:left;">Checkin objects</td>
+	<td style="text-align:left;">The checkin objects associated with this venue</td>
+</tr>
+</tbody>
+</table>
+<p>A venue object is created in the backend when a user taps the venue in the iOS application’s table view. The reason for creating the venue at this point in time is so the venue exists when the user performs a check in session. Previously the whole list of venues returned by foursquare would be submitted to the backend API. This ended up creating thousands of venues that would never be checked into or have any meaningful data regarding them submitted to the backend. This way only venues that users are interested in are created in the backend of the application. The user that first viewed this venue is not recorded, as that information does not really serve much of a purpose.</p>
+
+<h5 id="checkins">Checkins</h5>
+
+<table>
+<caption id="checkinobjectdatamodel">Checkin Object Data Model</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Name</th>
+	<th style="text-align:left;">Type</th>
+	<th style="text-align:left;">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">id</td>
+	<td style="text-align:left;">Integer</td>
+	<td style="text-align:left;">The ID for this checkin in the HearClear Database</td>
+</tr>
+<tr>
+	<td style="text-align:left;">user</td>
+	<td style="text-align:left;">User</td>
+	<td style="text-align:left;">The user that owns this checkin</td>
+</tr>
+<tr>
+	<td style="text-align:left;">venue</td>
+	<td style="text-align:left;">Venue</td>
+	<td style="text-align:left;">The venue this checkin was performed at</td>
+</tr>
+<tr>
+	<td style="text-align:left;">sessions</td>
+	<td style="text-align:left;">Session objects</td>
+	<td style="text-align:left;">The sessions recorded as part of this checkin</td>
+</tr>
+</tbody>
+</table>
+<p>A checkin resembles a ‘checkin session’ at a particular venue. When a user completes a session a checkin object is sent from the iOS device to the server backend. This is encoded into a checkin object and the associated sessions are created. The sessions are then analysed for outliers in and of themselves and those outlier sessions are marked as outliers by the system. </p>
+
+<h5 id="sessions">Sessions</h5>
+
+<table>
+<caption id="sessionobjectdatamodel">Session Object Data Model</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Name</th>
+	<th style="text-align:left;">Type</th>
+	<th style="text-align:left;">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">id</td>
+	<td style="text-align:left;">Integer</td>
+	<td style="text-align:left;">The ID for this session in the HearClear Database</td>
+</tr>
+<tr>
+	<td style="text-align:left;">timestamp</td>
+	<td style="text-align:left;">DateTime</td>
+	<td style="text-align:left;">The time at which this session was recorded</td>
+</tr>
+<tr>
+	<td style="text-align:left;">averageLevel</td>
+	<td style="text-align:left;">Float</td>
+	<td style="text-align:left;">The average level of the microphone voltage for this session</td>
+</tr>
+<tr>
+	<td style="text-align:left;">maxLevel</td>
+	<td style="text-align:left;">Float</td>
+	<td style="text-align:left;">The peak level of the microphone voltage for this session</td>
+</tr>
+<tr>
+	<td style="text-align:left;">outlier</td>
+	<td style="text-align:left;">Boolean</td>
+	<td style="text-align:left;">Whether this session is a statistical outlier</td>
+</tr>
+<tr>
+	<td style="text-align:left;">checkin</td>
+	<td style="text-align:left;">Checkin</td>
+	<td style="text-align:left;">The checkin to which this session belongs</td>
+</tr>
+</tbody>
+</table>
+<p>Outlier is used as a simple way to mark sessions as outliers so they do not impact other venue calculations, there is more information about the process to mark sessions as outliers in the analysis section. Session outlier status is recalculated with every new Checkin that supplies data within the time window of that checkin.</p>
+
+<h5 id="users">Users</h5>
+
+<table>
+<caption id="userobjectdatamodel">User Object Data Model</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Name</th>
+	<th style="text-align:left;">Type</th>
+	<th style="text-align:left;">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">id</td>
+	<td style="text-align:left;">Integer</td>
+	<td style="text-align:left;">The ID for this user in the HearClear database</td>
+</tr>
+<tr>
+	<td style="text-align:left;">deviceID</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">An md5 hash of the user’s device wifi MAC address</td>
+</tr>
+<tr>
+	<td style="text-align:left;">device</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">The iOS device this user is using to submit sessions</td>
+</tr>
+</tbody>
+</table>
+<p>Users as a data model changed substatially when the FourSquare API changed to allow users without accounts to perform venue searches. Previously this had kept the foursquare ID and tokens of the user that had authorised foursquare on the iOS device. As this was no longer a requirement, the user model was pared down to only record information that was of value to the system. The reason for creating user models instead of just associating checkins with venues was to catch users that may be supplying erroneous data and provide a method of removing that data from the database if they were doing so. The reason for using an md5 hash of the user’s device is to provide a unique identifier for the device so that different devices can be distinguished. The reason for collecting the device type is for further analysis into whether different device types have different skews. It was also interesting to see which types of devices users were taking with them to venues. Though there would be privacy implications in collecting these unique identifiers and while Apple does frown upon such procedures, given that each user that was using the application had manually opted into joining the testing process and I already had information about who they were, the privacy implications were minimal. Were this on the App Store available to anyone there would be serious privacy issues relating to the collection of this data.</p>
+
+<h5 id="entityrelationships">Entity Relationships</h5>
+
+<p>The reason for choosing these entity relationships is to keep the data model as simple as possible. The interrelationships are pretty straightforward, a user checks in at a venue, thus the checkin belongs to both the user and the venue. Instead of storing the individual session objects as a calculated value on the venue and then discarding them is to enable better statistical analysis of the data as more is collected. These also make database queries on aggregates a lot simpler, in datamapper to obtain the set of all sessions for a venue that have been submitted the query is venue.checkins.sessions. The DataMapper API and tools make performing the statistical analysis used to define venue loudness substantially easier and drastically reduce the lines of code required to perform some moderate statistical calculations. The entity relationships were designed deliberately to mimic the pattern of ownership that matched the logical process of a user checking in at a venue. Associating users with the checkins and recording their device type means that the aggregate of information for different device types can be queried. To query say all checkins made with an iPhone 5 the query is User.all(:device =&gt; “iPhone 5”).checkins.sessions - in this way more analysis can be done about the types of devices being used to submit queries and the impacts that these devices have on the session data that is recorded and submitted to the software.</p>
 
 <h4 id="api">API</h4>
 
@@ -460,7 +1629,7 @@
 
 <p>If volume information doesn&#8217;t exist for that venue (there have been no checkins at that venue) the API returns a 404 status code. The API throughout it uses status codes on entities not being found and other elements to speed up error handling and to reduce network traffic. The API is designed to tightly integrate with the iOS counterpart but provide flexibility so that a client for a different platform (Say Windows Phone or Blackberry) could be developed and integrated into the existing infrastructure.</p>
 
-<p>The API need to be built to use as little data as possible and be as responsive as possible. Sinatra is built on top of a HTTP request/response middleware known as Rack[cite]. Rack provides a library called &#8216;deflate&#8217; that allows automatic usage of gzip for all submissions and responses[cite]. iOS automatically supports gzip, and by compressing queries and submissions by including this library network traffic can be substantially reduced, particularly for submissions of data that come to several kilobytes if the user has been sampling for several minutes.
+<p>The API need to be built to use as little data as possible and be as responsive as possible. Sinatra is built on top of a HTTP request/response middleware known as Rack<span class="externalcitation">[#sinatra-up]</span>. Rack provides a library called &#8216;deflate&#8217; that allows automatic usage of gzip for all submissions and responses. iOS automatically supports gzip, and by compressing queries and submissions by including this library network traffic can be substantially reduced, particularly for submissions of data that come to several kilobytes if the user has been sampling for several minutes.
 At every point in the API care and design decisions were made to improve both the responsiveness of the API and to decrease whatever bandwidth was used.</p>
 
 <h4 id="admindatamanagement">Admin &amp; Data Management</h4>
@@ -471,25 +1640,41 @@ At every point in the API care and design decisions were made to improve both th
 
 <p>The dashboard is fairly straightforward, it provides the ability to at a glance see what the last five venues checked in at were, the last five users to join the program or submit data and the last five checkins at different venues. It was built primarily as a tool for validating that submissions to the API had been successful. </p>
 
-<p><em>IMAGE_HERE</em></p>
+<figure>
+<img src="images/dashboard.png" alt="HearClear Admin Dashboard" id="dashboard" />
+<figcaption>HearClear Admin Dashboard</figcaption></figure>
+
+
 
 <h5 id="venues">Venues</h5>
 
 <p>Venues provided a list of venues ordered by latest order. On the venue pages you could see the checkins from each venue and could also view where the venue was on a map. It was designed to make it easy to see when users were checking into venues and where these venues were.</p>
 
-<p><em>IMAGE</em></p>
+<figure>
+<img src="images/venues.png" alt="HearClear Admin Venues" id="venues" />
+<figcaption>HearClear Admin Venues</figcaption></figure>
+
+
 
 <h5 id="sessions">Sessions</h5>
 
-<p>Sessions were held within venues. As the key element of this platform was to get valid session information, under the venue you could view sessions and see whether they were considered outliers or not and view the statistical information about each checkin and session, as well as the overall statistical information about the venue.</p>
+<p>Sessions are held within venues. As the key element of this platform was to get valid session information, under the venue you could view sessions and see whether they were considered outliers or not and view the statistical information about each checkin and session, as well as the overall statistical information about the venue.</p>
 
-<p><em>IMAGE</em></p>
+<figure>
+<img src="images/sessions.png" alt="HearClear Venue Sessions" id="sessions" />
+<figcaption>HearClear Venue Sessions</figcaption></figure>
+
+
 
 <h5 id="users">Users</h5>
 
 <p>Taking into account privacy constraints there were initially reservations about collecting the type of devices that was being used to record information and an identifier for that device. The one reason I wanted the identifier for that device was to make sure that I had a point of control for all checkins from a certain user. By generating a unique ID for that user I could link all of the checkins they submitted. If there were any irregularities or those checkins were unfairly skewing the ratings at different venues they could be removed. Though there is only basic statistical analysis performed, the information about devices could also be valuable if certain devices tended to skew louder or softer than other devices when sampling and collecting data.</p>
 
-<p><em>IMAGE</em></p>
+<figure>
+<img src="images/users.png" alt="HearClear Admin Users" id="users" />
+<figcaption>HearClear Admin Users</figcaption></figure>
+
+
 
 <h5 id="calculationscalingconstraints">Calculation &amp; Scaling Constraints</h5>
 
@@ -497,7 +1682,532 @@ At every point in the API care and design decisions were made to improve both th
 
 <h2 id="analysis">Analysis</h2>
 
-<p><em>TO BE COMPLETED</em></p>
+<h3 id="sessionsamplerate">Session Sample Rate</h3>
+
+<table>
+<caption id="frequencyofsamplingvaluevsafixedvolumesource">Frequency of Sampling Value vs a Fixed Volume Source</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Sample Frequency (Seconds)</th>
+	<th style="text-align:left;">dB Estimate</th>
+	<th style="text-align:left;">Max Mean</th>
+	<th style="text-align:left;">Avg Mean</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">65dB</td>
+	<td style="text-align:left;">0.028923</td>
+	<td style="text-align:left;">0.020513</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">65dB</td>
+	<td style="text-align:left;">0.032639</td>
+	<td style="text-align:left;">0.019519</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">65dB</td>
+	<td style="text-align:left;">0.039715</td>
+	<td style="text-align:left;">0.025337</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">70dB</td>
+	<td style="text-align:left;">0.060280</td>
+	<td style="text-align:left;">0.048860</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">70dB</td>
+	<td style="text-align:left;">0.066722</td>
+	<td style="text-align:left;">0.046909</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">70dB</td>
+	<td style="text-align:left;">0.060954</td>
+	<td style="text-align:left;">0.046008</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">75dB</td>
+	<td style="text-align:left;">0.077581</td>
+	<td style="text-align:left;">0.071514</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">75dB</td>
+	<td style="text-align:left;">0.103111</td>
+	<td style="text-align:left;">0.077150</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">75dB</td>
+	<td style="text-align:left;">0.113429</td>
+	<td style="text-align:left;">0.091753</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">80dB</td>
+	<td style="text-align:left;">0.093516</td>
+	<td style="text-align:left;">0.079994</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">80dB</td>
+	<td style="text-align:left;">0.210548</td>
+	<td style="text-align:left;">0.169386</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">80dB</td>
+	<td style="text-align:left;">0.188199</td>
+	<td style="text-align:left;">0.153755</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">85dB</td>
+	<td style="text-align:left;">0.210023</td>
+	<td style="text-align:left;">0.153154</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">85dB</td>
+	<td style="text-align:left;">0.318555</td>
+	<td style="text-align:left;">0.284015</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">85dB</td>
+	<td style="text-align:left;">0.318888</td>
+	<td style="text-align:left;">0.268205</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">95dB</td>
+	<td style="text-align:left;">0.288411</td>
+	<td style="text-align:left;">0.282109</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">95dB</td>
+	<td style="text-align:left;">0.567119</td>
+	<td style="text-align:left;">0.491610</td>
+</tr>
+<tr>
+	<td style="text-align:left;">0.5</td>
+	<td style="text-align:left;">95dB</td>
+	<td style="text-align:left;">0.593681</td>
+	<td style="text-align:left;">0.517906</td>
+</tr>
+</tbody>
+</table>
+<p>As the data above shows there is a massive difference between the calculated means for samples once you get over one second. The source for this data was a 2600Hz sound file that played a consistent sound until stopped. At some point there is interference or something happening at the two second sample rate that doesn’t impact the 0.5 or the 1 second sample rate. The two second sample rate consistently produces a lower max and average mean across the board. The problem is the inscrutability of the way in which the average voltage and peak voltage are calculated, that information is not available to the developer. These tests were all performed on an iPhone 4 to provide a baseline for determining the bounding areas for converting a voltage level into a loudness rating. The sample rate of one second was chosen as it tended to skew louder in the sample sections for average and max compared to 0.5 seconds and particularly compared to the 2 second sample window. On average the 2 second samples seem to be between 60 and 40% of the 0.5 second and 1 second sample periods. As one of the main principles of this project is to skew loud having a sample rate that tended to skew soft for reasons that could not be explained does not fit the criteria required for this project. A sample that is a false positive of loudness is far more valuable in terms of metadata than a sample that is a false negative of loudness. Detering a user from a venue that is not loud is a better outcome than falsely telling a user a venue is less loud than in reality. </p>
+
+<p>One of the reasons for this skewed testing, particularly the acceleration of peak and average when hitting higher decibel levels is that all sounds are not the same in terms of loudness. 2600Hz sounds louder to the human ear than a different frequency at a similar volume [cite]. This is why most decibel meters have weighted algorithms that take into account the frequency of the sound being sampled. By using a sound that appears louder to humans even though it may be at a similar loudness as other sounds allows for the priming of results to deliberately skew loud even when one signal that may seem louder than another produces an identical mean or very similar distribution. The other potential issue with using this model to define the sampling window is the assumption that the data is normally distributed. Given though that the values that were being sampled were on a continuum, a normal distribution made the most sense, even if the data was skewed towards loudness or softness. The distribution of the samples has a minor impact on the calculation of bounds for different loudness values (or loudness ranges), but by assuming normal distribution of recorded values the identification of outliers that may potentially skew the dataset and thus the loudness rating is made substantially easier. Given the time sensitivity of this project, the assumption of a normal distribution made the most sense and reduced the timeline for analysing the data substantially. Thus, pragmatically, assuming a normal distribution provided the best way to ‘fail fast’ in determining venue loudness.</p>
+
+<h3 id="sampleobjects">Sample Objects</h3>
+
+<p>Each sample object contains a date, the max value of the voltage on that interval and the average value of the voltage on that interval. The reason for collecting both values was to provide an easier way to see which was a better indicator of venue loudness. The average value effectively being the mean of voltage values over that interval is a good indicator of the ‘average’ degree of sound sampled at the venue. However, there is no information on the time frequency of the number of samples made by the actual microphone in that time period. Perhaps the microphone is sampling 1000 times per second, perhaps 10 or perhaps 10,000. As such moments of silence in a period of loudness may have the average value skew quiet. There may also be variance from second to second. An average value may record 0.2 - 0.4 during the course of a heated discussion, where peaks for that point may range from 0.4 - 0.6. The reasoning for the peak values to be recorded is also for the purposes of detecting outliers. It’s far more likely for the peak values to have a much higher standard deviation than the average values. In the sample data used to define the degree at which samples were chosen, even with a non-changing source of loudness the max mean was consistently .01 to .1 greater than the average mean. Obviously the sample frequency has an impact of this but the resolution of the microphone itself seems to skew lower rather than ratchet to the peak values. It’s not an unfair assumption to assume that with a consistent input of a signal the output should be fairly consistent in a digital system. It seems that in this instance there may be something interfering with the way the microphone processes the signal and presents it as voltage. </p>
+
+<p>Therefore there is a juncture for deciding what is the most effective way to calculate venue loudness, does one rely on the max values or the average values? It would seem that for the purposes of this project the average value makes the most sense, as the project is trying to define average volume loudness. However given the degree to which the average values skew soft, it appears that the peak values make the most sense for providing a value for venue loudness that is more likely to identify a venue as falsely loud rather than falsely quiet. </p>
+
+<p>One of the easiest ways to trigger variance in the microphone’s related capacity is to blow into the microphone. For the most part this will trigger the peak value to hit 1, the maximum voltage that can be sampled. Given the frequency range of the device, a peak value of 1 is effectively equivalent to 115dB or more, a point at which there is substantial chance for damage to human hearing. Whilst there is variation over the course of a blow, by using a sampling frequency of 1 second and blowing into the microphone for 5 seconds the following values were generated</p>
+
+<table>
+<caption id="samplevoltageforsimulatedmicrophonepeak">Sample Voltage for Simulated Microphone Peak</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Effective dB</th>
+	<th style="text-align:left;">Average (No Outliers)</th>
+	<th style="text-align:left;">Average (Outliers)</th>
+	<th style="text-align:left;">Peak (No Outliers)</th>
+	<th style="text-align:left;">Peak (Outliers)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">120dB</td>
+	<td style="text-align:left;">0.1742779</td>
+	<td style="text-align:left;">0.3366730</td>
+	<td style="text-align:left;">0.8017570</td>
+	<td style="text-align:left;">0.8458110</td>
+</tr>
+</tbody>
+</table>
+<p>With this data it’s trivial to identify the fact that the average values skew quiet. There may be many reasons for this but this is the average and mean over several trials conducted for a five second period with consistent breathing into the microphone. While this technique may seem quite unorthodox, it was the easiest way to simulate a high noise environment without actually risking my own hearing. By detecting and removing outliers (for this purpose any samples more than one standard deviation from the mean) the average values skew very quiet. By not removing outliers the average mean is effectively doubled but still no closer to the simulated loudness value. In this instance then if the average was chosen and outlier detection was not used, the recommended bounds for loudness would be quite low. Anything with an average mean of 0.3 or more would be considered incredibly loud. Given the calculations in the chart for sample frequency though that would skew loud it would skew far too loud for the purposes of this project. Venues that were not deafening would be marked as deafening even if they were only very loud. This therefore indicates that the bounds for the higher loudness values would be quite larger than the bounds for lower values. The difference between a venue being silent and a venue being soft or quiet is far less than the difference between a venue being very loud and a venue being injurious to one’s ears. As such while using the peak values to define a venue’s may lead to more false positives, by adjusting the higher level volume bounds for venues this can be combated somewhat. If all of the venues in the app are listed as loud or above and users attend them and disagree, the utility of this data is substantially diminished. Erring on the side of loudness makes sense from a pragmatic and utility based perspective, but the degree to which loudness is assumed has a significant impact on the overall value of the application and the data. Another sample made at a quite loud venue should give further insight into the effectiveness of using the peak values over the average values for venue volume calculation. </p>
+
+<p>A ‘concert’ venue was simulated by using HearClear for iOS and a decibel meter to sample the song “Gangnam Style” by PSY on a set of quite powerful speakers. The sample frequency was set at 1 sample per second and the song was sampled for the entirety of its 3 minutes and 39 seconds duration. This sampling was repeated several times to reduce the impact of elements like background noise and the estimated decibel range for the sample period was calculated alongside the recorded values. This sampling was also repeated at two degrees of loudness.</p>
+
+<table>
+<caption id="peakandaveragemeanforconcertsimulation">Peak and Average Mean for Concert Simulation</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">dB Range</th>
+	<th style="text-align:left;">Average (No Outliers)</th>
+	<th style="text-align:left;">Average (Outliers)</th>
+	<th style="text-align:left;">Peak (No Outliers)</th>
+	<th style="text-align:left;">Peak (Outliers)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">79 - 85dB</td>
+	<td style="text-align:left;">0.24224182</td>
+	<td style="text-align:left;">0.3632822</td>
+	<td style="text-align:left;">0.9083846</td>
+	<td style="text-align:left;">0.95518758</td>
+</tr>
+<tr>
+	<td style="text-align:left;">72 - 76dB</td>
+	<td style="text-align:left;">0.19350163</td>
+	<td style="text-align:left;">0.2020812</td>
+	<td style="text-align:left;">0.569898419</td>
+	<td style="text-align:left;">0.5726645805</td>
+</tr>
+</tbody>
+</table>
+<p>As is clear the existing assumptions of average values trending towards a quieter value is vindicated. However what is more interesting is the drastic increase in the peak mean when the volume was turned up far louder. This does not match previous data calculated at louder values. Upon review of the entirety of this sampled data the peak value hit the 1.0 level far more than expected for this sample. The setup was identical to the previous setup using the speakers to obtain output and the microphone on the Digital Sound Level Meter was exactly as distant from the sound source as the microphone on the iPhone used to collect this information. It seems that at a higher volume, the music has a greater impact on the measured peak across the channel. The variation in the average mean values were nowhere near as much. Does sound that spans a greater range of frequencies have an impact on the weighting of the peak volume? A further test was required. The previous equipment was set up and sample material that was not music, but a section of Ian McKellen’s “Now is the winter of our discontent” speech from the film adaptation of Richard III from 1995 was used as the sample material. The results are as follows. Given that the dB meter can compute an average, an average dB rating was calculated for the sample material as there are several pauses in the material where the dB value recorded shifted wildly. </p>
+
+<table>
+<caption id="dbvaluesrichardiiirecordingcomparison">dB Values Richard III Recording Comparison</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">dB Average</th>
+	<th style="text-align:left;">Average (No Outliers)</th>
+	<th style="text-align:left;">Average (Outliers)</th>
+	<th style="text-align:left;">Peak (No Outliers)</th>
+	<th style="text-align:left;">Peak (Outliers)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">74dB</td>
+	<td style="text-align:left;">0.180030</td>
+	<td style="text-align:left;">0.1844433</td>
+	<td style="text-align:left;">0.6000194</td>
+	<td style="text-align:left;">0.6045647</td>
+</tr>
+<tr>
+	<td style="text-align:left;">82dB</td>
+	<td style="text-align:left;">0.196532</td>
+	<td style="text-align:left;">0.3207628</td>
+	<td style="text-align:left;">0.7686529</td>
+	<td style="text-align:left;">0.8453265</td>
+</tr>
+</tbody>
+</table>
+<p>Though the average values still trend relatively similarly to previous values seen above, the peak values reorded at similar decibel averages to the secondary evaluation of music are not similar. When the speech was again played several times and recorded on both devices, the trends were fairly obvious, the speech at an equivalent loudness does not register as highly on the device as music at that loudness. Thus the assumption that the device records greater peak voltages when sampling music compared to sampling speech is confirmed. The frequency spectrum of the sounds sampled does have a substantial impact on the loudness recording within a sample. </p>
+
+<h3 id="convertingsamplestoloudness">Converting Samples to Loudness</h3>
+
+<p>Given that the frequency of the audio has an impact on the loudness recorded by the device, and given that performing on-device weighting is not feasible given the project’s constraints, what is the most effective way of quantifying the recorded data into something of use by the public? The initial plan on the project was to provide a single loudness rating for an hourly period on a venue. This way a user could see that the venue had an estimated degree of loudness at this point in time at the venue and then could make their decisions accordingly. However given that real world sampling showed a stark variation from the computed values, and those values tended to skew quieter, a decision was made to provide a range of estimated loudness values. Given bounds for a particular degree of ‘loudness’ (this is explained further in this section), if the bounds of a loudness value exceeded those bounds, then the user would be provided with an estimate of loudness that spanned those bounds. So if the bounds of a session bridged from say Quiet to Average, the user would see the venue was Quiet to Average. If those bounds extended past multiple categories, the user would be displayed with the bound that the lower bound was within and the bound the upper bound was within. Based on previous sample data the following basic estimates for bounds were obtained for both peak and average.</p>
+
+<table>
+<caption id="maximumapivaluesatestimatedloudnesslevels">Maximum API Values At Estimated Loudness Levels</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">dB Estimate</th>
+	<th style="text-align:left;">Max Std Dev</th>
+	<th style="text-align:left;">Max Mean</th>
+	<th style="text-align:left;">Max Lower Bound</th>
+	<th style="text-align:left;">Max Upper Bound</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">65dB</td>
+	<td style="text-align:left;">0.012848</td>
+	<td style="text-align:left;">0.032639</td>
+	<td style="text-align:left;">0.019792</td>
+	<td style="text-align:left;">0.045487</td>
+</tr>
+<tr>
+	<td style="text-align:left;">70dB</td>
+	<td style="text-align:left;">0.032366</td>
+	<td style="text-align:left;">0.066722</td>
+	<td style="text-align:left;">0.034357</td>
+	<td style="text-align:left;">0.099088</td>
+</tr>
+<tr>
+	<td style="text-align:left;">75dB</td>
+	<td style="text-align:left;">0.017538</td>
+	<td style="text-align:left;">0.103111</td>
+	<td style="text-align:left;">0.085573</td>
+	<td style="text-align:left;">0.120649</td>
+</tr>
+<tr>
+	<td style="text-align:left;">80dB</td>
+	<td style="text-align:left;">0.043619</td>
+	<td style="text-align:left;">0.210548</td>
+	<td style="text-align:left;">0.166929</td>
+	<td style="text-align:left;">0.254168</td>
+</tr>
+<tr>
+	<td style="text-align:left;">85dB</td>
+	<td style="text-align:left;">0.052180</td>
+	<td style="text-align:left;">0.318555</td>
+	<td style="text-align:left;">0.266376</td>
+	<td style="text-align:left;">0.370735</td>
+</tr>
+<tr>
+	<td style="text-align:left;">95dB</td>
+	<td style="text-align:left;">0.066798</td>
+	<td style="text-align:left;">0.567119</td>
+	<td style="text-align:left;">0.500321</td>
+	<td style="text-align:left;">0.633916</td>
+</tr>
+</tbody>
+</table>
+
+
+<table>
+<caption id="averageapivaluesatestimatedloudnesslevels">Average API Values At Estimated Loudness Levels</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">dB Estimate</th>
+	<th style="text-align:left;">Avg Std Dev</th>
+	<th style="text-align:left;">Avg Mean</th>
+	<th style="text-align:left;">Avg Lower Bound</th>
+	<th style="text-align:left;">Avg Upper Bound</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">65dB</td>
+	<td style="text-align:left;">0.005742</td>
+	<td style="text-align:left;">0.019519</td>
+	<td style="text-align:left;">0.013776</td>
+	<td style="text-align:left;">0.025261</td>
+</tr>
+<tr>
+	<td style="text-align:left;">70dB</td>
+	<td style="text-align:left;">0.003756</td>
+	<td style="text-align:left;">0.046909</td>
+	<td style="text-align:left;">0.043153</td>
+	<td style="text-align:left;">0.050665</td>
+</tr>
+<tr>
+	<td style="text-align:left;">75dB</td>
+	<td style="text-align:left;">0.009884</td>
+	<td style="text-align:left;">0.077150</td>
+	<td style="text-align:left;">0.067265</td>
+	<td style="text-align:left;">0.087034</td>
+</tr>
+<tr>
+	<td style="text-align:left;">80dB</td>
+	<td style="text-align:left;">0.017348</td>
+	<td style="text-align:left;">0.169386</td>
+	<td style="text-align:left;">0.152039</td>
+	<td style="text-align:left;">0.186734</td>
+</tr>
+<tr>
+	<td style="text-align:left;">85dB</td>
+	<td style="text-align:left;">0.028220</td>
+	<td style="text-align:left;">0.284015</td>
+	<td style="text-align:left;">0.255795</td>
+	<td style="text-align:left;">0.312235</td>
+</tr>
+<tr>
+	<td style="text-align:left;">95dB</td>
+	<td style="text-align:left;">0.041669</td>
+	<td style="text-align:left;">0.491610</td>
+	<td style="text-align:left;">0.449941</td>
+	<td style="text-align:left;">0.533279</td>
+</tr>
+</tbody>
+</table>
+<p>With this information a dummy venue was created in the backend and a testing ground for dummy data was created. A mixture of samples were made at this fraudulent venue (really my house) across music, loud movies, and quiet background noise. My estimation was that the venue calculations would effectively demonstrate that the venue was average to loud. These are the results the backend returned after about 20 sample sessions over the course of an hour.</p>
+
+<table>
+<caption id="loudnessestimatesfrombackendvalues">Loudness Estimates from Backend Values</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Value Type</th>
+	<th style="text-align:left;">Includes Outliers</th>
+	<th style="text-align:left;">Value</th>
+	<th style="text-align:left;">Estimated Loudness</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Average Mean</td>
+	<td style="text-align:left;">No</td>
+	<td style="text-align:left;">0.1314472</td>
+	<td style="text-align:left;">Quiet</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Average Mean</td>
+	<td style="text-align:left;">Yes</td>
+	<td style="text-align:left;">0.175381417</td>
+	<td style="text-align:left;">Average</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Max Mean</td>
+	<td style="text-align:left;">No</td>
+	<td style="text-align:left;">0.44683278</td>
+	<td style="text-align:left;">Loud</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Max Mean</td>
+	<td style="text-align:left;">Yes</td>
+	<td style="text-align:left;">0.52326326</td>
+	<td style="text-align:left;">Very Loud</td>
+</tr>
+</tbody>
+</table>
+<p>It seems that the outlier removal was causing values to skew quieter rather than louder. Outliers appeared to be much higher level valuees than lower level values. This makes sense given the sample data and the experiments with voice and music to collect sample information. It seems that even when a venue would be considered quite loud the number of samples made will have a greater impact on the skew of the data towards quietness. This makes sense given that not all venues have continuous conversation or volume at a steady rate. Were, say a car to backfire, without outlier detection the venue would skew much louder than it actually was. The good thing about this system is it can take into account background noise and how much echo there is at a venue without letting things like someone putting down a bottle of wine close to the microphone (which would spike the peak quite high) skew the venue value high. Given that most of the issues caused for people using hearing aids at venues was the degree to which conversations echoed and the loudness of those conversations, weightings needed to be skewed towards accurately representing the loudness of those conversations. Given that loud music would almost completely destroy the ability of someone wearing hearing aids to communicate, the higher peaks recorded under music values reflected the degree to which music was amplified by hearing aids and impacted conversation. It was therefore a logical decision to use the mean peak values for venue loudness ratings and figure out a way to categorise them accordingly so they could be effectively presented in a readable manner to the consumer of this information.</p>
+
+<table>
+<caption id="currentloudnessbounds">Current Loudness Bounds</caption>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Displayed Value</th>
+	<th style="text-align:left;">Est dB</th>
+	<th style="text-align:left;">Lower Bound</th>
+	<th style="text-align:left;">Upper Bound</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Quiet</td>
+	<td style="text-align:left;">40 - 65</td>
+	<td style="text-align:left;">0.0</td>
+	<td style="text-align:left;">0.025</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Average</td>
+	<td style="text-align:left;">65 - 75</td>
+	<td style="text-align:left;">0.026</td>
+	<td style="text-align:left;">0.075</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Slightly Loud</td>
+	<td style="text-align:left;">75 - 80</td>
+	<td style="text-align:left;">0.075</td>
+	<td style="text-align:left;">0.32</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Loud</td>
+	<td style="text-align:left;">80 - 90</td>
+	<td style="text-align:left;">0.33</td>
+	<td style="text-align:left;">0.564</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Very Loud</td>
+	<td style="text-align:left;">90 - 100</td>
+	<td style="text-align:left;">0.564</td>
+	<td style="text-align:left;">0.843</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Dangerous</td>
+	<td style="text-align:left;">100+</td>
+	<td style="text-align:left;">0.844</td>
+	<td style="text-align:left;">1.0</td>
+</tr>
+</tbody>
+</table>
+<p>So through repeated analysis of the recorded samples and comparing them to the physical decibel meter the above bounds for different loudness values were created. The data sets that these bounds were built from are available via a link in Appendix 2 to this document. A cursory analysis will demonstrate that the bounds become far wider the louder the environment gets, the reasons for that are simple, the loudness of the sound values isn’t just a linear progression, much more energy is needed to reach a higher level of sound and as such an environment needs to be quite loud to get a peak mean of over 0.3, let alone 0.5. These bounds can be tweaked as time continues, but they have been changed in a few ways throughout the course of the project. Previously there were far more loudness values in this scale</p>
+
+<ul>
+<li>Silent</li>
+<li>Low</li>
+<li>Quiet</li>
+<li>Average</li>
+<li>Above Average</li>
+<li>Slightly Loud</li>
+<li>Loud</li>
+<li>Very Loud</li>
+<li>Extremely Loud</li>
+<li>Incredibly Loud</li>
+<li>Dangerous</li>
+</ul>
+
+<p>As you can see there were more elements on the louder end of the spectrum than on the quieter end. The reason for reducing the amount of ‘loudness’ values that could be presented was because the values do not in and of themselves make the user aware of how loud the venue is. After asking a few people for feedback the smaller set was settled upon because it is easier to understand. something can be loud, very loud or injurious to one’s ears. Extremely loud and incredibly loud don’t lend themselves to offering a better granularity in terms of venue loudness. No one who has an issue with venue loudness is going to go to any venue of Loud and above thus offering that information doesn’t in reality offer much benefit to people using the system. The bounds were reduced to the level they were and not further because these bounds were the smallest set in which a full range of sound values could be provided to the user. The calculation for the loudness bounds is simple, the user is returned the upper bound and the lower bound for the loudness at the time sets of the venue. If those two bounds cross any of these bounds, the loudness values are returned as a range from the lower bound to the upper bound. Instead of simply taking the average and presenting that, users are presented with more information about the venue so they can make better decisions about which venues they attend. If a venue is usually Loud but is occasionally Very Loud the user will show the venue ranks from Loud to Very Loud and they can discount it as a venue if they so desire.</p>
+
+<h3 id="evaluatingdataovertime">Evaluating data over time</h3>
+
+<p>The way loudness is currently displayed to the end user is that the loudness samples are broken up into days of the week and then hours of the day. The loudness data is calculated on the fly when the user requests it. As more data is submitted the values in the system are refined to reflect the values of that data (after the data is analysed for outliers and those outliers are removed). An initial idea was to compute the average loudness for a venue over the course of the entirety of the sample data the venue had submitted for it but there were several issues with this plan. The first issue is that many venues change throughout the week to perform different functions. A pub that is quite quiet throughout the week may become a rock and roll club at night and thus the loudness at that point in time must not be used to skew the loudness of the venue at other points in time. The other element is that it reduces the ‘attack surface’ for a user to submit fraudulent data and skew the entirety of the volume sample. The collection of user data allows for this fraudulent data to be removed when it is detected but by only providing the data in terms of hourly periods fraudulent data that isn’t detected won’t have a substantial impact on the overall venue loudness. </p>
+
+<p>As users submit more data, there may become issues with the bounds of the data and that is another reason for the hourly division of submitted information. There are obviously issues with the calculated bounds, say for example a venue undergoes a renovation and becomes either drastically louder or quieter, a great degree of data will need to be submitted before the loudness value updates to reflect these changes. This is why the outlier calculation is performed across the entire data set used to define the hourly period. With each sample the values are compared to the existing data set for that hourly period and outlier staus is redefined. Thankfully by providing bounds calculations on data and providing bounds for that period even if more data is submitted and venues change, the user is provided with the loudness values on the appropriate scale. If a venue trends towards louder over time a user will be shown Quiet-Loud. If the venue trends towards quieter over time the user may be shown Average-Loud. </p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>The current system relies on a series of assumptions to provide the data that it does. Those are a result of the time and knowledge constraints that were faced through the development of this project. Most of the statistical analysis is fairly basic and the assumption that the data will be normally distributed (potentially with a skew) does make the analysis easier to perform and does increase the value that the system will provide as more data is submitted to it. More analysis could provide better information about venues, and much of what could be further done with this information is covered in the next section. The bounds for calculating loudness at venues are deliberately skewed towards detecting loudness because the loudness is the key factor in the utility that a particular venue will offer to a patron. Though the collection of more data may require a re-evaluation of the bounds on the server side, the current bounds provide an effective method of converting the peak values to a rough estimate of venue loudness. The more data the system collects, the more accurate the information it provides will become.</p>
 
 <h2 id="furtherwork">Further Work</h2>
 
@@ -515,7 +2225,7 @@ At every point in the API care and design decisions were made to improve both th
 
 <h3 id="venuework">Venue Work</h3>
 
-<p>Currently the system works only on venues that are provided by FourSquare. If Foursquare&#8217;s information is incorrect or erroneous (and online mapping services can be as we have seen [cite]), users have no way to choose or input a new venue. The application could be enhanced to allow the submission of these venues and moderation of them. A partnership could potentially be struck with FourSquare to use HearClear users to help them vet their venue information and remove venues that are incorrect or false. Integrating with FourSquare aside the work needed to add this support is not trivial and would take a month of two of development and testing before being implemented.</p>
+<p>Currently the system works only on venues that are provided by FourSquare. If Foursquare&#8217;s information is incorrect or erroneous (and online mapping services can be as we have seen with Apple&#8217;s maps on iOS 6), users have no way to choose or input a new venue. The application could be enhanced to allow the submission of these venues and moderation of them. A partnership could potentially be struck with FourSquare to use HearClear users to help them vet their venue information and remove venues that are incorrect or false. Integrating with FourSquare aside the work needed to add this support is not trivial and would take a month of two of development and testing before being implemented.</p>
 
 <h4 id="predictiveanalysisoutliers">Predictive Analysis &amp; Outliers</h4>
 
@@ -538,6 +2248,7 @@ At every point in the API care and design decisions were made to improve both th
 <p>Timeline constraints have been tough but by refocusing the scope of the project and by moving a lot of the complexity to the server side an ecosystem in which this information can be collected has been created. Focus could have been changed to just work on the iOS app as per my initial plans, but it simply wasn&#8217;t feasible. Both elements of this project work in concert with each other. The iOS app collecting data with nowhere to share or save it adds nothing of value. The backend being able to analyse the data with no data to be sent to it is of no use. Splitting time between two entirely different development mentalities, two different IDEs and two different ways of doing things did take a bit of a toll, it did lead to a reduction in overall efficiency but developing both elements in tandem was the right decision. As reflected on above, ideally I&#8217;d like to make this Open Source and put together an API and see if there exists a community of people on the internet that want to band together and make this thing happen.</p>
 
 <p>This has been an incredibly hard slog. Allowing a slight moment of candour this project has happened on top of a lot of other things so the fact that you&#8217;re reading this document and able to play around with the project is somewhat of a miracle. The bottom line is still there though, we all carry around these incredible devices and most of us have them on us at all times bar when we&#8217;re asleep. It&#8217;s time we tapped into them further and start finding out more about what they say about the world around them.</p>
-</div>
+    </div>
+  </div> <!-- End wrapper -->
 </body>
 </html>
